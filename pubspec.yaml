@@ -45,3 +45,7 @@ flutter:
     - family: poppins
       fonts:
         - asset: assets/fonts/poppins.ttf
+
+    - family: lobster
+      fonts:
+        - asset: assets/fonts/lobster-regular.ttf
