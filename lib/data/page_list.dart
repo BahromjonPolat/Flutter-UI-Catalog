@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/model/page.dart';
 import 'package:flutter_ui/pages/book_store/main.dart';
+import 'package:flutter_ui/pages/food_menu/main.dart';
 import 'package:flutter_ui/pages/instagram/ui/splash_screen.dart';
 import 'package:flutter_ui/pages/courses/main.dart';
 import 'package:flutter_ui/pages/sport/main.dart';
@@ -18,7 +19,10 @@ List<PageUI> getPages() {
   pages.add(new PageUI("Instagram", "Instagram UI",
       Icon(CupertinoIcons.photo_camera), InstagramSplashScreen()));
 
-  pages.add(new PageUI("Scroll", "UI", Icon(CupertinoIcons.scope), CoursesMainPage()));
+  pages.add(new PageUI("Courses", "UI", Icon(Icons.list), CoursesMainPage()));
+
+  pages.add(new PageUI("Foods", "25-08-2021", Icon(Icons.emoji_food_beverage),
+      FoodListMainPage()));
 
   return pages;
 }
