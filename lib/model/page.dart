@@ -6,11 +6,11 @@ class PageUI {
   String _title;
   String _subtitle;
   Icon _icon;
-  StatefulWidget _page;
+  Widget _page;
 
   PageUI(this._title, this._subtitle, this._icon, this._page);
 
-  StatefulWidget get page => _page;
+  Widget get page => _page;
 
   Icon get icon => _icon;
 

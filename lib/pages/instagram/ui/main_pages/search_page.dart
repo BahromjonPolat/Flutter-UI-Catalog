@@ -8,6 +8,7 @@ class InstagramSearchPage extends StatefulWidget {
 }
 
 class _InstagramSearchPageState extends State<InstagramSearchPage> {
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
