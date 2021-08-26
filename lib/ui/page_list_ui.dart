@@ -32,9 +32,9 @@ class _PageListState extends State<PageList> {
 
   Widget showPageList() {
     return ListView.builder(
-        itemCount: getPages().length,
+        itemCount: pageList().length,
         itemBuilder: (context, index) {
-          PageUI page = getPages()[index];
+          PageUI page = pageList()[index];
           return Card(
             color: Colors.indigo,
             child: ListTile(

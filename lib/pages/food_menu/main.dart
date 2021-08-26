@@ -5,13 +5,14 @@ import 'package:flutter_ui/pages/food_menu/horizontal.dart';
 
 class FoodListMainPage extends StatelessWidget {
   BuildContext _context;
+  Size _size;
 
   @override
   Widget build(BuildContext context) {
     this._context = context;
-    Size size = MediaQuery.of(context).size;
+    _size = MediaQuery.of(context).size;
     return Scaffold(
-      body: _bodyWithCustomScrollView(size),
+      body: _bodyWithCustomScrollView(_size),
     );
   }
 
@@ -19,28 +20,34 @@ class FoodListMainPage extends StatelessWidget {
     return CustomScrollView(
       physics: BouncingScrollPhysics(),
       slivers: [
-        _sliverAppBar(size),
-        _showSliverListWithFoods(size),
+        _sliverAppBar(),
+        _showSliverListWithFoods(),
       ],
     );
   }
-
-  _sliverAppBar(Size size) => SliverAppBar(
+  /// SliverAppBar
+  _sliverAppBar() => SliverAppBar(
         stretch: true,
         floating: true,
-        stretchTriggerOffset: 150,
         onStretchTrigger: () {
           return;
         },
-        expandedHeight: size.height * 0.5,
+        expandedHeight: _size.height * 0.5,
         backgroundColor: Colors.orange,
         flexibleSpace: FlexibleSpaceBar(
           // Title uchun alohida funksiya yozildi.
           title: _appBarTitle(),
           centerTitle: true,
+
+          // AppBar cho`zilganida Stretch shu mode`larda ko`rinadi.
           stretchModes: [
+            // effekt yordamida fon xiralashadi.
             StretchMode.blurBackground,
+
+            // Foydalanuvch AppBAr`ni tortganida sarlavha yo'qoladi.
             StretchMode.fadeTitle,
+
+            // Qo'shimcha joyni to'ldirish uchun fon vidjeti kengayadi.
             StretchMode.zoomBackground
           ],
           background: Image.network(
@@ -59,26 +66,29 @@ class FoodListMainPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            // Taom nomi TextSpan yordamida qilindi
-            Text.rich(TextSpan(children: [
-              TextSpan(
-                text: "Grilled BBQ Chicken \n",
-                style: TextStyle(fontSize: 16.0, color: Colors.white, shadows: [
-                  Shadow(
-                    color: Colors.black,
-                    offset: Offset(1.2, 1.2),
-                  )
-                ]),
-              ),
-              TextSpan(
-                text: "It isn’t summer without barbecued chicken.",
-                style: TextStyle(
-                  fontSize: 9.0,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.black,
+            // Taom nomi TextSpan yordamida qilindi. Ekranga sig`may qolishini
+            // oldini
+            Expanded(
+              child: Text.rich(TextSpan(children: [
+                TextSpan(
+                  text: "Grilled BBQ Chicken \n",
+                  style: TextStyle(fontSize: 16.0, color: Colors.white, shadows: [
+                    Shadow(
+                      color: Colors.black,
+                      offset: Offset(1.2, 1.2),
+                    )
+                  ]),
                 ),
-              ),
-            ])),
+                TextSpan(
+                  text: "It isn’t summer without barbecued chicken.",
+                  style: TextStyle(
+                    fontSize: 9.0,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black,
+                  ),
+                ),
+              ])),
+            ),
 
             FloatingActionButton(
               onPressed: () {
@@ -96,20 +106,25 @@ class FoodListMainPage extends StatelessWidget {
       );
 
   /// Taomlarning ro`yxatini ko`rsatish uchun funksiya.
-  _showSliverListWithFoods(Size size) => SliverList(
+  _showSliverListWithFoods() => SliverList(
           delegate: SliverChildListDelegate(
-        foodList.map((food) => _getFoodInfoTemplate(food, size)).toList(),
+        foodList.map((food) => _getFoodInfoTemplate(food)).toList(),
       ));
 
   /// Taomning xususiyatlarini olish uchun item layout.
-  Widget _getFoodInfoTemplate(Food food, Size size) => Container(
-        height: size.width * 0.32,
+  Widget _getFoodInfoTemplate(Food food) => Container(
+        height: _size.width * 0.32,
         padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
+
+        // Taom haqidagi ma'lumotlar satr ko`rinishida chiqqani uchun
+        // Vidjetlar Row vidjetining ichiuga olindi.
         child: Row(
           children: [
+
+            // Taomning rasmini ko`rsatish uchun Container. Burchaklari bir oz aylana shaklida bo`ladi.
             Container(
-              height: size.width * 0.28,
-              width: size.width * 0.28,
+              height: _size.width * 0.28,
+              width: _size.width * 0.28,
               decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.cover,

@@ -3,21 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class CoursesMainPage extends StatelessWidget {
+  Size _size;
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    _size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: CustomScrollView(
-          slivers: [
-            // Sliver App Bar
-            _showSliverAppBar(),
+      body: CustomScrollView(
+        slivers: [
+          // Sliver App Bar
+          _showSliverAppBar(),
 
-            // SliverList - Body qism
-            _showSliverList(size),
-          ],
-        ),
+          // SliverList - Body qism
+          _showSliverList(_size),
+        ],
       ),
       bottomNavigationBar: _bottomNavBar(),
     );
@@ -61,34 +59,34 @@ class CoursesMainPage extends StatelessWidget {
       );
 
   /// Sliverning Body qismi uchun metod
-  _showSliverList(size) => SliverList(
+  _showSliverList(sze) => SliverList(
         delegate: SliverChildListDelegate(
           [
             // Body qismdagi rasmlarning tepadagisini ko`rsatadi.
-            _header(size),
+            _header(),
 
             // Popular Courses matnini qo`yish uchun.
             _setPopularCoursesText(),
 
             // Body qismdagi rasmlarning pastdagisini ko`rsatadi.
-            _footer(size),
+            _footer(),
           ],
         ),
       );
 
   /// Header rasmlar listi
-  Widget _header(size) => Container(
+  Widget _header() => Container(
         margin: EdgeInsets.symmetric(vertical: 32.0),
-        width: size.width * 1.0,
-        height: size.height * 0.2,
+        width: _size.width * 1.0,
+        height: _size.height * 0.2,
         child: ListView.builder(
             itemCount: 15,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return Container(
                 alignment: Alignment.center,
-                width: size.width * 0.6,
-                height: size.height * 0.2,
+                width: _size.width * 0.6,
+                height: _size.height * 0.2,
                 margin: EdgeInsets.all(6.0),
                 decoration: BoxDecoration(
                     image: DecorationImage(
@@ -121,10 +119,10 @@ class CoursesMainPage extends StatelessWidget {
       );
 
   /// Footer rasmlar listi
-  Widget _footer(size) => Container(
+  Widget _footer() => Container(
         margin: EdgeInsets.symmetric(vertical: 16.0),
-        width: size.width * 1.0,
-        height: size.height * 0.3,
+        width: _size.width * 1.0,
+        height: _size.height * 0.3,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
         ),
@@ -136,8 +134,8 @@ class CoursesMainPage extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16.0)),
                 child: Container(
-                  width: size.width * 0.5,
-                  height: size.height * 0.3,
+                  width: _size.width * 0.5,
+                  height: _size.height * 0.3,
                   child: Column(
                     children: [
                       Container(
@@ -152,12 +150,12 @@ class CoursesMainPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        width: size.width * 0.5,
-                        height: size.height * 0.18,
+                        width: _size.width * 0.5,
+                        height: _size.height * 0.18,
                       ),
                       Container(
                         margin: EdgeInsets.symmetric(horizontal: 6.0),
-                        height: size.height * 0.09,
+                        height: _size.height * 0.09,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.start,
