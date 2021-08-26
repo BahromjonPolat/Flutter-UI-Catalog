@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:flutter_ui/pages/food_menu/food_list.dart';
+import 'package:flutter_ui/pages/food_menu/food_model.dart';
 
 class FoodHorizontalListPage extends StatelessWidget {
   // Ekranning o`lchamlarini klasning barcha metodlarida
@@ -40,11 +41,14 @@ class FoodHorizontalListPage extends StatelessWidget {
     );
   }
 
-  _setCategoryText(String text, color) => Text(
-        text,
-        style: TextStyle(
-            color: color, fontWeight: FontWeight.bold, fontSize: 24.0),
-      );
+  _setCategoryText(String text, color) => Container(
+    margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
+    child: Text(
+          text,
+          style: TextStyle(
+              color: color, fontWeight: FontWeight.bold, fontSize: 24.0),
+        ),
+  );
 
   /// Food Info Item Layout
   _setFoodList() => Container(
@@ -52,8 +56,9 @@ class FoodHorizontalListPage extends StatelessWidget {
         width: _size.width * 1.0,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: 20,
+            itemCount: foodList.length,
             itemBuilder: (context, index) {
+              Food food = foodList[index];
               Size size = MediaQuery.of(context).size;
               return Container(
                 margin: EdgeInsets.symmetric(horizontal: 6.0, vertical: 8.0),
@@ -64,41 +69,48 @@ class FoodHorizontalListPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(6.0),
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: NetworkImage("https://source.unsplash.com/random"),
+                    image: NetworkImage("${food.imageUrl}"),
                   ),
                 ),
-                child: _setFoodInfo(),
+                child: _setFoodInfo(food),
               );
             }),
       );
 
   /// Food Info Item Layout`ning taomning nomini, manzilni va
   /// 'FloatingActionButton'ni ko`rsatish uchun alohida funksiya.
-  _setFoodInfo() => Container(
+  _setFoodInfo(Food food) => Container(
         // ichidagi elementlarni ekranning burchagiga yopishib qolmasligi
         // uchun padding berildi.
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 32.0),
+        padding: EdgeInsets.only(right: 16.0, bottom: 32.0),
         alignment: Alignment.bottomCenter,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             // Taom nomi TextSpan yordamida qilindi
-            Text.rich(TextSpan(children: [
-              TextSpan(
-                text: "Tapioca Toast \n",
-                style: TextStyle(
-                    fontSize: 18.0,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(bottomRight: Radius.circular(16.0), topRight: Radius.circular(16.0)),
+                color: Colors.black54,
               ),
-              TextSpan(
-                  text: "Baker street 221b.",
+              child: Text.rich(TextSpan(children: [
+                TextSpan(
+                  text: "${food.name} \n",
                   style: TextStyle(
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.white)),
-            ])),
+                      fontSize: 18.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                ),
+                TextSpan(
+                    text: "${food.subtitle}",
+                    style: TextStyle(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white)),
+              ])),
+            ),
 
             FloatingActionButton(
               onPressed: () {},
@@ -111,34 +123,52 @@ class FoodHorizontalListPage extends StatelessWidget {
       );
 
   _setFoodCategory() => Container(
-        height: _size.height * 0.32,
+        height: _size.height * 0.3,
         child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-            itemCount: 25,
+            scrollDirection: Axis.horizontal,
+            itemCount: foodList.length,
             itemBuilder: (ctx, index) {
+              Food food = foodList[index];
               return Container(
                 width: _size.width * 0.4,
                 height: _size.height * 0.3,
-                alignment: Alignment(-0.85, 0.85),
+                alignment: Alignment.bottomCenter,
                 margin: EdgeInsets.symmetric(horizontal: 6.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16.0),
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: NetworkImage("https://source.unsplash.com/random"),
+                    image: NetworkImage(food.imageUrl),
                   ),
                 ),
-                child: Text.rich(TextSpan(
-                  children: [
-                    TextSpan(
-                      text: "Hamburger Big \n",
-                    ),
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
+                  decoration: BoxDecoration(
+                    color: Colors.black54,
+                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(16.0), bottomRight: Radius.circular(16.0)),
+                  ),
 
+                  width: _size.width * 1.0,
+                  child: Text.rich(
                     TextSpan(
-                      text: "\$3.45 USD"
+                      children: [
+                        TextSpan(
+                          text: "${food.name} \n",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold
+                          )
+                        ),
+                        TextSpan(
+                          text: "${food.price} UZS",
+                          style: TextStyle(
+                            color: Colors.white,
+                          )
+                        ),
+                      ],
                     ),
-                  ]
-                )),
+                  ),
+                ),
               );
             }),
       );

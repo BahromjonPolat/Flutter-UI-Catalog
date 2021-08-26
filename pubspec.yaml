@@ -23,6 +23,7 @@ dependencies:
   flutter_spinkit: ^4.1.2
   flutter_staggered_grid_view: ^0.4.0
   transparent_image: ^2.0.0
+  persistent_bottom_nav_bar: ^4.0.2
 
 # Developer dependencies
 
