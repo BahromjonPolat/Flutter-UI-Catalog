@@ -1,6 +1,6 @@
-# flutter_ui
+# Flutter UI Catalog 
 
-A new Flutter project.
+Flutter darslarida berilgan UI`lar
 
 ## Getting Started
 
