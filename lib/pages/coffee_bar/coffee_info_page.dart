@@ -6,17 +6,22 @@ import 'package:flutter_ui/pages/instagram/ui/bottom_nav_bar.dart';
 import 'package:glassmorphism_ui/glassmorphism_ui.dart';
 
 class CoffeeInfoPage extends StatefulWidget {
+
+  Coffee coffee;
+  CoffeeInfoPage(this.coffee);
+
   @override
   _CoffeeInfoPageState createState() => _CoffeeInfoPageState();
 }
 
 class _CoffeeInfoPageState extends State<CoffeeInfoPage> {
   Size _size;
-  Coffee _coffee = coffeeList[0];
+  Coffee _coffee;
 
   @override
   Widget build(BuildContext context) {
     _size = MediaQuery.of(context).size;
+    _coffee = widget.coffee;
     return Scaffold(
       backgroundColor: Colors.black54,
       body: _body(),

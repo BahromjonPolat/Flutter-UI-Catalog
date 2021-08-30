@@ -32,9 +32,9 @@ class _PageListState extends State<PageList> {
 
   Widget showPageList() {
     return ListView.builder(
-        itemCount: pageList().length,
+        itemCount: pageList.length,
         itemBuilder: (context, index) {
-          PageUI page = pageList()[index];
+          PageUI page = pageList[index];
           return Card(
             color: Colors.indigo,
             child: ListTile(
@@ -45,9 +45,9 @@ class _PageListState extends State<PageList> {
               subtitle: Text(
                 page.subtitle,
               ),
-              trailing: Icon(
-                CupertinoIcons.arrow_right_circle_fill,
-                color: Colors.orange,
+              trailing: IconButton(
+                icon: Icon(Icons.more_vert),
+                onPressed: () {},
               ),
               onTap: () {
                 Navigator.push(

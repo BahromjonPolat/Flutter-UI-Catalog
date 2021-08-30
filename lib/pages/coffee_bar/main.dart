@@ -4,7 +4,6 @@ import 'package:flutter_ui/pages/coffee_bar/bottom_nav_bar_item.dart';
 import 'package:flutter_ui/pages/coffee_bar/coffee_info_page.dart';
 import 'package:flutter_ui/pages/coffee_bar/coffee_list.dart';
 import 'package:flutter_ui/pages/coffee_bar/coffee_model.dart';
-import 'package:flutter_ui/pages/instagram/ui/bottom_nav_bar.dart';
 
 class CoffeeBarMainPage extends StatefulWidget {
   @override
@@ -51,26 +50,19 @@ class _CoffeeBarMainPageState extends State<CoffeeBarMainPage> {
                 SizedBox(
                   height: 60.0,
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) {
-                      return CoffeeInfoPage();
-                    }));
-                  },
-                  child: Container(
-                      alignment: Alignment.centerLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 16.0),
-                      width: _size.width * 1.0,
-                      height: _size.height * 0.06,
-                      decoration: BoxDecoration(
-                        color: Colors.white24,
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      child: Text(
-                        "🔍 Find Your Coffee...",
-                        style: TextStyle(color: Colors.white),
-                      )),
-                ),
+                Container(
+                    alignment: Alignment.centerLeft,
+                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    width: _size.width * 1.0,
+                    height: _size.height * 0.06,
+                    decoration: BoxDecoration(
+                      color: Colors.white24,
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    child: Text(
+                      "🔍 Find Your Coffee...",
+                      style: TextStyle(color: Colors.white),
+                    )),
                 _getCoffeeCategory(),
               ],
             ),
@@ -119,92 +111,97 @@ class _CoffeeBarMainPageState extends State<CoffeeBarMainPage> {
    */
 
   /// Coffee`ning ma'lumotlarini ko`rsatadi list Uchun
-  Container _getCoffeeInfo(Coffee coffee) => Container(
-        margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 32.0),
-        padding: EdgeInsets.all(12.0),
-        decoration: BoxDecoration(
-          color: Colors.white24,
-          borderRadius: BorderRadius.circular(16.0),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              alignment: Alignment.topRight,
-              width: _size.width * 0.36,
-              height: _size.width * 0.36,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                    fit: BoxFit.cover, image: NetworkImage(coffee.imageUrl)),
-                borderRadius: BorderRadius.circular(16.0),
-                color: Colors.orange,
-              ),
-              child: Container(
-                alignment: Alignment.center,
-                height: 26.0,
-                width: 56.0,
+  GestureDetector _getCoffeeInfo(Coffee coffee) => GestureDetector(
+    onTap: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> CoffeeInfoPage(coffee)));
+    },
+    child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 32.0),
+          padding: EdgeInsets.all(12.0),
+          decoration: BoxDecoration(
+            color: Colors.white24,
+            borderRadius: BorderRadius.circular(16.0),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                alignment: Alignment.topRight,
+                width: _size.width * 0.36,
+                height: _size.width * 0.36,
                 decoration: BoxDecoration(
-                    color: Colors.black45,
-                    borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(16.0),
-                        bottomLeft: Radius.circular(16.0))),
-                child: Text(
-                  "⭐️ ${coffee.rating}",
-                  style: TextStyle(color: Colors.white),
+                  image: DecorationImage(
+                      fit: BoxFit.cover, image: NetworkImage(coffee.imageUrl)),
+                  borderRadius: BorderRadius.circular(16.0),
+                  color: Colors.orange,
+                ),
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 26.0,
+                  width: 56.0,
+                  decoration: BoxDecoration(
+                      color: Colors.black45,
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(16.0),
+                          bottomLeft: Radius.circular(16.0))),
+                  child: Text(
+                    "⭐️ ${coffee.rating}",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
-            ),
-            Text(
-              coffee.name,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18.0,
+              Text(
+                coffee.name,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18.0,
+                ),
               ),
-            ),
-            Text(
-              coffee.component,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 12.0,
+              Text(
+                coffee.component,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 12.0,
+                ),
               ),
-            ),
-            Container(
-              width: _size.width * 0.36,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text.rich(TextSpan(children: [
-                    TextSpan(
-                        text: "\$ ",
-                        style: TextStyle(
-                            color: Colors.orange,
+              Container(
+                width: _size.width * 0.36,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text.rich(TextSpan(children: [
+                      TextSpan(
+                          text: "\$ ",
+                          style: TextStyle(
+                              color: Colors.orange,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.0)),
+                      TextSpan(
+                          text: "${coffee.price}",
+                          style: TextStyle(
+                            color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize: 18.0)),
-                    TextSpan(
-                        text: "${coffee.price}",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18.0,
-                        ))
-                  ])),
-                  Container(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.add,
-                      color: Colors.white,
-                    ),
-                    decoration: BoxDecoration(
-                        color: Colors.orange,
-                        borderRadius: BorderRadius.circular(12.0)),
-                  )
-                ],
+                            fontSize: 18.0,
+                          ))
+                    ])),
+                    Container(
+                      padding: EdgeInsets.all(8.0),
+                      child: Icon(
+                        Icons.add,
+                        color: Colors.white,
+                      ),
+                      decoration: BoxDecoration(
+                          color: Colors.orange,
+                          borderRadius: BorderRadius.circular(12.0)),
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      );
+  );
 
   List<String> _categoryList = [
     "Cappuccino",
