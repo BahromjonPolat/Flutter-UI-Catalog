@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/model/page.dart';
-import 'package:flutter_ui/pages/book_store/main.dart';
+import 'package:flutter_ui/pages/book_store/screen/main.dart';
 import 'package:flutter_ui/pages/coffee_bar/main.dart';
 import 'package:flutter_ui/pages/coffee_shop/main.dart';
 import 'package:flutter_ui/pages/coffee_shop/splash_screen.dart';
 import 'package:flutter_ui/pages/food_menu/main.dart';
+import 'package:flutter_ui/pages/hotel/main.dart';
+import 'package:flutter_ui/pages/hotel/room_info.dart';
 import 'package:flutter_ui/pages/instagram/ui/splash_screen.dart';
 import 'package:flutter_ui/pages/courses/main.dart';
 import 'package:flutter_ui/pages/sport/main.dart';
@@ -34,4 +36,12 @@ List<PageUI> pageList = [
       "28-08-2021",
       Icon(Icons.emoji_food_beverage_outlined),
       CoffeeShopSplashScreen()),
+  new PageUI(
+    "Hotel UI",
+    "Mexmonxona UI",
+    "Mexmonxona",
+    "31-08-2021",
+    Icon(Icons.hotel),
+    HotelMainPage(),
+  ),
 ];

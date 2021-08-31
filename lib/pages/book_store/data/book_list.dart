@@ -1,9 +1,10 @@
 
 import 'package:flutter_ui/pages/book_store/model/book.dart';
-String a = "https://images.unsplash.com/photo-1511108690759-009324a90311?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80";
+String description = "«Тафсири Ҳилол» - бутун оламга мударрис бўлган буюк уламолар юрти - Мовароуннаҳр диёрида ёзилган энг янги тафсирдир. Замонамизнинг забардаст олимларидан бири шайх Муҳаммад Содиқ Муҳаммад Юсуф ҳазратларининг ушбу тафсирлари ўзининг содда ва равон тили, теран ва дақиқ услуби билан ажралиб турувчи шоҳ асардир. «Тафири Ҳилол» мўътабар тафсирларнинг анъаналарига содиқ қолган ҳолда, бугунги кун китобхонининг савияси, дунёқараши ва эҳтитёжларини ҳам ҳисобга олиб ёзилган бўлиб, ўқувчини Қуръони карим маъноларининг битмас-туганмас ҳикматларига ошно этади.";
+
 List<Book> getBooks() {
   List<Book> books = [];
-  books.add(new Book("Tafsiri Hilol", "Shayx Muhammad Sodiq Muhammad Yusuf", a));
+  books.add(new Book("Tafsiri Hilol", "Shayx Muhammad Sodiq Muhammad Yusuf", "https://hilolnashr.uz/image/cache/catalog/MSMY/tafsir-1-web-250x375.jpg"));
   books.add(new Book("Shaytanat", "Tohir Malik", "default"));
   books.add(new Book("Halqa", "Akrom MALIK", "default"));
   books.add(new Book("Duo olgan kelinchak", "Erkin Malik", "default"));

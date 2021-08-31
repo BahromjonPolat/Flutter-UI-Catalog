@@ -16,15 +16,35 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   # add this line to your dependencies
+  #
   fluttertoast: ^8.0.8
+
+  # Oddiy ma'lumotlarni doimiy xotiraga saqlab ketadi.
   shared_preferences: ^2.0.6
+
+  # SQLite ma'lumotlar ombori.
   sqflite: ^1.3.0
+
+  # Badges har qanday vidjet uchun qo'shimcha belgi sifatida ishlatilishi mumkin.
   badges: ^2.0.1
+
+  # 'Loaging' GIF`lari
   flutter_spinkit: ^4.1.2
+
+  # GridView`ni pinterest yoki boshqa chiroyli ko`rinishda chiqarish uchun
   flutter_staggered_grid_view: ^0.4.0
+
+  # Transparent Rasm
   transparent_image: ^2.0.0
+
+  # Bottom Navigation Bar`ning Imoniyati ko`p talqini
   persistent_bottom_nav_bar: ^4.0.2
+
+  # Oyna effektini beruvchi kutubxona
   glassmorphism_ui: ^0.2.0
+
+  # Rating Bar - Yulduzcha va yurakchalar
+  flutter_rating_bar: ^4.0.0
 
 # Developer dependencies
 
