@@ -15,13 +15,13 @@ Casa Batlló is 5 minutes’ walk from the apartments, while Plaza de Catalunya 
 
 List<Room> roomList = [
   new Room("Silver Hotel & SPA", "Grand Hotel", "This Hotel is Very Expensive", "breakfast", room1, 120.00, 4.5),
-  new Room("Gold Hotel & SPA", "Grand Hotel", "This Hotel is Very Expensive", "breakfast", room2, 160.00, 4.5),
+  new Room("Gold Hotel & SPA", "Grand Hotel", "This Hotel is Very Expensive", "breakfast", room2, 160.00, 5.0),
   new Room("Platinum Hotel & SPA", "Grand Hotel", "This Hotel is Very Expensive", "breakfast and lunch", room3, 220.00, 4.5),
-  new Room("Silver Hotel & SPA", "Grand Hotel", "This Hotel is Very Expensive", "breakfast", room4, 120.00, 4.5),
-  new Room("Silver Hotel & SPA", "Grand Hotel", "This Hotel is Very Expensive", "breakfast", room5, 120.00, 4.5),
-  new Room("Silver Hotel & SPA", "Grand Hotel", "This Hotel is Very Expensive", "breakfast", room6, 120.00, 4.5),
-  new Room("Silver Hotel & SPA", "Grand Hotel", desc, "breakfast", room7, 120.00, 4.5),
-  new Room("Silver Hotel & SPA", "Grand Hotel", "This Hotel is Very Expensive", "breakfast", room8, 120.00, 4.5),
+  new Room("Silver Hotel & SPA", "Grand Hotel", "This Hotel is Very Expensive", "breakfast", room4, 120.00, 3.9),
+  new Room("Silver Hotel & SPA", "Grand Hotel", "This Hotel is Very Expensive", "breakfast", room5, 120.00, 4.2),
+  new Room("Silver Hotel & SPA", "Grand Hotel", "This Hotel is Very Expensive", "breakfast", room6, 120.00, 4.0),
+  new Room("Silver Hotel & SPA", "Grand Hotel", desc, "breakfast", room7, 320.00, 5.0),
+  new Room("Silver Hotel & SPA", "Grand Hotel", "This Hotel is Very Expensive", "breakfast", room8, 620.00, 4.8),
   new Room("Silver Hotel & SPA", "Grand Hotel", "This Hotel is Very Expensive", "breakfast", room9, 120.00, 4.5),
-  new Room("Silver Hotel & SPA", "Grand Hotel", "This Hotel is Very Expensive", "breakfast", room10, 120.00, 4.5),
+  new Room("Silver Hotel & SPA", "Grand Hotel", "This Hotel is Very Expensive", "breakfast", room10, 120.00, 3.5),
 ];

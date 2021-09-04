@@ -10,6 +10,7 @@ import 'package:flutter_ui/pages/hotel/main.dart';
 import 'package:flutter_ui/pages/hotel/room_info.dart';
 import 'package:flutter_ui/pages/instagram/ui/splash_screen.dart';
 import 'package:flutter_ui/pages/courses/main.dart';
+import 'package:flutter_ui/pages/planets/splash_screen.dart';
 import 'package:flutter_ui/pages/sport/main.dart';
 
 List<PageUI> pageList = [
@@ -44,4 +45,12 @@ List<PageUI> pageList = [
     Icon(Icons.hotel),
     HotelMainPage(),
   ),
+  new PageUI(
+    'Space',
+    "Space UI",
+    "About Space",
+    "04-09-2021",
+    Icon(Icons.fiber_smart_record_sharp),
+    PlanetsSplashScreen(),
+  )
 ];

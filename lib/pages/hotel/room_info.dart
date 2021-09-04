@@ -7,11 +7,10 @@ import 'package:flutter_ui/pages/hotel/hotel_model.dart';
 import 'package:flutter_ui/pages/hotel/room_list.dart';
 
 class HotelRoomInfoPage extends StatefulWidget {
-  
   Room room;
-  
+
   HotelRoomInfoPage({this.room});
-  
+
   @override
   _HotelRoomInfoPageState createState() => _HotelRoomInfoPageState();
 }
@@ -88,8 +87,8 @@ class _HotelRoomInfoPageState extends State<HotelRoomInfoPage> {
                   children: [
                     Text(
                       _room.title,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20.0),
                     ),
                     Text(_room.hotelName),
                     _getRating(),
@@ -99,16 +98,16 @@ class _HotelRoomInfoPageState extends State<HotelRoomInfoPage> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  /// FloatingActionButton
                   Transform.translate(
                     child: FloatingActionButton(
                       onPressed: () {},
                       child: Icon(Icons.room),
                       backgroundColor: Colors.teal,
                     ),
-                    offset: Offset(0.0, -26),
+                    offset: Offset(-6.0, -42),
                   ),
                   Text(
-
                     "365 reviews   ",
                     style: TextStyle(color: Colors.grey),
                   )
@@ -129,17 +128,20 @@ class _HotelRoomInfoPageState extends State<HotelRoomInfoPage> {
       ));
 
   _getDescription() => Container(
-    padding: EdgeInsets.symmetric(horizontal: 16.0),
-    child: Text(
+        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        child: Text(
           _room.description,
           maxLines: 6,
           overflow: TextOverflow.fade,
         ),
-  );
+      );
 
+  /// Rating Bar
   _getRating() => Row(
         children: [
           RatingBar.builder(
+
+              updateOnDrag: false,
               itemSize: 18.0,
               allowHalfRating: true,
               initialRating: _room.rating,
@@ -160,12 +162,12 @@ class _HotelRoomInfoPageState extends State<HotelRoomInfoPage> {
   _getPrice() => Row(
         children: [
           Container(
-            width: _size.width * 0.5,
+              width: _size.width * 0.5,
               padding: EdgeInsets.symmetric(horizontal: 16.0),
               child: Text(
-            "Price per night",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
-          )),
+                "Price per night",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
+              )),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
             width: _size.width * 0.5,
@@ -175,7 +177,10 @@ class _HotelRoomInfoPageState extends State<HotelRoomInfoPage> {
                   bottomLeft: Radius.circular(32.0),
                   topLeft: Radius.circular(32.0)),
             ),
-            child: Text("\$${_room.price} +${_room.additional}", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12.0),),
+            child: Text(
+              "\$${_room.price} +${_room.additional}",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12.0),
+            ),
           ),
         ],
       );
@@ -187,9 +192,12 @@ class _HotelRoomInfoPageState extends State<HotelRoomInfoPage> {
           onPressed: () {},
           child: Text("Book Now"),
           style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16.0)),
               primary: Colors.teal,
               padding: EdgeInsets.symmetric(vertical: 20.0)),
         ),
       );
+
+
 }

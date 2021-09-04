@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_ui/pages/hotel/hotel_model.dart';
+import 'package:flutter_ui/pages/hotel/room_info.dart';
+import 'package:flutter_ui/pages/hotel/room_list.dart';
 
 class HotelMainPage extends StatefulWidget {
   @override
@@ -13,6 +17,7 @@ class _HotelMainPageState extends State<HotelMainPage> {
   Widget build(BuildContext context) {
     _size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: _bodyWithCustomScrollView(),
     );
   }
@@ -25,10 +30,9 @@ class _HotelMainPageState extends State<HotelMainPage> {
       );
 
   SliverAppBar _getSliverAppBar() => SliverAppBar(
-    systemOverlayStyle: SystemUiOverlayStyle(
-      statusBarColor: Colors.white,
-      systemNavigationBarColor: Colors.white
-    ),
+        systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: Colors.white,
+            systemNavigationBarColor: Colors.white),
         iconTheme: IconThemeData(color: Colors.black),
         title: Text.rich(
           TextSpan(children: [
@@ -59,8 +63,11 @@ class _HotelMainPageState extends State<HotelMainPage> {
           delegate: SliverChildListDelegate([
         _searchItems(),
         _showCategories(),
+        _showRoomList(width: _size.width, height: _size.height * 0.37, type: 0),
+        _showRoomList(width: _size.width, height: _size.height *0.25, type: 1),
       ]));
 
+  /// Search Box
   _searchItems() => Container(
         margin: EdgeInsets.only(left: 16.0),
         child: TextField(
@@ -79,6 +86,7 @@ class _HotelMainPageState extends State<HotelMainPage> {
         ),
       );
 
+  /// Category List
   List<String> categories = [
     "All",
     "Popular",
@@ -89,6 +97,7 @@ class _HotelMainPageState extends State<HotelMainPage> {
 
   int _currentIndex = 0;
 
+  /// Category
   _showCategories() => Container(
         height: 36.0,
         margin: EdgeInsets.symmetric(vertical: 32.0),
@@ -105,8 +114,9 @@ class _HotelMainPageState extends State<HotelMainPage> {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18.0,
-                      color:
-                          (_currentIndex == index) ? Colors.teal : Colors.black87,
+                      color: (_currentIndex == index)
+                          ? Colors.teal
+                          : Colors.black87,
                     ),
                   ),
                   onTap: () {
@@ -119,12 +129,155 @@ class _HotelMainPageState extends State<HotelMainPage> {
             }),
       );
 
-  _showRoomInfo() => Card(
-    child: Container(
-      decoration: BoxDecoration(
+  _showRoomList({double height, double width, int type}) => Container(
+        height: height,
+        width: width,
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: roomList.length,
+            itemBuilder: (context, index) {
+              Room room = roomList[index];
+              return _showRoomInfo(room, (type == 0) ? _size.width * 0.57 : _size.width * 0.37, (type == 0)? 0 : 1);
+            }),
+      );
 
-      ),
+  /// Xonalarning ma'lumotini ko`rsatish uchun layout
+  /// Asosiy Vidjet GestureDetector. Agar bosilsa HotelRoomInfoPage sahifasiga
+  /// o`tadi.
+  _showRoomInfo(Room room, double width, int type) => GestureDetector(
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: 8.0),
+          margin: EdgeInsets.symmetric(horizontal: 16.0),
+          child: Card(
+            elevation: 6.0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16.0),
+            ),
+            child: Container(
+              width: width,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16.0),
+                  color: Colors.green,
+                  image: DecorationImage(
+                      fit: BoxFit.cover, image: NetworkImage(room.imageUrl))),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  /// Xonaning narxini ko`rsatish uchun container
+                  (type == 0) ? _showRoomPrice(room) : _showRoomRating(room),
 
-    ),
+                  /// Xonaning ma'lumotlarini ko`rsatadigan Container
+                  _setAllRoomData(room, type),
+                ],
+              ),
+            ),
+          ),
+        ),
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (_) {
+            return HotelRoomInfoPage(
+              room: room,
+            );
+          }));
+        },
+      );
+
+  ///
+  _setAllRoomData(Room room, int type) => Container(
+        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        height: _size.height * 0.1,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16.0), color: Colors.white),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        room.title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Text(room.hotelName)
+                    ],
+                  ),
+                ),
+                (type == 0) ? IconButton(
+                    icon: Icon(
+                      Icons.bookmark_border,
+                      color: Colors.teal,
+                      size: 32.0,
+                    ),
+                    onPressed: () {}) : Container(),
+              ],
+            ),
+            /// Bu yerga
+            (type == 0) ? _showRatingBar(room) : Container(),
+          ],
+        ),
+      );
+
+
+  _showRatingBar(Room room) => Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      RatingBar.builder(
+          itemSize: 16.0,
+          initialRating: room.rating,
+          allowHalfRating: true,
+          itemBuilder: (context, index) {
+            return Icon(
+              Icons.star,
+              color: Colors.amber,
+            );
+          },
+          onRatingUpdate: (rating) {}),
+      Text(
+        "365 reviews",
+        style: TextStyle(
+          color: Colors.grey,
+          fontSize: 12.0,
+        ),
+      )
+    ],
   );
+
+  /// Room Price
+  _showRoomPrice(Room room) => Container(
+        alignment: Alignment.center,
+        height: 64.0,
+        width: 96.0,
+        decoration: BoxDecoration(
+          color: Colors.teal,
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(16.0),
+              topRight: Radius.circular(16.0)),
+        ),
+        child: Text(
+          "\$${room.price}",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+      );
+
+  _showRoomRating(Room room) => Container(
+        alignment: Alignment.center,
+        height: 32.0,
+        width: 48.0,
+        decoration: BoxDecoration(
+          color: Colors.black54,
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(16.0),
+              topRight: Radius.circular(16.0)),
+        ),
+        child: Text(
+          "#${room.rating}",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+      );
 }
