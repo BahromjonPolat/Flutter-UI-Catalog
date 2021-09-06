@@ -10,53 +10,74 @@ class PageList extends StatefulWidget {
 }
 
 class _PageListState extends State<PageList> {
+  Size _size;
+
   @override
   Widget build(BuildContext context) {
+    _size = MediaQuery
+        .of(context)
+        .size;
     return Scaffold(
-      appBar: AppBar(
-        systemOverlayStyle: SystemUiOverlayStyle(
-          systemNavigationBarColor: Colors.white,
-        ),
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        title: Text(
-          "My pages",
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-      ),
-      body: showPageList(),
+      body: _getBodyWithCustomScrollView(),
+      drawer: Drawer(),
     );
   }
 
-  Widget showPageList() {
-    return ListView.builder(
-        itemCount: pageList.length,
-        itemBuilder: (context, index) {
-          PageUI page = pageList[index];
-          return Card(
-            color: Colors.indigo,
-            child: ListTile(
-              leading: page.icon,
-              title: Text(
-                page.title,
-              ),
-              subtitle: Text(
-                page.subtitle,
-              ),
-              trailing: IconButton(
-                icon: Icon(Icons.more_vert),
-                onPressed: () {},
-              ),
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => page.page));
-              },
-            ),
-          );
-        });
+  _getBodyWithCustomScrollView() =>
+      CustomScrollView(
+        physics: BouncingScrollPhysics(),
+        slivers: [
+          _getSliverAppBar(),
+          _getSliverList(),
+        ],
+      );
 
+  _getSliverAppBar() =>
+      SliverAppBar(
+        floating: true,
+        stretch: true,
+        flexibleSpace: _getFlexibleSpaceBar(),
+        expandedHeight: _size.height * 0.3,
+      );
 
-  }
+  _getFlexibleSpaceBar() =>
+      FlexibleSpaceBar(
+        background: Image.network(
+          "https://images.unsplash.com/photo-1541359927273-d76820fc43f9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+          fit: BoxFit.cover,
+        ),
+        stretchModes: [
+          StretchMode.zoomBackground,
+        ],
+      );
+
+  /// Sliver List - Sahifalarning ro`yxati uchun
+  _getSliverList() =>
+      SliverList(
+          delegate:
+          SliverChildListDelegate(List.generate(pageList.length, (index) {
+            PageUI pageUI = pageList[index];
+            return _setPageItemLayout(pageUI);
+          })));
+
+  /// Sahifaning ma'lumotlatini ko`rsatadigan Item Layout
+  _setPageItemLayout(PageUI pageUI) =>
+      Card(
+        margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 3.0),
+        child: ListTile(
+          leading: pageUI.icon,
+          title: Text(pageUI.title),
+          subtitle: Text(pageUI.date),
+          trailing:_getPopUpMenu(),
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => pageUI.page));
+          },
+        ),
+      );
+
+  _getPopUpMenu() =>
+      PopupMenuButton(itemBuilder: (context) {
+        return List.generate(3, (index) => PopupMenuItem(child: Text("Menu")));
+      });
 }
