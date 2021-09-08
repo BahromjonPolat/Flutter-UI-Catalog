@@ -7,6 +7,7 @@ class PageUI {
   String _subtitle;
   String _description;
   String _date;
+  String _sourceCode;
   Icon _icon;
   Widget _page;
 
@@ -23,4 +24,6 @@ class PageUI {
   String get description => _description;
 
   String get date => _date;
+
+  String get sourceCode => _sourceCode;
 }

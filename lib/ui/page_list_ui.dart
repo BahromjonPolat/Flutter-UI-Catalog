@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_ui/model/page.dart';
 import 'package:flutter_ui/data/page_list.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PageList extends StatefulWidget {
   @override
@@ -23,6 +24,7 @@ class _PageListState extends State<PageList> {
     );
   }
 
+  /// Sahifaning 'BODY' qismi
   _getBodyWithCustomScrollView() =>
       CustomScrollView(
         physics: BouncingScrollPhysics(),
@@ -32,12 +34,14 @@ class _PageListState extends State<PageList> {
         ],
       );
 
+  /// Sliver App Bar
   _getSliverAppBar() =>
       SliverAppBar(
         floating: true,
         stretch: true,
         flexibleSpace: _getFlexibleSpaceBar(),
         expandedHeight: _size.height * 0.3,
+        backgroundColor: Colors.black54,
       );
 
   _getFlexibleSpaceBar() =>
@@ -46,9 +50,9 @@ class _PageListState extends State<PageList> {
           "https://images.unsplash.com/photo-1541359927273-d76820fc43f9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
           fit: BoxFit.cover,
         ),
-        stretchModes: [
-          StretchMode.zoomBackground,
-        ],
+        // stretchModes: [
+        //   StretchMode.zoomBackground,
+        // ],
       );
 
   /// Sliver List - Sahifalarning ro`yxati uchun
@@ -78,6 +82,19 @@ class _PageListState extends State<PageList> {
 
   _getPopUpMenu() =>
       PopupMenuButton(itemBuilder: (context) {
-        return List.generate(3, (index) => PopupMenuItem(child: Text("Menu")));
+        return List.generate(3, (index) => PopupMenuItem(child: TextButton(
+            onPressed: (){
+              _goToSource();
+            }, child: Text("Menu"),
+        )));
       });
+
+  _goToSource() async{
+    const url = "https://flutter.io";
+    if (await canLaunch(url))
+    await launch(url);
+    else
+    // can't launch url, there is some error
+    throw "Could not launch $url";
+  }
 }

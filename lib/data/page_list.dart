@@ -12,6 +12,7 @@ import 'package:flutter_ui/pages/instagram/ui/splash_screen.dart';
 import 'package:flutter_ui/pages/courses/main.dart';
 import 'package:flutter_ui/pages/planets/splash_screen.dart';
 import 'package:flutter_ui/pages/sport/main.dart';
+import 'package:flutter_ui/pages/super_mario/main.dart';
 
 List<PageUI> pageList = [
   new PageUI("Book Store", "Book store UI", "", "", Icon(CupertinoIcons.book),
@@ -52,5 +53,13 @@ List<PageUI> pageList = [
     "04-09-2021",
     Icon(Icons.fiber_smart_record_sharp),
     PlanetsSplashScreen(),
+  ),
+  new PageUI(
+    "Super Mario",
+    "08-09-2021",
+    "_description",
+    "08-09-2021",
+    Icon(Icons.gamepad_outlined),
+    SuperMarioMainPage(),
   )
 ];

@@ -198,4 +198,5 @@ class FoodListMainPage extends StatelessWidget {
           );
         });
   }
+
 }
