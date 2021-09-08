@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 class SuperMarioPlayGamePage extends StatefulWidget {
@@ -12,9 +14,11 @@ class _SuperMarioPlayGamePageState extends State<SuperMarioPlayGamePage> {
   double _xBackground = 1.0;
   bool _isJump = false;
   bool _isUp = false;
+  bool _isForward = true;
   bool _buttonPressed = false;
   bool _loopActive = false;
   int _counter = 0;
+  String _marioImage = "assets/images/mario/mario.png";
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +55,10 @@ class _SuperMarioPlayGamePageState extends State<SuperMarioPlayGamePage> {
             child: Container(
               height: 56.0,
               width: 56.0,
-              child: Image.asset("assets/images/mario/mario.png"),
+              child: Transform(
+                alignment: Alignment.center,
+                  transform: (!_isForward) ? Matrix4.rotationY(math.pi) : Matrix4.rotationY(0.0),
+                  child: Image.asset(_marioImage)),
             ),
           ),
           Container(
@@ -71,21 +78,23 @@ class _SuperMarioPlayGamePageState extends State<SuperMarioPlayGamePage> {
               Listener(
                 onPointerDown: (details) {
                   _buttonPressed = true;
+                  _isForward = false;
                   _increaseCounterWhilePressed(false);
+                  _marioImage = "assets/images/mario/run_forward.gif";
                 },
                 onPointerUp: (details) {
                   _buttonPressed = false;
+                  _marioImage = "assets/images/mario/mario.png";
                 },
-                child: Container(
-                  padding: EdgeInsets.all(16.0),
-                  child: Icon(
-                    Icons.keyboard_arrow_left,
-                    color: Colors.white,
-                    size: 32.0,
-                  ),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100.0),
-                      color: Colors.black38),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Icon(Icons.arrow_back_ios_outlined),
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.black38,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 32.0, vertical: 12.0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16.0))),
                 ),
               ),
 
@@ -93,21 +102,23 @@ class _SuperMarioPlayGamePageState extends State<SuperMarioPlayGamePage> {
               Listener(
                 onPointerDown: (details) {
                   _buttonPressed = true;
+                  _isForward = true;
                   _increaseCounterWhilePressed(true);
+                  _marioImage = "assets/images/mario/run_forward.gif";
                 },
                 onPointerUp: (details) {
                   _buttonPressed = false;
+                  _marioImage = "assets/images/mario/mario.png";
                 },
-                child: Container(
-                  padding: EdgeInsets.all(16.0),
-                  child: Icon(
-                    Icons.keyboard_arrow_right_rounded,
-                    color: Colors.white,
-                    size: 32.0,
-                  ),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100.0),
-                      color: Colors.black38),
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Icon(Icons.arrow_forward_ios_outlined),
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.black38,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 32.0, vertical: 12.0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16.0))),
                 ),
               ),
             ],
