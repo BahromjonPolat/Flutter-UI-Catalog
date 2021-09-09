@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/model/page.dart';
+import 'package:flutter_ui/pages/authorization/splash_screen_page.dart';
 import 'package:flutter_ui/pages/book_store/screen/main.dart';
 import 'package:flutter_ui/pages/coffee_bar/main.dart';
 import 'package:flutter_ui/pages/coffee_shop/main.dart';
@@ -61,5 +62,13 @@ List<PageUI> pageList = [
     "08-09-2021",
     Icon(Icons.gamepad_outlined),
     SuperMarioMainPage(),
-  )
+  ),
+  new PageUI(
+    "Auth",
+    "Login page",
+    "---",
+    "09-09-2021",
+    Icon(Icons.login),
+    AuthSplashScreenPage(),
+  ),
 ];
