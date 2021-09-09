@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/model/page.dart';
+import 'package:flutter_ui/pages/another_login_page/splash_screen_page.dart';
 import 'package:flutter_ui/pages/authorization/splash_screen_page.dart';
 import 'package:flutter_ui/pages/book_store/screen/main.dart';
 import 'package:flutter_ui/pages/coffee_bar/main.dart';
@@ -71,4 +72,12 @@ List<PageUI> pageList = [
     Icon(Icons.login),
     AuthSplashScreenPage(),
   ),
+  new PageUI(
+    "Another Login Page",
+    "_subtitle",
+    "_description",
+    "09-09-2021",
+    Icon(Icons.login),
+    AnotherLoginPageSplashScreenPage(),
+  )
 ];

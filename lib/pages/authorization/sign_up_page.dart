@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/pages/authorization/login_page.dart';
+import 'package:flutter_ui/pages/authorization/user_list.dart';
+import 'package:flutter_ui/pages/authorization/user_model.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class AuthSignUpPage extends StatefulWidget {
   @override
@@ -8,6 +11,11 @@ class AuthSignUpPage extends StatefulWidget {
 
 class _AuthSignUpPageState extends State<AuthSignUpPage> {
   Size _size;
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _phoneController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +59,7 @@ class _AuthSignUpPageState extends State<AuthSignUpPage> {
               children: [
                 /// Foydalanuvchining ismini olish uchun TextFormField
                 TextFormField(
+                  controller: _nameController,
                   keyboardType: TextInputType.name,
                   textInputAction: TextInputAction.next,
                   decoration: _setInputDecoration(
@@ -61,6 +70,7 @@ class _AuthSignUpPageState extends State<AuthSignUpPage> {
 
                 /// Foydalanuvchining emailini olish uchun TextFormField
                 TextFormField(
+                  controller: _emailController,
                   textInputAction: TextInputAction.next,
                   keyboardType: TextInputType.emailAddress,
                   decoration:
@@ -71,6 +81,7 @@ class _AuthSignUpPageState extends State<AuthSignUpPage> {
 
                 /// Foydalanuvchining telefon raqamini olish uchun TextFormField
                 TextFormField(
+                  controller: _phoneController,
                   textInputAction: TextInputAction.next,
                   keyboardType: TextInputType.phone,
                   decoration: _setInputDecoration("PHONE", Icon(Icons.phone)),
@@ -80,6 +91,7 @@ class _AuthSignUpPageState extends State<AuthSignUpPage> {
 
                 /// Foydalanuvchi parol kiritishi uchun TextFormField
                 TextFormField(
+                  controller: _passwordController,
                   textInputAction: TextInputAction.next,
                   keyboardType: TextInputType.visiblePassword,
                   decoration: _setInputDecoration(
@@ -91,6 +103,7 @@ class _AuthSignUpPageState extends State<AuthSignUpPage> {
 
                 /// Foydalanuvchi kiritgan parolini tasdiqlashi uchun TextFormField
                 TextFormField(
+                  controller: _confirmPasswordController,
                   textInputAction: TextInputAction.done,
                   obscureText: true,
                   keyboardType: TextInputType.visiblePassword,
@@ -123,11 +136,12 @@ class _AuthSignUpPageState extends State<AuthSignUpPage> {
         ),
       );
 
+  /// Registration button
   Container _getElevatedButton() => Container(
     margin: EdgeInsets.symmetric(vertical: 24.0),
         width: _size.width,
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: onButtonPressed,
           child: Text("REGISTRATION"),
           style: ElevatedButton.styleFrom(
             primary: Colors.green,
@@ -135,6 +149,28 @@ class _AuthSignUpPageState extends State<AuthSignUpPage> {
           ),
         ),
       );
+
+  void onButtonPressed() {
+    String name = _nameController.text.trim();
+    String email = _emailController.text.trim();
+    String phone = _phoneController.text.trim();
+    String password = _passwordController.text.trim();
+    String confirmPassword = _confirmPasswordController.text.trim();
+
+    if (name.isEmpty || email.isEmpty || phone.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
+      Fluttertoast.showToast(msg: "Please Fill All Fields");
+      return;
+    }
+
+    if (password != confirmPassword) {
+      Fluttertoast.showToast(msg: "Please enter the same password");
+      return;
+    }
+
+    UserModel user = new UserModel(1, name, email, phone, password);
+    userList.add(user);
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>AuthLoginPage()));
+  }
 
   Text _getSignUpText() => Text(
         "Sign Up",

@@ -2,6 +2,9 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_ui/pages/authorization/sign_up_page.dart';
+import 'package:flutter_ui/pages/authorization/user_list.dart';
+import 'package:flutter_ui/pages/authorization/user_model.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class AuthLoginPage extends StatefulWidget {
   @override
@@ -13,8 +16,7 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
-  String _email = "bahromjon.ergashboyev@gmial.com";
-  String _password = "123456";
+  UserModel _currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -117,23 +119,37 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
 
   /// Button bosilganida ishga tushadigan funksiya
   void _onButtonPressed() {
-    AwesomeDialog(
-        context: context,
-        title: _isEmailAndPasswordTrue() ? "Welcome!" : "Wrong!",
-        dialogType: _isEmailAndPasswordTrue() ? DialogType.SUCCES : DialogType.ERROR,
-        btnOk: ElevatedButton(
-          onPressed: () {},
-          child: Text("ok"),
-        ),
-        btnCancel: ElevatedButton(
-          onPressed: () {},
-          child: Text("Cancel"),
-        )).show();
+    if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
+      Fluttertoast.showToast(msg: "Please fill all fields!");
+      return;
+    }
+
+    _showDialog().show();
   }
 
+  AwesomeDialog _showDialog() => AwesomeDialog(
+        context: context,
+        title: _isEmailAndPasswordTrue() ? "Welcome!" : "Wrong!",
+        dialogType:
+            _isEmailAndPasswordTrue() ? DialogType.SUCCES : DialogType.ERROR,
+        btnOk: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text("ok"),
+        ),
+        body: Column(
+
+        ),
+      );
+
   bool _isEmailAndPasswordTrue() {
-    if (_emailController.text == _email && _passwordController.text == _password) {
-      return true;
+    String email = _emailController.text.trim();
+    String password = _passwordController.text.trim();
+    for (UserModel user in userList) {
+      if (email == user.email && password == user.password) {
+        return true;
+      }
     }
     return false;
   }
