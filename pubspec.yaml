@@ -65,6 +65,7 @@ flutter:
     - assets/images/
     - assets/images/sport/
     - assets/images/mario/
+    - assets/images/order_food/
 
 
   fonts:

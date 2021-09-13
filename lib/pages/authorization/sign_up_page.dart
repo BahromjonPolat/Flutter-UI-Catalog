@@ -138,7 +138,7 @@ class _AuthSignUpPageState extends State<AuthSignUpPage> {
 
   /// Registration button
   Container _getElevatedButton() => Container(
-    margin: EdgeInsets.symmetric(vertical: 24.0),
+        margin: EdgeInsets.symmetric(vertical: 24.0),
         width: _size.width,
         child: ElevatedButton(
           onPressed: onButtonPressed,
@@ -157,9 +157,17 @@ class _AuthSignUpPageState extends State<AuthSignUpPage> {
     String password = _passwordController.text.trim();
     String confirmPassword = _confirmPasswordController.text.trim();
 
-    if (name.isEmpty || email.isEmpty || phone.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
+    if (name.isEmpty ||
+        email.isEmpty ||
+        phone.isEmpty ||
+        password.isEmpty ||
+        confirmPassword.isEmpty) {
       Fluttertoast.showToast(msg: "Please Fill All Fields");
       return;
+    }
+
+    if (!_isValidEmail()) {
+      Fluttertoast.showToast(msg: "Please enter a valid email");
     }
 
     if (password != confirmPassword) {
@@ -169,7 +177,8 @@ class _AuthSignUpPageState extends State<AuthSignUpPage> {
 
     UserModel user = new UserModel(1, name, email, phone, password);
     userList.add(user);
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>AuthLoginPage()));
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => AuthLoginPage()));
   }
 
   Text _getSignUpText() => Text(
@@ -182,31 +191,35 @@ class _AuthSignUpPageState extends State<AuthSignUpPage> {
 
   /// Boshqa sahifaga o`tish uchun TextButton
   Container _goToOtherPage(String pageName, Widget page) => Container(
-    alignment: Alignment.centerRight,
-    child: TextButton(
-      onPressed: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => page));
-      },
-      child: Text(
-        pageName,
-        style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
-      ),
-    ),
-  );
+        alignment: Alignment.centerRight,
+        child: TextButton(
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => page));
+          },
+          child: Text(
+            pageName,
+            style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+          ),
+        ),
+      );
 
   Row _setSignUpButton() => Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Text(
-        "Already have an account?",
-        style: TextStyle(fontWeight: FontWeight.bold),
-      ),
-      _goToOtherPage("Login", AuthLoginPage())
-    ],
-  );
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "Already have an account?",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          _goToOtherPage("Login", AuthLoginPage())
+        ],
+      );
 
   SizedBox _setVerticalSize(double size) => SizedBox(
         height: size,
       );
+
+  bool _isValidEmail() => RegExp(
+          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+      .hasMatch(_emailController.text);
 }

@@ -12,20 +12,52 @@ import 'package:flutter_ui/pages/hotel/main.dart';
 import 'package:flutter_ui/pages/hotel/room_info.dart';
 import 'package:flutter_ui/pages/instagram/ui/splash_screen.dart';
 import 'package:flutter_ui/pages/courses/main.dart';
+import 'package:flutter_ui/pages/order_food/splash_screen_page.dart';
 import 'package:flutter_ui/pages/planets/splash_screen.dart';
 import 'package:flutter_ui/pages/sport/main.dart';
 import 'package:flutter_ui/pages/super_mario/main.dart';
 
 List<PageUI> pageList = [
-  new PageUI("Book Store", "Book store UI", "", "", Icon(CupertinoIcons.book),
-      BookStoreMainPage()),
-  new PageUI("Sport", "Sport list", "", "", Icon(CupertinoIcons.sportscourt),
-      SportMenPage()),
-  new PageUI("Instagram", "Instagram UI", "", "",
-      Icon(CupertinoIcons.photo_camera), InstagramSplashScreen()),
-  new PageUI("Courses", "UI", "", "", Icon(Icons.list), CoursesMainPage()),
-  new PageUI("Foods", "25-08-2021", "", "25-08-2021",
-      Icon(Icons.emoji_food_beverage), FoodListMainPage()),
+  new PageUI(
+    "Book Store",
+    "Book store UI",
+    "",
+    "",
+    Icon(CupertinoIcons.book),
+    BookStoreMainPage(),
+  ),
+  new PageUI(
+    "Sport",
+    "Sport list",
+    "",
+    "",
+    Icon(CupertinoIcons.sportscourt),
+    SportMenPage(),
+  ),
+  new PageUI(
+    "Instagram",
+    "Instagram UI",
+    "",
+    "",
+    Icon(CupertinoIcons.photo_camera),
+    InstagramSplashScreen(),
+  ),
+  new PageUI(
+    "Courses",
+    "UI",
+    "",
+    "",
+    Icon(Icons.list),
+    CoursesMainPage(),
+  ),
+  new PageUI(
+    "Foods",
+    "25-08-2021",
+    "",
+    "25-08-2021",
+    Icon(Icons.emoji_food_beverage),
+    FoodListMainPage(),
+  ),
   new PageUI(
       "Coffee Bar",
       "26-08-2021",
@@ -79,5 +111,13 @@ List<PageUI> pageList = [
     "09-09-2021",
     Icon(Icons.login),
     AnotherLoginPageSplashScreenPage(),
-  )
+  ),
+  new PageUI(
+    "Order Food",
+    "_subtitle",
+    "_description",
+    "13-09-2021",
+    Icon(Icons.fastfood_outlined),
+    OrderFoodSplashScreenPage(),
+  ),
 ];
