@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/pages/order_food/main.dart';
 
 class OrderFoodSplashScreenPage extends StatelessWidget {
+  BuildContext _context;
   @override
   Widget build(BuildContext context) {
+    _context = context;
     return Scaffold(
       backgroundColor: Colors.white,
       body: _getBody(),
@@ -47,15 +50,21 @@ class OrderFoodSplashScreenPage extends StatelessWidget {
         ),
       );
 
-  _getSkipButton() => Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text("Skip"),
-          CircleAvatar(
-            radius: 36.0,
-            child: Icon(Icons.arrow_forward_ios_outlined),
-            backgroundColor: Colors.deepOrange,
-          ),
-        ],
+  _getSkipButton() => GestureDetector(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("Skip"),
+            CircleAvatar(
+              radius: 36.0,
+              child: Icon(Icons.arrow_forward_ios_outlined),
+              backgroundColor: Colors.deepOrange,
+            ),
+          ],
+        ),
+        onTap: () {
+          Navigator.pushReplacement(_context,
+              MaterialPageRoute(builder: (context) => OrderFoodMainPage()));
+        },
       );
 }
