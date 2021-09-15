@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/pages/order_food/game.dart';
 import 'package:flutter_ui/pages/order_food/main.dart';
 
 class OrderFoodSplashScreenPage extends StatelessWidget {
@@ -64,7 +65,7 @@ class OrderFoodSplashScreenPage extends StatelessWidget {
         ),
         onTap: () {
           Navigator.pushReplacement(_context,
-              MaterialPageRoute(builder: (context) => OrderFoodMainPage()));
+              MaterialPageRoute(builder: (context) => GamePage()));
         },
       );
 }
