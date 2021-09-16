@@ -65,7 +65,7 @@ class OrderFoodSplashScreenPage extends StatelessWidget {
         ),
         onTap: () {
           Navigator.pushReplacement(_context,
-              MaterialPageRoute(builder: (context) => GamePage()));
+              MaterialPageRoute(builder: (context) => OrderFoodMainPage()));
         },
       );
 }

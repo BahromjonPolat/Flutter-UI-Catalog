@@ -5,17 +5,16 @@ import 'package:flutter_ui/pages/another_login_page/splash_screen_page.dart';
 import 'package:flutter_ui/pages/authorization/splash_screen_page.dart';
 import 'package:flutter_ui/pages/book_store/screen/main.dart';
 import 'package:flutter_ui/pages/coffee_bar/main.dart';
-import 'package:flutter_ui/pages/coffee_shop/main.dart';
 import 'package:flutter_ui/pages/coffee_shop/splash_screen.dart';
 import 'package:flutter_ui/pages/food_menu/main.dart';
 import 'package:flutter_ui/pages/hotel/main.dart';
-import 'package:flutter_ui/pages/hotel/room_info.dart';
 import 'package:flutter_ui/pages/instagram/ui/splash_screen.dart';
 import 'package:flutter_ui/pages/courses/main.dart';
 import 'package:flutter_ui/pages/order_food/splash_screen_page.dart';
 import 'package:flutter_ui/pages/planets/splash_screen.dart';
 import 'package:flutter_ui/pages/sport/main.dart';
 import 'package:flutter_ui/pages/super_mario/main.dart';
+import 'package:flutter_ui/pages/water_shop/register_page.dart';
 
 List<PageUI> pageList = [
   new PageUI(
@@ -120,4 +119,12 @@ List<PageUI> pageList = [
     Icon(Icons.fastfood_outlined),
     OrderFoodSplashScreenPage(),
   ),
+  new PageUI(
+    "Water Shop",
+    "Sub",
+    "Desc",
+    "15-09-2021",
+    Icon(Icons.water),
+    WaterShopRegisterPage(),
+  )
 ];

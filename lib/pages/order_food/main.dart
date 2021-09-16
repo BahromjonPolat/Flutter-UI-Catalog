@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/pages/order_food/filter_page.dart';
 
 class OrderFoodMainPage extends StatefulWidget {
   @override
@@ -92,41 +93,46 @@ class _OrderFoodMainPageState extends State<OrderFoodMainPage> {
         ),
       );
 
-  _saleTable() => Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0),
-        ),
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-          height: _size.height * 0.15,
-          child: Row(
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "30%",
-                    style: TextStyle(
-                        fontSize: 32.0,
-                        color: Colors.deepOrange,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "Discount for All Foods",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "Valid until November 16",
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                ],
-              ),
-              Expanded(
-                  child: Image.asset("assets/images/order_food/food_main.png")),
-            ],
+  _saleTable() => GestureDetector(
+    child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+            height: _size.height * 0.15,
+            child: Row(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "30%",
+                      style: TextStyle(
+                          fontSize: 32.0,
+                          color: Colors.deepOrange,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "Discount for All Foods",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "Valid until November 16",
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                  ],
+                ),
+                Expanded(
+                    child: Image.asset("assets/images/order_food/food_main.png")),
+              ],
+            ),
           ),
         ),
-      );
+    onTap: (){
+      Navigator.push(context, MaterialPageRoute(builder: (_)=> OrderFoodFilterPage()));
+    },
+  );
 
   gridView() => SliverPadding(
         padding: EdgeInsets.only(left: 16, right: 16, bottom: 16),
