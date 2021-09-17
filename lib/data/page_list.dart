@@ -13,6 +13,7 @@ import 'package:flutter_ui/pages/courses/main.dart';
 import 'package:flutter_ui/pages/order_food/splash_screen_page.dart';
 import 'package:flutter_ui/pages/planets/splash_screen.dart';
 import 'package:flutter_ui/pages/sport/main.dart';
+import 'package:flutter_ui/pages/students_mark/main.dart';
 import 'package:flutter_ui/pages/super_mario/main.dart';
 import 'package:flutter_ui/pages/water_shop/register_page.dart';
 
@@ -126,5 +127,13 @@ List<PageUI> pageList = [
     "15-09-2021",
     Icon(Icons.water),
     WaterShopRegisterPage(),
-  )
+  ),
+  new PageUI(
+    "Marks",
+    "_subtitle",
+    "_description",
+    "17-09-2021",
+    Icon(Icons.play_lesson_outlined),
+    MarkListPage(),
+  ),
 ];

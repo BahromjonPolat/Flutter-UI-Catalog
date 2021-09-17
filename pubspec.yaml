@@ -52,6 +52,9 @@ dependencies:
   #Dialog
   awesome_dialog: ^2.1.1
 
+  #UUID
+  uuid: ^3.0.4
+
 # Developer dependencies
 dev_dependencies:
   flutter_test:
