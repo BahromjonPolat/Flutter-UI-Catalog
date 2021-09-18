@@ -12,6 +12,7 @@ class CoffeeBarMainPage extends StatefulWidget {
 
 class _CoffeeBarMainPageState extends State<CoffeeBarMainPage> {
   Size _size;
+  int _categoryIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +27,21 @@ class _CoffeeBarMainPageState extends State<CoffeeBarMainPage> {
 
   /// Body
   _bodyWithCustomScrollView() => CustomScrollView(
-        slivers: [_sliverAppBar(), _grid(), _getCoffeeListVertical()],
+        slivers: [
+          _sliverAppBar(),
+          _grid(),
+          _getCoffeeListVertical(),
+        ],
       );
 
   /// Sliver App Bar
   SliverAppBar _sliverAppBar() => SliverAppBar(
         backgroundColor: Colors.black54,
+        leading: _showDrawer(),
         iconTheme: IconThemeData(color: Colors.white),
         bottom: PreferredSize(
-          preferredSize: Size(_size.width * 1.0, _size.height * 0.3),
-          child: Container(
+          preferredSize: Size(_size.width * 1.0, _size.height * 0.33),
+          child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,22 +53,9 @@ class _CoffeeBarMainPageState extends State<CoffeeBarMainPage> {
                       fontSize: 32,
                       fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
-                  height: 60.0,
-                ),
-                Container(
-                    alignment: Alignment.centerLeft,
-                    padding: EdgeInsets.symmetric(horizontal: 16.0),
-                    width: _size.width * 1.0,
-                    height: _size.height * 0.06,
-                    decoration: BoxDecoration(
-                      color: Colors.white24,
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    child: Text(
-                      "🔍 Find Your Coffee...",
-                      style: TextStyle(color: Colors.white),
-                    )),
+                SizedBox(height: 32.0),
+                _searchItemField(),
+                SizedBox(height: 32.0),
                 _getCoffeeCategory(),
               ],
             ),
@@ -72,6 +65,7 @@ class _CoffeeBarMainPageState extends State<CoffeeBarMainPage> {
           Container(
             width: 56.0,
             height: 56.0,
+            alignment: Alignment.center,
             margin: EdgeInsets.symmetric(horizontal: 16.0),
             decoration: BoxDecoration(
                 color: Colors.white,
@@ -82,6 +76,31 @@ class _CoffeeBarMainPageState extends State<CoffeeBarMainPage> {
                 borderRadius: BorderRadius.circular(12.0)),
           )
         ],
+      );
+
+  TextField _searchItemField() => TextField(
+        keyboardType: TextInputType.text,
+        textInputAction: TextInputAction.search,
+        style: TextStyle(color: Colors.white60),
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.zero,
+          filled: true,
+          focusColor: Colors.transparent,
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(style: BorderStyle.none),
+              borderRadius: BorderRadius.circular(16.0)),
+          fillColor: Colors.white24,
+          prefixIcon: Icon(
+            CupertinoIcons.search,
+            color: Colors.white60,
+          ),
+          hintText: "Find Your Coffee",
+          hintStyle: TextStyle(color: Colors.white60),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16.0),
+            borderSide: BorderSide(style: BorderStyle.none),
+          ),
+        ),
       );
 
   /// Sliver Grid
@@ -112,10 +131,11 @@ class _CoffeeBarMainPageState extends State<CoffeeBarMainPage> {
 
   /// Coffee`ning ma'lumotlarini ko`rsatadi list Uchun
   GestureDetector _getCoffeeInfo(Coffee coffee) => GestureDetector(
-    onTap: () {
-      Navigator.push(context, MaterialPageRoute(builder: (context)=> CoffeeInfoPage(coffee)));
-    },
-    child: Container(
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => CoffeeInfoPage(coffee)));
+        },
+        child: Container(
           margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 32.0),
           padding: EdgeInsets.all(12.0),
           decoration: BoxDecoration(
@@ -201,7 +221,7 @@ class _CoffeeBarMainPageState extends State<CoffeeBarMainPage> {
             ],
           ),
         ),
-  );
+      );
 
   List<String> _categoryList = [
     "Cappuccino",
@@ -211,23 +231,40 @@ class _CoffeeBarMainPageState extends State<CoffeeBarMainPage> {
   ];
 
   /// Coffee`ning kategoriyalarini ko`rsatadi
-  Container _getCoffeeCategory() => Container(
-        height: _size.height * 0.05,
+  SizedBox _getCoffeeCategory() => SizedBox(
+        height: _size.height * 0.07,
         width: _size.width * 1.0,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: _categoryList.length,
             itemBuilder: (context, index) {
-              String cat = _categoryList[index];
-              return Container(
-                margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                child: Text(
-                  cat,
-                  style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                      color: (index == 0) ? Colors.orange : Colors.white),
+              String category = _categoryList[index];
+              return TextButton(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      category,
+                      style: TextStyle(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                          color: (index == _categoryIndex)
+                              ? Colors.orange
+                              : Colors.white),
+                    ),
+                    (_categoryIndex == index)
+                        ? Icon(
+                            Icons.circle,
+                            color: Colors.orange,
+                            size: 12.0,
+                          )
+                        : SizedBox(),
+                  ],
                 ),
+                onPressed: () {
+                  _categoryIndex = index;
+                  setState(() {});
+                },
               );
             }),
       );
@@ -248,6 +285,19 @@ class _CoffeeBarMainPageState extends State<CoffeeBarMainPage> {
           borderRadius: BorderRadius.circular(24.0),
         ),
         child: _getCoffeeInfoVerticalChild(coffee),
+      );
+
+  Container _showDrawer() => Container(
+        height: 64.0,
+        width: 64.0,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16.0),
+          color: Colors.white24,
+        ),
+        child: IconButton(
+          onPressed: () => Scaffold.of(context).openDrawer(),
+          icon: Icon(Icons.grid_view_sharp),
+        ),
       );
 
   Row _getCoffeeInfoVerticalChild(Coffee coffee) => Row(
@@ -278,11 +328,11 @@ class _CoffeeBarMainPageState extends State<CoffeeBarMainPage> {
 
   /// Theme for bottom navigation bar
   Theme _getBottomNavBarTheme() => new Theme(
-    child: bottomNavigationBarCoffee,
-    data: Theme.of(context).copyWith(
-      canvasColor: Colors.black26,
-    ),
-  );
+        child: bottomNavigationBarCoffee,
+        data: Theme.of(context).copyWith(
+          canvasColor: Colors.black26,
+        ),
+      );
 
   /// Flexible Space Bar. Bu funksiyadan foydalanlimaydi.
   FlexibleSpaceBar _showFlexibleSpaceBar() => FlexibleSpaceBar(

@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/pages/coffee_bar/coffee_list.dart';
 import 'package:flutter_ui/pages/coffee_bar/coffee_model.dart';
-import 'package:flutter_ui/pages/instagram/ui/bottom_nav_bar.dart';
 import 'package:glassmorphism_ui/glassmorphism_ui.dart';
 
 class CoffeeInfoPage extends StatefulWidget {

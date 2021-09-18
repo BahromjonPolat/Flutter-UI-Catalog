@@ -17,6 +17,7 @@ BottomNavigationBar _bottomNavigationBar() => BottomNavigationBar(
       selectedItemColor: Colors.orange,
       unselectedItemColor: Colors.grey,
       showSelectedLabels: false,
+      onTap: (index) {},
     );
 
 BottomNavigationBar get bottomNavigationBarCoffee => _bottomNavigationBar();
