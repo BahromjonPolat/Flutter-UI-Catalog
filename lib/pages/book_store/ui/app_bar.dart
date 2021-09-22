@@ -3,8 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 AppBar _appBar() =>  AppBar(
-  backwardsCompatibility: false,
-  systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.white),
+  systemOverlayStyle: SystemUiOverlayStyle(statusBarColor: Colors.white, statusBarIconBrightness: Brightness.dark),
   iconTheme: IconThemeData(color: Colors.black87),
   backgroundColor: Colors.white,
   elevation: 0.0,

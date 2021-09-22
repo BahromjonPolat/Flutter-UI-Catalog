@@ -3,8 +3,6 @@ import 'package:flutter_ui/pages/friendship/data/data.dart';
 import 'package:flutter_ui/pages/friendship/models/user_model.dart';
 import 'package:flutter_ui/pages/friendship/screens/home/home_page.dart';
 
-import '../main.dart';
-
 /// REGISTER PAGE
 class RegisterPage extends StatefulWidget {
   RegisterPage({Key key}) : super(key: key);
@@ -60,10 +58,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       decoration: _setInputDecoration(
                           hintText: "Name", icon: Icons.person),
                       validator: (value) {
-                        if (value.isEmpty)
+                        if (value.isEmpty) {
                           return "Maydon bo'sh bo'lishi mumkin emas!";
-                        if (value.length < 3)
+                        }
+                        if (value.length < 3) {
                           return "3 tadan kam belgi bo'lishi mumkin emas!";
+                        }
                       },
                     ),
                     TextFormField(
@@ -74,10 +74,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       decoration: _setInputDecoration(
                           hintText: "Email", icon: Icons.email),
                       validator: (value) {
-                        if (value.isEmpty)
+                        if (value.isEmpty) {
                           return "Maydon bo'sh bo'lishi mumkin emas!";
-                        if (value.length < 3)
+                        }
+                        if (value.length < 3) {
                           return "3 tadan kam belgi bo'lishi mumkin emas!";
+                        }
                       },
                     ),
                     TextFormField(

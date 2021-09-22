@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui/pages/friendship/screens/auth_page.dart';
 
 /// Splash Screen class
-class SplashScreenPage extends StatelessWidget {
+class FriendshipSplashScreenPage extends StatelessWidget {
   Size _size;
 
   @override
