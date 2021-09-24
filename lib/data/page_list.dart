@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui/model/page.dart';
 import 'package:flutter_ui/pages/another_login_page/splash_screen_page.dart';
 import 'package:flutter_ui/pages/authorization/splash_screen_page.dart';
+import 'package:flutter_ui/pages/barber_shop/splash_screen.dart';
 import 'package:flutter_ui/pages/book_store/screen/main.dart';
+import 'package:flutter_ui/pages/booking_hotel/splash_screen.dart';
 import 'package:flutter_ui/pages/car_bazar/main.dart';
 import 'package:flutter_ui/pages/coffee_bar/main.dart';
 import 'package:flutter_ui/pages/coffee_shop/splash_screen.dart';
@@ -162,5 +164,21 @@ List<PageUI> pageList = [
     "22-09-2021",
     Icon(Icons.add_circle_outline_rounded),
     PlusMessengerMainPage(),
+  ),
+  new PageUI(
+    "Barber Shop",
+    " Awesome barber shop",
+    "",
+    "23-09-2021",
+    Icon(Icons.beach_access_rounded),
+    BarberShopSplashScreen(),
+  ),
+  new PageUI(
+    "Booking Hotel",
+    "Hotel",
+    "",
+    "24-09-2021",
+    Icon(Icons.local_hotel_outlined),
+    BookingHotelSplashScreen(),
   ),
 ];

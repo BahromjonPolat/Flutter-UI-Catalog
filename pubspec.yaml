@@ -58,6 +58,10 @@ dependencies:
   # Smooth Indicator
   smooth_page_indicator: ^1.0.0+2
 
+  #SVG
+  flutter_svg: ^0.22.0
+
+
 # Developer dependencies
 dev_dependencies:
   flutter_test:
@@ -72,6 +76,7 @@ flutter:
     - assets/images/sport/
     - assets/images/mario/
     - assets/images/order_food/
+    - assets/images/barber/
 
 
   fonts:
@@ -86,3 +91,7 @@ flutter:
     - family: lobster
       fonts:
         - asset: assets/fonts/lobster-regular.ttf
+
+    - family: dancing_script
+      fonts:
+        - asset: assets/fonts/dancing-script.ttf
