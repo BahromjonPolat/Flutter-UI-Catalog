@@ -5,7 +5,7 @@ import 'package:flutter_ui/pages/another_login_page/splash_screen_page.dart';
 import 'package:flutter_ui/pages/authorization/splash_screen_page.dart';
 import 'package:flutter_ui/pages/barber_shop/splash_screen.dart';
 import 'package:flutter_ui/pages/book_store/screen/main.dart';
-import 'package:flutter_ui/pages/booking_hotel/splash_screen.dart';
+import 'package:flutter_ui/pages/booking_hotel/screens/splash_screen.dart';
 import 'package:flutter_ui/pages/car_bazar/main.dart';
 import 'package:flutter_ui/pages/coffee_bar/main.dart';
 import 'package:flutter_ui/pages/coffee_shop/splash_screen.dart';

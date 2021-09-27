@@ -1,6 +1,6 @@
 
-import 'package:flutter_ui/pages/booking_hotel/hotel_model.dart';
-import 'package:flutter_ui/pages/booking_hotel/image_addresses.dart';
+import 'package:flutter_ui/pages/booking_hotel/models/hotel_model.dart';
+import 'package:flutter_ui/pages/booking_hotel/data/image_addresses.dart';
 
 List<HotelModel>listNewHotel = [
   HotelModel("Santorini Hotel", hotel0, 700.0, 4.2),

@@ -2,11 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:flutter_ui/pages/booking_hotel/city_list.dart';
-import 'package:flutter_ui/pages/booking_hotel/city_model.dart';
-import 'package:flutter_ui/pages/booking_hotel/filter_page.dart';
-import 'package:flutter_ui/pages/booking_hotel/hotel_list.dart';
-import 'package:flutter_ui/pages/booking_hotel/hotel_model.dart';
+import 'package:flutter_ui/pages/booking_hotel/data/city_list.dart';
+import 'package:flutter_ui/pages/booking_hotel/models/city_model.dart';
+import 'package:flutter_ui/pages/booking_hotel/screens/check_room_page.dart';
+import 'package:flutter_ui/pages/booking_hotel/screens/filter_page.dart';
+import 'package:flutter_ui/pages/booking_hotel/data/hotel_list.dart';
+import 'package:flutter_ui/pages/booking_hotel/models/hotel_model.dart';
 
 class BookingHotelMainPage extends StatefulWidget {
   @override
@@ -28,7 +29,7 @@ class _BookingHotelMainPageState extends State<BookingHotelMainPage> {
     return Scaffold(
       appBar: _getAppBar(),
       bottomNavigationBar: _getBottomNavigationBar(),
-      body: _getHomePage(),
+      body: (_currentIndex % 2 == 0) ? _getHomePage() : checkRoomPage(context),
     );
   }
 
@@ -38,34 +39,37 @@ class _BookingHotelMainPageState extends State<BookingHotelMainPage> {
         systemOverlayStyle: SystemUiOverlayStyle.dark,
         backgroundColor: _white,
         elevation: 12.0,
-        leadingWidth: _size.width * 0.3,
-        leading: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Your Location",
-              style: TextStyle(color: _grey),
-            ),
-            Text(
-              "Your Location",
-              style: TextStyle(color: _black, fontSize: 18.0),
-            )
-          ],
+        leadingWidth: _size.width * 0.33,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Your Location",
+                style: TextStyle(color: _grey),
+              ),
+              Text(
+                "Your Location",
+                style: TextStyle(
+                    color: _black, fontSize: 18.0, fontWeight: FontWeight.bold),
+              )
+            ],
+          ),
         ),
         actions: [
           IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (_) => BookingHotelFilterPage()));
-              },
-              icon: Icon(Icons.insights))
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => BookingHotelFilterPage()));
+            },
+            icon: Image.asset("assets/images/icons/filter.png"),
+          )
         ],
       );
 
   /// HOMEPAGE - BARCHA VIDJETLAR SHU YERGA JOYLANADI
-  _getHomePage() => Column(
+  Column _getHomePage() => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -178,14 +182,16 @@ class _BookingHotelMainPageState extends State<BookingHotelMainPage> {
       );
 
   Container _setPrice(double price) => Container(
-    padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(32.0),
-              bottomLeft: Radius.circular(32.0)),
-          color: _deepOrange
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(32.0),
+                bottomLeft: Radius.circular(32.0)),
+            color: _deepOrange),
+        child: Text(
+          "\$$price\nPer Night",
+          style: TextStyle(color: _white),
         ),
-    child: Text("\$$price\nPer Night", style: TextStyle(color: _white),),
       );
 
   /// Mehmonxonaning nomi va reytingini ko`rsatish uchun funksiya.
@@ -212,15 +218,16 @@ class _BookingHotelMainPageState extends State<BookingHotelMainPage> {
                   itemBuilder: (context, index) {
                     return Icon(
                       Icons.star,
-                      color: Colors.amber,
+                      color: _amber,
                     );
                   },
                   onRatingUpdate: (rating) {}),
-              Text("(${hotel.rating})", style: TextStyle(color: _white),)
+              Text(
+                "(${hotel.rating})",
+                style: TextStyle(color: _white),
+              )
             ],
           ),
-
-
         ],
       );
 
@@ -239,6 +246,11 @@ class _BookingHotelMainPageState extends State<BookingHotelMainPage> {
         unselectedItemColor: _grey,
         type: BottomNavigationBarType.fixed,
         items: _bottomNavigationBatItems,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       );
 
   /// BOTTOM NAVIGATION BAR ITEMS

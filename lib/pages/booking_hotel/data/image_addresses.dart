@@ -1,5 +1,5 @@
 
-String location = "https://cdn.pixabay.com/photo/2015/12/14/20/30/location-1093169_960_720.png";
+String location = "https://cdn.pixabay.com/photo/2018/05/30/20/55/marker-3442532_960_720.png";
 String switzerlandLake ="https://images.unsplash.com/photo-1462651567147-aa679fd1cfaf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80";
 String switzerland = "https://images.unsplash.com/photo-1516490701444-1daf45984537?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=627&q=80";
 String paris = "https://images.unsplash.com/photo-1471623432079-b009d30b6729?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80";

@@ -1,6 +1,6 @@
 
-import 'package:flutter_ui/pages/booking_hotel/city_model.dart';
-import 'package:flutter_ui/pages/booking_hotel/image_addresses.dart';
+import 'package:flutter_ui/pages/booking_hotel/models/city_model.dart';
+import 'package:flutter_ui/pages/booking_hotel/data/image_addresses.dart';
 
 List<City> cityList = [
   City(location, "Near by"),
