@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/pages/instagram/ui/bottom_nav_bar.dart';
-import 'package:flutter_ui/pages/instagram/data/page_list.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class InstagramMainPage extends StatefulWidget {
@@ -12,6 +11,8 @@ class InstagramMainPage extends StatefulWidget {
 }
 
 class _InstagramMainPageState extends State<InstagramMainPage> {
+  var _homePageBucket = PageStorageBucket();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +52,7 @@ class _InstagramMainPageState extends State<InstagramMainPage> {
     });
   }
 
-  Widget _getCurrentPage() => pageList[_currentIndex];
+  Widget _getCurrentPage() => _pageList[_currentIndex];
 
   _getBottomNavBar() => BottomNavigationBar(
         currentIndex: _currentIndex,
@@ -61,4 +62,18 @@ class _InstagramMainPageState extends State<InstagramMainPage> {
         type: BottomNavigationBarType.fixed,
         onTap: _onTapBottomNavItem,
       );
+
+  List _pageList = [
+    // _homePage(),
+  ];
+  PageStorage _homePage() => PageStorage(
+    bucket: _homePageBucket,
+    child: ListView.builder(
+      itemCount: 24,
+        itemBuilder: (context, index) => Container(
+          height: 120.0,
+          margin: EdgeInsets.symmetric(vertical: 3.0),
+              child: Text("$index"),
+            )),
+  );
 }

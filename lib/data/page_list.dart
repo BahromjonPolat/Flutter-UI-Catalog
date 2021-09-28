@@ -14,6 +14,7 @@ import 'package:flutter_ui/pages/friendship/screens/splash_screen.dart';
 import 'package:flutter_ui/pages/hotel/main.dart';
 import 'package:flutter_ui/pages/instagram/ui/splash_screen.dart';
 import 'package:flutter_ui/pages/courses/main.dart';
+import 'package:flutter_ui/pages/messaging_app/screens/main.dart';
 import 'package:flutter_ui/pages/order_food/splash_screen_page.dart';
 import 'package:flutter_ui/pages/planets/splash_screen.dart';
 import 'package:flutter_ui/pages/plus_messenger/main.dart';
@@ -180,5 +181,13 @@ List<PageUI> pageList = [
     "24-09-2021",
     Icon(Icons.local_hotel_outlined),
     BookingHotelSplashScreen(),
+  ),
+  new PageUI(
+    "Messaging App",
+    "Chat App",
+    "",
+    "27-09-2021",
+    Icon(CupertinoIcons.chat_bubble),
+    MessagingAppMainPage(),
   ),
 ];
