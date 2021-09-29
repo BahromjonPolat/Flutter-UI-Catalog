@@ -67,6 +67,7 @@ class _MessagingAppSettingsPageState extends State<MessagingAppSettingsPage> {
             padding: EdgeInsets.symmetric(horizontal: 24.0),
             child: CircleAvatar(
               radius: 36.0,
+              backgroundImage: NetworkImage("https://source.unsplash.com/random/"),
             ),
           ),
           Column(

@@ -9,6 +9,7 @@ import 'package:flutter_ui/pages/booking_hotel/screens/splash_screen.dart';
 import 'package:flutter_ui/pages/car_bazar/main.dart';
 import 'package:flutter_ui/pages/coffee_bar/main.dart';
 import 'package:flutter_ui/pages/coffee_shop/splash_screen.dart';
+import 'package:flutter_ui/pages/counter_app/main.dart';
 import 'package:flutter_ui/pages/food_menu/main.dart';
 import 'package:flutter_ui/pages/friendship/screens/splash_screen.dart';
 import 'package:flutter_ui/pages/hotel/main.dart';
@@ -190,4 +191,12 @@ List<PageUI> pageList = [
     Icon(CupertinoIcons.chat_bubble),
     MessagingAppMainPage(),
   ),
+  new PageUI(
+    "Counter App",
+    "",
+    "",
+    "28-09-2021",
+    Icon(Icons.countertops_outlined),
+    CounterAppMainPage(),
+  )
 ];

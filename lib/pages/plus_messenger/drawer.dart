@@ -1,29 +1,28 @@
 import 'package:flutter/material.dart';
 
 Drawer _telegramDrawer() => Drawer(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            /// Telegram Drawer user haqida ma'lumotni ko`rsatadigan tepa qismi
-            _drawerHeader(),
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          /// Telegram Drawer user haqida ma'lumotni ko`rsatadigan tepa qismi
+          _drawerHeader(),
 
-            /// Menular qismi
-            _setCategory("New Group", Icons.group_outlined),
-            _setCategory("New Secret Chat", Icons.lock_outline),
-            _setCategory("New Channel", Icons.campaign_outlined),
-            _setDivider(),
-            _setCategory("Contacts", Icons.person_outline_outlined),
-            _setCategory("Folders", Icons.folder_outlined),
-            _setCategory("People Neraby", Icons.location_on_outlined),
-            _setCategory("Saved Messages", Icons.bookmark_border),
-            _setCategory("Calls Messages", Icons.local_phone_outlined),
-            _setCategory("Settings", Icons.settings_suggest_outlined),
-            _setDivider(),
-            _setCategory("Plus Settings", Icons.add_circle_outline_rounded),
-            _setCategory("Categories", Icons.folder_open_outlined),
-            _setCategory("Invite friends", Icons.person_add_alt),
-          ],
-        ),
+          /// Menular qismi
+          _setCategory("New Group", Icons.group_outlined),
+          _setCategory("New Secret Chat", Icons.lock_outline),
+          _setCategory("New Channel", Icons.campaign_outlined),
+          _setDivider(),
+          _setCategory("Contacts", Icons.person_outline_outlined),
+          _setCategory("Folders", Icons.folder_outlined),
+          _setCategory("People Neraby", Icons.location_on_outlined),
+          _setCategory("Saved Messages", Icons.bookmark_border),
+          _setCategory("Calls Messages", Icons.local_phone_outlined),
+          _setCategory("Settings", Icons.settings_suggest_outlined),
+          _setDivider(),
+          _setCategory("Plus Settings", Icons.add_circle_outline_rounded),
+          _setCategory("Categories", Icons.folder_open_outlined),
+          _setCategory("Invite friends", Icons.person_add_alt),
+        ],
       ),
     );
 
@@ -33,7 +32,7 @@ Divider _setDivider() => Divider();
 
 UserAccountsDrawerHeader _drawerHeader() => UserAccountsDrawerHeader(
       accountName: Text("Bahromjon"),
-      accountEmail: Text("+998931881333"),
+      accountEmail: Text("bahromjon.ergashboyev@gmail.com"),
       currentAccountPicture: CircleAvatar(
         backgroundImage: AssetImage("assets/images/logo.jpg"),
       ),

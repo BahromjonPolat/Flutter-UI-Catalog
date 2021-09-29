@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_ui/pages/messaging_app/screens/home_page.dart';
 import 'package:flutter_ui/pages/messaging_app/screens/settings_page.dart';
 
@@ -15,22 +16,27 @@ class _MessagingAppMainPageState extends State<MessagingAppMainPage> {
   Color _white = Colors.white;
   Color _black = Colors.black;
   int _currentIndex = 0;
+  var _bucket = PageStorageBucket();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _setAppBar(),
       bottomNavigationBar: _getBottomNavigationBar(),
-      body: MessagingAppHomePage(),
-      floatingActionButton: _getFloatingActionButton(),
+      body: _pageList[_currentIndex],
+      floatingActionButton: _currentIndex % 2 == 0 ? _getFloatingActionButton() : null,
     );
   }
 
   AppBar _setAppBar() => AppBar(
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: _transparent,
+          statusBarIconBrightness: Brightness.dark,
+        ),
         automaticallyImplyLeading: false,
         backgroundColor: _transparent,
         elevation: 0.0,
-        title: _setTitle("Recent Chats"),
+        title: _setTitle(_titleList[_currentIndex]),
         actions: [
           IconButton(
             onPressed: () {},
@@ -47,6 +53,11 @@ class _MessagingAppMainPageState extends State<MessagingAppMainPage> {
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
         showUnselectedLabels: false,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       );
   List<BottomNavigationBarItem> _bottomNavBarItems = [
     const BottomNavigationBarItem(
@@ -68,7 +79,7 @@ class _MessagingAppMainPageState extends State<MessagingAppMainPage> {
   ];
 
   FloatingActionButton _getFloatingActionButton() => FloatingActionButton(
-    backgroundColor: _blue,
+        backgroundColor: _blue,
         onPressed: () {},
         child: Icon(CupertinoIcons.chat_bubble_text_fill),
       );
@@ -79,4 +90,18 @@ class _MessagingAppMainPageState extends State<MessagingAppMainPage> {
           color: _black,
         ),
       );
+
+  List<Widget> _pageList = [
+    MessagingAppHomePage(),
+    MessagingAppSettingsPage(),
+    MessagingAppHomePage(),
+    MessagingAppSettingsPage(),
+  ];
+
+  List<String> _titleList = [
+    "Recent Chats",
+    "History",
+    "Recent Calls",
+    "Settings"
+  ];
 }
