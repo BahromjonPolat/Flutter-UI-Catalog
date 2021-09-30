@@ -10,6 +10,7 @@ import 'package:flutter_ui/pages/car_bazar/main.dart';
 import 'package:flutter_ui/pages/coffee_bar/main.dart';
 import 'package:flutter_ui/pages/coffee_shop/splash_screen.dart';
 import 'package:flutter_ui/pages/counter_app/main.dart';
+import 'package:flutter_ui/pages/fashion/main.dart';
 import 'package:flutter_ui/pages/food_menu/main.dart';
 import 'package:flutter_ui/pages/friendship/screens/splash_screen.dart';
 import 'package:flutter_ui/pages/hotel/main.dart';
@@ -198,5 +199,14 @@ List<PageUI> pageList = [
     "28-09-2021",
     Icon(Icons.countertops_outlined),
     CounterAppMainPage(),
-  )
+  ),
+
+  new PageUI(
+    "Fashion App",
+    "Fashion",
+    "",
+    "29-09-2021",
+    Icon(CupertinoIcons.money_dollar),
+    FashionPageMain(),
+  ),
 ];
