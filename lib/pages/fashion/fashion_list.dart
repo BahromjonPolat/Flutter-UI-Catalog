@@ -8,7 +8,7 @@ List<String> _tags2 = ["#Versace", "#Chanel", "#Gucci"];
 
 List<String> _imageList1 = [manInBrownJacket, manInIndigoJacket, manInJacket];
 List<String> _imageList2 = [manInJeans, manInShirt, manWithBeard];
-List<String> _imageList3 = [manWithSunGlasses, manInUniqueHairStyle, manInWhiteTShirt];
+List<String> _imageList3 = [manWithSunGlasses, manInUniqueHairStyle, manInWhiteTShirt, manInJeans];
 
 List<Fashion> fashionList = [
   Fashion("Micheal", _description, randomImage, _tags1, _imageList1),

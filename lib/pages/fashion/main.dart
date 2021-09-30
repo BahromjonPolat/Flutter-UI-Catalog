@@ -27,6 +27,7 @@ class _FashionPageMainState extends State<FashionPageMain> {
   Widget build(BuildContext context) {
     _size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: _getAppBar(),
       body: _getCustomScrollViewBody(),
       bottomNavigationBar: _getBottomNavigationBar(),
     );
@@ -34,13 +35,12 @@ class _FashionPageMainState extends State<FashionPageMain> {
 
   /// Body
   CustomScrollView _getCustomScrollViewBody() => CustomScrollView(slivers: [
-        _getSliverAppBar(),
         _getHeader(),
         _getSliverList(),
       ]);
 
   /// SliverAppBar
-  SliverAppBar _getSliverAppBar() => SliverAppBar(
+  AppBar _getAppBar() => AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: _transparent,
         elevation: 0.0,
@@ -267,6 +267,7 @@ class _FashionPageMainState extends State<FashionPageMain> {
         showSelectedLabels: false,
         type: BottomNavigationBarType.fixed,
       );
+
   List<BottomNavigationBarItem> _bottomNavigationBarItems = [
     BottomNavigationBarItem(
       icon: Icon(CupertinoIcons.home),
