@@ -20,6 +20,7 @@ import 'package:flutter_ui/pages/messaging_app/screens/main.dart';
 import 'package:flutter_ui/pages/order_food/splash_screen_page.dart';
 import 'package:flutter_ui/pages/planets/splash_screen.dart';
 import 'package:flutter_ui/pages/plus_messenger/main.dart';
+import 'package:flutter_ui/pages/select_coffee/main.dart';
 import 'package:flutter_ui/pages/sport/main.dart';
 import 'package:flutter_ui/pages/students_mark/main.dart';
 import 'package:flutter_ui/pages/super_mario/main.dart';
@@ -200,7 +201,6 @@ List<PageUI> pageList = [
     Icon(Icons.countertops_outlined),
     CounterAppMainPage(),
   ),
-
   new PageUI(
     "Fashion App",
     "Fashion",
@@ -208,5 +208,13 @@ List<PageUI> pageList = [
     "29-09-2021",
     Icon(CupertinoIcons.money_dollar),
     FashionPageMain(),
+  ),
+  new PageUI(
+    "Select Coffee",
+    "_subtitle",
+    "_description",
+    "30-09-2021",
+    Icon(Icons.coffee_maker),
+    SelectCoffeeMainPage(),
   ),
 ];
