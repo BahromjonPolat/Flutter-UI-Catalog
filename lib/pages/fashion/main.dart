@@ -21,7 +21,7 @@ class _FashionPageMainState extends State<FashionPageMain> {
   Color _red = Colors.red;
   Color _lightOrange = Color(0xfffce3c8);
   Color _transparent = Colors.transparent;
-  Color _greyWithOpacity  = Color(0x7DB3B1B1);
+  Color _greyWithOpacity = Color(0x7DB3B1B1);
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +96,12 @@ class _FashionPageMainState extends State<FashionPageMain> {
                 backgroundImage: NetworkImage("$randomImage$index"),
               ),
               Positioned(
-                  bottom: 0.0, right: 0.0, child: CircleAvatar(radius: 10.0)),
+                  bottom: 0.0,
+                  right: 0.0,
+                  child: CircleAvatar(
+                    radius: 10.0,
+                    backgroundImage: NetworkImage("$randomImage${index + 10}"),
+                  )),
             ]),
             ElevatedButton(
               onPressed: () {},

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui/pages/fashion/fashion_model.dart';
 import 'package:flutter_ui/pages/fashion/image_list.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:dotted_border/dotted_border.dart';
 
 class FashionInfoPage extends StatefulWidget {
   Fashion fashion;
@@ -66,9 +67,9 @@ class _FashionInfoPageState extends State<FashionInfoPage> {
                   fit: BoxFit.cover, image: NetworkImage(imageUrl))),
           child: Stack(
             children: [
-              _showPriceButton(120.0, _size.width * 0.7),
+              _showDottedBorder(120.0, _size.width * 0.7),
               _showProductName(),
-              _showPriceButton(_size.height * 0.6, _size.width * 0.7),
+              _showDottedBorder(_size.height * 0.6, _size.width * 0.7),
             ],
           ),
         );
@@ -189,22 +190,19 @@ class _FashionInfoPageState extends State<FashionInfoPage> {
         ),
       );
 
-  Positioned _showPriceButton(double top, double left) => Positioned(
-        top: top,
-        left: left,
-        child: Container(
-          padding: EdgeInsets.all(6.0),
-          child: Icon(
-            Icons.arrow_back_ios_outlined,
-            color: _white,
-            size: 24.0,
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(3.0),
-            border: Border.all(color: _white, width: 0.5),
-          ),
-        ),
-      );
+
+  _showDottedBorder(double top, double left) => Positioned(
+    top: top,
+    left: left,
+    child: DottedBorder(
+        color: _white,
+        padding: EdgeInsets.all(8.0),
+        child: Icon(
+      Icons.arrow_back_ios_outlined,
+      color: _white,
+      size: 16.0,
+    )),
+  );
 
   Positioned _showProductName() => Positioned(
       left: 24.0,
@@ -212,12 +210,13 @@ class _FashionInfoPageState extends State<FashionInfoPage> {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
         decoration: BoxDecoration(
-          color: _blackWithOpacity,
-          borderRadius: BorderRadius.circular(4.0)
-        ),
+            color: _blackWithOpacity, borderRadius: BorderRadius.circular(4.0)),
         child: Row(
           children: [
-            Text("Laminated", style: TextStyle(color: _white, fontSize: 16.0), ),
+            Text(
+              "Laminated",
+              style: TextStyle(color: _white, fontSize: 16.0),
+            ),
             SizedBox(width: 12.0),
             Icon(
               Icons.arrow_forward_ios_outlined,

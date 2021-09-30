@@ -61,6 +61,10 @@ dependencies:
   #SVG
   flutter_svg: ^0.22.0
 
+  #DOTTED BORDER
+  dotted_border: ^2.0.0+1
+
+
 
 # Developer dependencies
 dev_dependencies:
