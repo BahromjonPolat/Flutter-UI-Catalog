@@ -82,6 +82,7 @@ flutter:
     - assets/images/order_food/
     - assets/images/barber/
     - assets/images/icons/
+    - assets/images/furniture/
 
 
   fonts:

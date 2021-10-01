@@ -13,6 +13,7 @@ import 'package:flutter_ui/pages/counter_app/main.dart';
 import 'package:flutter_ui/pages/fashion/main.dart';
 import 'package:flutter_ui/pages/food_menu/main.dart';
 import 'package:flutter_ui/pages/friendship/screens/splash_screen.dart';
+import 'package:flutter_ui/pages/furniture_shop/main.dart';
 import 'package:flutter_ui/pages/hotel/main.dart';
 import 'package:flutter_ui/pages/instagram/ui/splash_screen.dart';
 import 'package:flutter_ui/pages/courses/main.dart';
@@ -217,4 +218,12 @@ List<PageUI> pageList = [
     Icon(Icons.coffee_maker),
     SelectCoffeeMainPage(),
   ),
+  new PageUI(
+    "Furniture App",
+    "_subtitle",
+    "_description",
+    "01-10-2021",
+    Icon(Icons.chair),
+    FurnitureShopMainPage(),
+  )
 ];
