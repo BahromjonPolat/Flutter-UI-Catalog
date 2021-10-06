@@ -10,11 +10,11 @@ class PlusMessengerMainPage extends StatefulWidget {
   State<PlusMessengerMainPage> createState() => _PlusMessengerMainPageState();
 }
 
-class _PlusMessengerMainPageState extends State<PlusMessengerMainPage> with TickerProviderStateMixin{
+class _PlusMessengerMainPageState extends State<PlusMessengerMainPage>
+    with TickerProviderStateMixin {
   GlobalKey<ScaffoldState> _keyScaffold = GlobalKey();
   Size _size;
   TabController _tabController;
-
 
   @override
   void initState() {
@@ -30,13 +30,20 @@ class _PlusMessengerMainPageState extends State<PlusMessengerMainPage> with Tick
       appBar: _setAppBar(),
       drawer: telegramDrawer,
       body: _getMainBody(),
+      floatingActionButton: buildFloatingActionButton(),
+    );
+  }
+
+  FloatingActionButton buildFloatingActionButton() {
+    return FloatingActionButton(
+      backgroundColor: Colors.teal,
+      child: Icon(Icons.add),
+      onPressed: () {},
     );
   }
 
   Column _getMainBody() => Column(
-        children: [
-          _getTabBar(),
-        ],
+        children: [],
       );
 
   _getBody() => ListView.builder(
@@ -59,6 +66,7 @@ class _PlusMessengerMainPageState extends State<PlusMessengerMainPage> with Tick
   AppBar _setAppBar() => AppBar(
         backgroundColor: Colors.teal,
         elevation: 0.0,
+        bottom: _getTabBar(),
         title: Text("Plus Messenger"),
         actions: [
           _setIconButton(Icons.lock_open_outlined),
@@ -70,32 +78,28 @@ class _PlusMessengerMainPageState extends State<PlusMessengerMainPage> with Tick
   IconButton _setIconButton(IconData icon) =>
       IconButton(onPressed: () {}, icon: Icon(icon));
 
-  Container _getTabBar() => Container(
-    color: Colors.teal,
-    child: TabBar(
-      controller: _tabController,
-        labelColor: Colors.white,
-        indicatorColor: Colors.white,
-        indicatorWeight: 6.0,
-        tabs: [
-          _setTab(CupertinoIcons.square_grid_2x2),
-          _setTab(CupertinoIcons.person),
-          _setTab(CupertinoIcons.person_2),
-          _setTab(CupertinoIcons.person_3),
-          _setTab(CupertinoIcons.speaker_2),
-          _setTab(CupertinoIcons.circle_bottomthird_split),
-          _setTab(CupertinoIcons.star),
-          _setTab(CupertinoIcons.person_add),
-        ]),
-  );
+  TabBar _getTabBar() => TabBar(
+          controller: _tabController,
+          labelColor: Colors.white,
+          indicatorColor: Colors.white,
+          indicatorWeight: 6.0,
+          tabs: [
+            _setTab(CupertinoIcons.square_grid_2x2),
+            _setTab(CupertinoIcons.person),
+            _setTab(CupertinoIcons.person_2),
+            _setTab(CupertinoIcons.person_3),
+            _setTab(CupertinoIcons.speaker_2),
+            _setTab(CupertinoIcons.circle_bottomthird_split),
+            _setTab(CupertinoIcons.star),
+            _setTab(CupertinoIcons.person_add),
+          ]);
 
   Tab _setTab(IconData iconData) => Tab(
         icon: Icon(iconData),
       );
 
   void _setState() {
-    setState(() {
-
-    });
+    setState(() {});
   }
 }
+

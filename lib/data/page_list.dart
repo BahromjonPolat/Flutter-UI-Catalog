@@ -8,6 +8,7 @@ import 'package:flutter_ui/pages/book_store/screen/main.dart';
 import 'package:flutter_ui/pages/booking_hotel/screens/splash_screen.dart';
 import 'package:flutter_ui/pages/car_bazar/main.dart';
 import 'package:flutter_ui/pages/coffee_bar/main.dart';
+import 'package:flutter_ui/pages/coffee_delivery/on_boarding_page.dart';
 import 'package:flutter_ui/pages/coffee_shop/splash_screen.dart';
 import 'package:flutter_ui/pages/counter_app/main.dart';
 import 'package:flutter_ui/pages/fashion/main.dart';
@@ -25,7 +26,9 @@ import 'package:flutter_ui/pages/select_coffee/main.dart';
 import 'package:flutter_ui/pages/sport/main.dart';
 import 'package:flutter_ui/pages/students_mark/main.dart';
 import 'package:flutter_ui/pages/super_mario/main.dart';
+import 'package:flutter_ui/pages/tic_tac_toe/main.dart';
 import 'package:flutter_ui/pages/water_shop/register_page.dart';
+import 'package:flutter_ui/pages/yacht/main.dart';
 
 List<PageUI> pageList = [
   new PageUI(
@@ -225,5 +228,29 @@ List<PageUI> pageList = [
     "01-10-2021",
     Icon(Icons.chair),
     FurnitureShopMainPage(),
+  ),
+  new PageUI(
+    "Furniture App",
+    "_subtitle",
+    "_description",
+    "01-10-2021",
+    Icon(Icons.chair),
+    YachtMainPage(),
+  ),
+  new PageUI(
+    "Coffee Delivery",
+    "Coffee",
+    "_",
+    "04-10-2021",
+    Icon(Icons.coffee_maker),
+    OnBoardingPage(),
+  ),
+  new PageUI(
+    "Tic Tac Toe",
+    "",
+    "_description",
+    "06-10-2021",
+    Icon(Icons.clear),
+    TicTacToe(),
   )
 ];

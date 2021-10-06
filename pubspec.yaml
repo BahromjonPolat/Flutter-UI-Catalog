@@ -49,22 +49,23 @@ dependencies:
   # URL Launcher - URL`ni browser orqali ochish uchun
   url_launcher: ^6.0.10
 
-  #Dialog
+  # Dialog
   awesome_dialog: ^2.1.1
 
-  #UUID
+  # UUID
   uuid: ^3.0.4
 
   # Smooth Indicator
   smooth_page_indicator: ^1.0.0+2
 
-  #SVG
+  # SVG
   flutter_svg: ^0.22.0
 
-  #DOTTED BORDER
+  # DOTTED BORDER
   dotted_border: ^2.0.0+1
 
-
+  # SWIPER
+  card_swiper: ^1.0.4
 
 # Developer dependencies
 dev_dependencies:
@@ -83,6 +84,7 @@ flutter:
     - assets/images/barber/
     - assets/images/icons/
     - assets/images/furniture/
+    - assets/images/coffee_delivery/
 
 
   fonts:

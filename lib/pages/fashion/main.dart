@@ -27,24 +27,27 @@ class _FashionPageMainState extends State<FashionPageMain> {
   Widget build(BuildContext context) {
     _size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: _getAppBar(),
       body: _getCustomScrollViewBody(),
       bottomNavigationBar: _getBottomNavigationBar(),
     );
   }
 
   /// Body
-  CustomScrollView _getCustomScrollViewBody() => CustomScrollView(slivers: [
-        _getHeader(),
-        _getSliverList(),
-      ]);
+  CustomScrollView _getCustomScrollViewBody() => CustomScrollView(
+        slivers: [
+          _getSliverAppBar(),
+          _getHeader(),
+          _getSliverList(),
+        ],
+      );
 
   /// SliverAppBar
-  AppBar _getAppBar() => AppBar(
+  SliverAppBar _getSliverAppBar() => SliverAppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: _transparent,
-        elevation: 0.0,
+        backgroundColor: _white,
+        elevation: 3.0,
         centerTitle: false,
+        floating: true,
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarIconBrightness: Brightness.dark,
           statusBarColor: _transparent,
