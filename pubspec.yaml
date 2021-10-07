@@ -67,6 +67,12 @@ dependencies:
   # SWIPER
   card_swiper: ^1.0.4
 
+  # HTTP
+  http: ^0.13.4
+
+  # FLAGS
+  flag: ^5.0.1
+
 # Developer dependencies
 dev_dependencies:
   flutter_test:

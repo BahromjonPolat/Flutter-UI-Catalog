@@ -11,6 +11,7 @@ import 'package:flutter_ui/pages/coffee_bar/main.dart';
 import 'package:flutter_ui/pages/coffee_delivery/on_boarding_page.dart';
 import 'package:flutter_ui/pages/coffee_shop/splash_screen.dart';
 import 'package:flutter_ui/pages/counter_app/main.dart';
+import 'package:flutter_ui/pages/currency/main.dart';
 import 'package:flutter_ui/pages/fashion/main.dart';
 import 'package:flutter_ui/pages/food_menu/main.dart';
 import 'package:flutter_ui/pages/friendship/screens/splash_screen.dart';
@@ -19,6 +20,7 @@ import 'package:flutter_ui/pages/hotel/main.dart';
 import 'package:flutter_ui/pages/instagram/ui/splash_screen.dart';
 import 'package:flutter_ui/pages/courses/main.dart';
 import 'package:flutter_ui/pages/messaging_app/screens/main.dart';
+import 'package:flutter_ui/pages/news_app/main.dart';
 import 'package:flutter_ui/pages/order_food/splash_screen_page.dart';
 import 'package:flutter_ui/pages/planets/splash_screen.dart';
 import 'package:flutter_ui/pages/plus_messenger/main.dart';
@@ -26,6 +28,7 @@ import 'package:flutter_ui/pages/select_coffee/main.dart';
 import 'package:flutter_ui/pages/sport/main.dart';
 import 'package:flutter_ui/pages/students_mark/main.dart';
 import 'package:flutter_ui/pages/super_mario/main.dart';
+import 'package:flutter_ui/pages/tapping_game/main.dart';
 import 'package:flutter_ui/pages/tic_tac_toe/main.dart';
 import 'package:flutter_ui/pages/water_shop/register_page.dart';
 import 'package:flutter_ui/pages/yacht/main.dart';
@@ -252,5 +255,29 @@ List<PageUI> pageList = [
     "06-10-2021",
     Icon(Icons.clear),
     TicTacToe(),
+  ),
+  new PageUI(
+    "Rate Exchange",
+    "",
+    "",
+    "06-10-2021",
+    Icon(Icons.monetization_on_outlined),
+    CurrencyPage(),
+  ),
+  new PageUI(
+    "Tapping Game",
+    "",
+    "",
+    "06-10-2021",
+    Icon(Icons.touch_app_outlined),
+    TappingGame(),
+  ),
+  new PageUI(
+    "News App",
+    "_subtitle",
+    "_description",
+    "07-10-2021",
+    Icon(Icons.next_week_sharp),
+    NewsAppMainPage(),
   )
 ];
