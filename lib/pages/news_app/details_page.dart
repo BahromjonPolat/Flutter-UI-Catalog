@@ -9,7 +9,7 @@ class NewsPageDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      body: _getBody(),
     );
   }
   _getBody() => Column(

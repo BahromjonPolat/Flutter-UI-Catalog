@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_ui/pages/news_app/article_model.dart';
+import 'package:flutter_ui/pages/news_app/details_page.dart';
 import 'package:http/http.dart' as http;
 
 class NewsAppMainPage extends StatefulWidget {
@@ -35,15 +36,21 @@ class _NewsAppMainPageState extends State<NewsAppMainPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-
                     subtitle: Text(article.content, maxLines: 1),
-                    trailing: Image.network(article.urlToImage,
-                    height: 48.0,
+                    trailing: Image.network(
+                      article.urlToImage,
+                      height: 48.0,
                       width: 70.0,
                       fit: BoxFit.cover,
                     ),
-
-
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => NewsPageDetailsPage(article),
+                        ),
+                      );
+                    },
                   );
                 })
             : _showIndicator();
