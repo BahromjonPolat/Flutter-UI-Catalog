@@ -24,6 +24,7 @@ import 'package:flutter_ui/pages/news_app/main.dart';
 import 'package:flutter_ui/pages/order_food/splash_screen_page.dart';
 import 'package:flutter_ui/pages/planets/splash_screen.dart';
 import 'package:flutter_ui/pages/plus_messenger/main.dart';
+import 'package:flutter_ui/pages/praying_time/main.dart';
 import 'package:flutter_ui/pages/select_coffee/main.dart';
 import 'package:flutter_ui/pages/sport/main.dart';
 import 'package:flutter_ui/pages/students_mark/main.dart';
@@ -279,5 +280,13 @@ List<PageUI> pageList = [
     "07-10-2021",
     Icon(Icons.next_week_sharp),
     NewsAppMainPage(),
+  ),
+  new PageUI(
+    "Azan time",
+    "",
+    "",
+    "08-10-2021",
+    Icon(Icons.dark_mode),
+    AzanTimeMainPage(),
   )
 ];

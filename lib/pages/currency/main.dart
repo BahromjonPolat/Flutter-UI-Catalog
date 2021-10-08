@@ -21,13 +21,9 @@ class _CurrencyPageState extends State<CurrencyPage> {
 
   static const Color _colorWhite = Colors.white;
   static const Color _colorWhiteWithOpacity = Color(0x0fffffff);
-  static const Color _colorTransparent = Colors.transparent;
   static const Color _colorDarkSlateGrey = Color(0xFF394460);
-  static const Color _colorOrange = Color(0xFFFFAE2B);
   static const Color _colorBlue = Color(0xFF62C5ED);
   static const Color _colorYellow = Color(0xFFF3E18F);
-  static const Color _colorUnselected = Color(0xfff9f9fa);
-  static const Color _colorBottomNavigationBarColor = Color(0xff1B1B26);
   static const Color _colorBackground = Color(0xff11111d);
 
   List<Currency> _selectedList = [];
