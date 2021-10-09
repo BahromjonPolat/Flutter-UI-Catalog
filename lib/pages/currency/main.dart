@@ -5,6 +5,7 @@ import 'package:flag/flag.dart' as flag;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_ui/pages/currency/currency_model.dart';
 import 'package:http/http.dart' as http;
 
@@ -14,8 +15,6 @@ class CurrencyPage extends StatefulWidget {
 }
 
 class _CurrencyPageState extends State<CurrencyPage> {
-  static const String _bg =
-      "https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80";
   double _width;
   double _height;
 
@@ -25,8 +24,7 @@ class _CurrencyPageState extends State<CurrencyPage> {
   static const Color _colorBlue = Color(0xFF62C5ED);
   static const Color _colorYellow = Color(0xFFF3E18F);
   static const Color _colorBackground = Color(0xff11111d);
-
-  List<Currency> _selectedList = [];
+  static const Color _colorTransparent = Colors.transparent;
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +39,11 @@ class _CurrencyPageState extends State<CurrencyPage> {
   _buildBody() => FutureBuilder(
       future: _getCurrencyList(),
       builder: (context, AsyncSnapshot<List<Currency>> snap) {
-        _setSelectedList(snap.data);
         return snap.hasData
             ? CustomScrollView(
                 slivers: [
                   _getSliverAppBar(),
-                  _showSelectedItems(),
+                  _showSelectedItems(_setSelectedList(snap.data)),
                   _setCurrencyList(snap.data),
                 ],
               )
@@ -58,101 +55,100 @@ class _CurrencyPageState extends State<CurrencyPage> {
         backgroundColor: _colorBackground,
         elevation: 0.0,
         title: Text("Rate Exchange"),
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: _colorTransparent,
+          statusBarIconBrightness: Brightness.light
+        ),
       );
 
-  SliverToBoxAdapter _showSelectedItems() => SliverToBoxAdapter(
-        child: _selectedList != null
-            ? SizedBox(
-                height: _height * 0.55,
-                child: Swiper(
-                  itemCount: _selectedList.length,
-                  autoplay: true,
-                  duration: 500,
-                  indicatorLayout: PageIndicatorLayout.COLOR,
-                  loop: true,
-                  pagination: SwiperPagination(
-                    builder: DotSwiperPaginationBuilder(
-                      space: 6.0,
-                      activeColor: _colorWhite,
-                      color: _colorWhiteWithOpacity,
-                      size: 8.0,
-                      activeSize: 12.0,
-                    ),
-                  ),
-                  itemBuilder: (context, index) {
-                    Currency currency = _selectedList[index];
-                    return Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16.0),
-                          color: _colorWhiteWithOpacity
-                          // image: DecorationImage(
-                          //   fit: BoxFit.cover,
-                          //   image: NetworkImage(_bg),
-                          // )
-                          ),
-                      margin: EdgeInsets.symmetric(
-                          horizontal: 16.0, vertical: 32.0),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
+  SliverToBoxAdapter _showSelectedItems(List<Currency> currencies) =>
+      SliverToBoxAdapter(
+          child: SizedBox(
+        height: _height * 0.55,
+        child: Swiper(
+          itemCount: currencies.length,
+          autoplay: true,
+          duration: 500,
+          indicatorLayout: PageIndicatorLayout.COLOR,
+          loop: true,
+          pagination: SwiperPagination(
+            builder: DotSwiperPaginationBuilder(
+              space: 6.0,
+              activeColor: _colorWhite,
+              color: _colorWhiteWithOpacity,
+              size: 8.0,
+              activeSize: 12.0,
+            ),
+          ),
+          itemBuilder: (context, index) {
+            Currency currency = currencies[index];
+            return Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16.0),
+                  color: _colorWhiteWithOpacity),
+              margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 32.0),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        SizedBox(
+                          height: 48.0,
+                          width: 64.0,
+                          child: flag.Flag.fromString(
+                              "${currency.code[0]}${currency.code[1]}"),
+                        ),
+                        SizedBox(width: 12.0),
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(
-                              children: [
-                                SizedBox(
-                                  height: 48.0,
-                                  width: 64.0,
-                                  child: flag.Flag.fromString(
-                                      "${currency.code[0]}${currency.code[1]}"),
-                                ),
-                                SizedBox(width: 12.0),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    _setBoldText(currency.code),
-                                    _setLightText(currency.title),
-                                  ],
-                                ),
-                                Spacer(),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    _setBoldText("Markaziy bank narxi"),
-                                    _setLightText(currency.cbPrice),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 24.0),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    _setLightText("NBU Sotib olish"),
-                                    _setBoldText(currency.nbuBuyPrice),
-                                  ],
-                                ),
-
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    _setLightText("NBU Sotish"),
-                                    _setBoldText(currency.nbuCellPrice),
-                                  ],
-                                ),
-                              ],
-                            ),
+                            _setBoldText(currency.code),
+                            _setLightText(currency.title),
                           ],
                         ),
-                      ),
-                    );
-                  },
+                        Spacer(),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            _setBoldText("Markaziy bank narxi"),
+                            _setLightText(currency.cbPrice),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 24.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        _showNBUPricePanel(
+                          "NBU sotib olish",
+                          currency.nbuBuyPrice,
+                        ),
+                        _showNBUPricePanel(
+                          "NBU sotish",
+                          currency.nbuCellPrice,
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-              )
-            : _showLoading(),
-      );
+              ),
+            );
+          },
+        ),
+      ));
+
+  Column _showNBUPricePanel(String title, String price) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _setLightText(title),
+        _setBoldText(price),
+      ],
+    );
+  }
 
   Text _setBoldText(String label) {
     return Text(
@@ -257,15 +253,16 @@ class _CurrencyPageState extends State<CurrencyPage> {
     throw Exception("ERROR");
   }
 
-  _setSelectedList(List<Currency> list) {
-    _selectedList.clear();
+  List<Currency> _setSelectedList(List<Currency> list) {
+    List<Currency> currencies = [];
     for (String code in _selectedListCodes) {
       for (int i = 0; i < list.length; i++) {
         if (code == list[i].code) {
-          _selectedList.add(list[i]);
+          currencies.add(list[i]);
         }
       }
     }
+    return currencies;
   }
 
   List<String> _selectedListCodes = [

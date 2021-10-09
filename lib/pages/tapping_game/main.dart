@@ -41,7 +41,7 @@ class _TappingGameState extends State<TappingGame> {
                     setState(() {
                       _greenHeight += _height * 0.01;
                       _redHeight -= _height * 0.01;
-                      if (_greenHeight <= _height * 0.01) {
+                      if (_greenHeight >= _height - 10) {
                         _showWinner("Green");
                       }
                     });
@@ -58,7 +58,7 @@ class _TappingGameState extends State<TappingGame> {
                     setState(() {
                       _redHeight += _height * 0.01;
                       _greenHeight -= _height * 0.01;
-                      if (_redHeight <= _height * 0.01) {
+                      if (_redHeight >= _height - 10) {
                         _showWinner("Red");
                         Fluttertoast.showToast(msg: "Red won!");
                       }

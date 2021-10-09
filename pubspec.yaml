@@ -73,6 +73,7 @@ dependencies:
   # FLAGS
   flag: ^5.0.1
 
+
 # Developer dependencies
 dev_dependencies:
   flutter_test:
@@ -91,6 +92,7 @@ flutter:
     - assets/images/icons/
     - assets/images/furniture/
     - assets/images/coffee_delivery/
+    - assets/images/svg/
 
 
   fonts:
