@@ -73,6 +73,9 @@ dependencies:
   # FLAGS
   flag: ^5.0.1
 
+  #YouTube
+  youtube_explode_dart: ^1.10.8
+
 
 # Developer dependencies
 dev_dependencies:
@@ -111,3 +114,8 @@ flutter:
     - family: dancing_script
       fonts:
         - asset: assets/fonts/dancing-script.ttf
+
+    - family: islamic
+      fonts:
+        - asset: assets/fonts/islamic_font.ttf
+

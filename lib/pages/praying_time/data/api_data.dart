@@ -1,4 +1,4 @@
-import 'package:flutter_ui/pages/praying_time/time_model.dart';
+import 'package:flutter_ui/pages/praying_time/models/time_model.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 

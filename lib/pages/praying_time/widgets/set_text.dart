@@ -24,8 +24,8 @@ setLightText(String text, Color color, double size) => Text(
       ),
     );
 
-IconButton setIconButton(IconData iconData, {Color color}) => IconButton(
-      onPressed: () {},
+IconButton setIconButton(IconData iconData, {Color color,VoidCallback onPressed}) => IconButton(
+      onPressed: onPressed ?? (){},
       icon: Icon(
         iconData,
         color: color ?? _white,

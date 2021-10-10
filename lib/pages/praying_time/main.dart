@@ -7,7 +7,7 @@ import 'package:flutter_ui/pages/praying_time/screens/home/alarm_page.dart';
 import 'package:flutter_ui/pages/praying_time/screens/home/home_page.dart';
 import 'package:flutter_ui/pages/praying_time/screens/home/profile_page.dart';
 import 'package:flutter_ui/pages/praying_time/screens/home/taqwim_page.dart';
-import 'package:flutter_ui/pages/praying_time/time_model.dart';
+import 'package:flutter_ui/pages/praying_time/models/time_model.dart';
 import 'package:http/http.dart' as http;
 
 class PrayerTimeMainPage extends StatefulWidget {
@@ -22,17 +22,9 @@ class PrayerTimeMainPage extends StatefulWidget {
 class _PrayerTimeMainPageState extends State<PrayerTimeMainPage> {
   static const Color _teal = Colors.teal;
   static const Color _grey = Colors.grey;
-  static const Color _black = Colors.black;
+  static  Color _deepGreen = Colors.green.shade800;
   static const Color _white = Colors.white;
   static const Color _orange = Colors.orange;
-
-  LinearGradient _gradient = LinearGradient(colors: [
-    Colors.teal[200],
-    Colors.teal[300],
-    Colors.teal[400],
-    Colors.teal[500],
-    Colors.teal[600],
-  ]);
 
   int _currentIndex = 0;
   double _height;
@@ -58,7 +50,7 @@ class _PrayerTimeMainPageState extends State<PrayerTimeMainPage> {
 
   BottomNavigationBar _showBottomNavigationBar() => BottomNavigationBar(
         unselectedItemColor: _grey,
-        selectedItemColor: _teal,
+        selectedItemColor: _deepGreen,
         currentIndex: _currentIndex,
         items: _bottomNavigationBarItems,
         onTap: (i) {
@@ -71,22 +63,22 @@ class _PrayerTimeMainPageState extends State<PrayerTimeMainPage> {
   List<BottomNavigationBarItem> _bottomNavigationBarItems = [
     BottomNavigationBarItem(
       icon: Icon(CupertinoIcons.home),
-      label: "Home",
+      label: "Asosiy",
     ),
     BottomNavigationBarItem(
       icon: Icon(CupertinoIcons.alarm),
-      label: "Alarm",
+      label: "Signal",
     ),
     BottomNavigationBarItem(
       icon: Badge(
         badgeColor: _orange,
         child: Icon(CupertinoIcons.calendar),
       ),
-      label: "Taqweem",
+      label: "Zikr",
     ),
     BottomNavigationBarItem(
       icon: Icon(CupertinoIcons.person_circle),
-      label: "Profile",
+      label: "Profil",
     ),
   ];
 

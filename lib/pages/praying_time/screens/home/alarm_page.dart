@@ -2,10 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_ui/pages/praying_time/data.dart';
-import 'package:flutter_ui/pages/praying_time/time_model.dart';
+import 'package:flutter_ui/pages/praying_time/data/api_data.dart';
+import 'package:flutter_ui/pages/praying_time/models/time_model.dart';
 import 'package:flutter_ui/pages/praying_time/widgets/set_text.dart';
-import 'package:flutter_ui/pages/praying_time/widgets/show_indicator.dart';
 
 class PrayerAlarmPage extends StatefulWidget {
   List<PrayingTime> times;
@@ -21,18 +20,20 @@ class _PrayerAlarmPageState extends State<PrayerAlarmPage> {
   static const Color _grey = Colors.grey;
   static const Color _black = Colors.black;
   static const Color _white = Colors.white;
-  static const Color _orange = Colors.orange;
+  static Color _deepGreen = Colors.green.shade800;
   static const Color _transparent = Colors.transparent;
 
   LinearGradient _gradient = LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
       colors: [
-        Colors.teal[600],
-        Colors.teal[500],
-        Colors.teal[400],
-        Colors.teal[300],
-        Colors.teal[200],
+        Colors.green[600],
+        Colors.green[500],
+        Colors.green[400],
+        Colors.green[300],
+        Colors.green[200],
+        Colors.green[200],
+        Colors.green[300],
       ]);
 
   double _width;
@@ -41,15 +42,18 @@ class _PrayerAlarmPageState extends State<PrayerAlarmPage> {
   int _currentDay = DateTime.now().weekday;
 
   List<PrayingTime> _times;
+  PrayingTime _time;
 
   @override
   void initState() {
     super.initState();
     _times = widget.times;
+    _time = _times[getToday];
   }
 
   @override
   Widget build(BuildContext context) {
+
     _height = MediaQuery.of(context).size.height;
     _width = MediaQuery.of(context).size.height;
     return _showPrayerTimes();
@@ -83,7 +87,8 @@ class _PrayerAlarmPageState extends State<PrayerAlarmPage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: List.generate(
             7,
-            (index) => _setWeekDay(_weekDays[index], getToday + 1 + index),
+            (index) => _setWeekDay(
+                _weekDays[index].substring(0, 4), getToday + 1 + index),
           ),
         ),
       );
@@ -92,7 +97,6 @@ class _PrayerAlarmPageState extends State<PrayerAlarmPage> {
         children: [
           setLightText(day, _grey, 14.0),
           SizedBox(height: 12.0),
-
           setBoldText(dayNumber.toString(), _black, 18.0),
         ],
       );
@@ -100,7 +104,7 @@ class _PrayerAlarmPageState extends State<PrayerAlarmPage> {
   SliverToBoxAdapter _showMoreInfo() => SliverToBoxAdapter(
         child: Container(
           margin: EdgeInsets.all(18.0),
-          height: _height * 0.28,
+          height: _height * 0.21,
           decoration: BoxDecoration(
             gradient: _gradient,
             borderRadius: setBorderRadius(),
@@ -109,8 +113,38 @@ class _PrayerAlarmPageState extends State<PrayerAlarmPage> {
             children: [
               SvgPicture.asset(
                 "assets/images/svg/istanbul_mosque.svg",
-                color: Color(0x48ffffff),
-                fit: BoxFit.cover,
+                color: Colors.black26,
+              ),
+              Positioned(
+                top: 16.0,
+                left: 12.0,
+                bottom: 24.0,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    setLightText(_time.date.gregorian.date, _white, 16.0),
+                    setLightText(_time.date.gregorian.month.en, _white, 16.0),
+                    setLightText(_weekDays[_currentDay - 1], _white, 16.0),
+                    setBoldText(
+                      "Asr " + _time.timings.asr.substring(0, 5),
+                      _white,
+                      24.0,
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                top: 16.0,
+                right: 12.0,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    setLightText(_time.date.hijri.date, _white, 16.0),
+                    setLightText(_time.date.hijri.month.ar, _white, 16.0),
+                    setLightText(_time.date.hijri.weekday.ar, _white, 16.0),
+                  ],
+                ),
               ),
             ],
           ),
@@ -144,7 +178,7 @@ class _PrayerAlarmPageState extends State<PrayerAlarmPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 setBoldText(time.substring(0, 6), _grey, 16.0),
-                setIconButton(CupertinoIcons.speaker_3_fill, color: _teal),
+                setIconButton(CupertinoIcons.speaker_3_fill, color: _deepGreen),
               ],
             ),
           ),
@@ -153,12 +187,12 @@ class _PrayerAlarmPageState extends State<PrayerAlarmPage> {
       );
 
   List<String> _weekDays = [
-    "DUSH",
-    "SESH",
-    "CHOR",
-    "PAY",
-    "JUM",
-    "SHAN",
-    "YAK"
+    "Dushanba",
+    "Seshanba",
+    "Chorshanba",
+    "Payshanba",
+    "Juma",
+    "Shanba",
+    "Yakshanba"
   ];
 }
