@@ -7,7 +7,7 @@ import 'package:flutter_ui/pages/praying_time/models/time_model.dart';
 import 'package:flutter_ui/pages/praying_time/widgets/set_text.dart';
 
 class PrayerAlarmPage extends StatefulWidget {
-  List<PrayingTime> times;
+  final List<PrayingTime> times;
 
   PrayerAlarmPage(this.times);
 
@@ -16,14 +16,13 @@ class PrayerAlarmPage extends StatefulWidget {
 }
 
 class _PrayerAlarmPageState extends State<PrayerAlarmPage> {
-  static const Color _teal = Colors.teal;
   static const Color _grey = Colors.grey;
   static const Color _black = Colors.black;
   static const Color _white = Colors.white;
   static Color _deepGreen = Colors.green.shade800;
   static const Color _transparent = Colors.transparent;
 
-  LinearGradient _gradient = LinearGradient(
+   LinearGradient _gradient = LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
       colors: [
@@ -39,7 +38,6 @@ class _PrayerAlarmPageState extends State<PrayerAlarmPage> {
   double _width;
   double _height;
 
-  int _currentDay = DateTime.now().weekday;
 
   List<PrayingTime> _times;
   PrayingTime _time;
@@ -53,7 +51,6 @@ class _PrayerAlarmPageState extends State<PrayerAlarmPage> {
 
   @override
   Widget build(BuildContext context) {
-
     _height = MediaQuery.of(context).size.height;
     _width = MediaQuery.of(context).size.height;
     return _showPrayerTimes();
@@ -87,8 +84,13 @@ class _PrayerAlarmPageState extends State<PrayerAlarmPage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: List.generate(
             7,
-            (index) => _setWeekDay(
-                _weekDays[index].substring(0, 4), getToday + 1 + index),
+            (index) => _setWeekDay(_weekDays[
+                _times[index + getToday]
+                    .date
+                    .gregorian
+                    .weekday
+                    .en].substring(0, 2),
+                getToday + 1 + index),
           ),
         ),
       );
@@ -125,7 +127,10 @@ class _PrayerAlarmPageState extends State<PrayerAlarmPage> {
                   children: [
                     setLightText(_time.date.gregorian.date, _white, 16.0),
                     setLightText(_time.date.gregorian.month.en, _white, 16.0),
-                    setLightText(_weekDays[_currentDay - 1], _white, 16.0),
+                    setLightText(
+                        _weekDays[_times[getToday].date.gregorian.weekday.en],
+                        _white,
+                        16.0),
                     setBoldText(
                       "Asr " + _time.timings.asr.substring(0, 5),
                       _white,
@@ -186,13 +191,13 @@ class _PrayerAlarmPageState extends State<PrayerAlarmPage> {
         ),
       );
 
-  List<String> _weekDays = [
-    "Dushanba",
-    "Seshanba",
-    "Chorshanba",
-    "Payshanba",
-    "Juma",
-    "Shanba",
-    "Yakshanba"
-  ];
+  Map<String, String> _weekDays = {
+    "Monday": "Dushanba",
+    "Tuesday": "Seshanba",
+    "Wednesday": "Chorshanba",
+    "Thursday": "Payshanba",
+    "Friday": "Juma",
+    "Saturday": "Shanba",
+    "Sunday": "Yakshanba"
+  };
 }

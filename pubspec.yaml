@@ -76,6 +76,8 @@ dependencies:
   #YouTube
   youtube_explode_dart: ^1.10.8
 
+  weather_icons: ^3.0.0
+
 
 # Developer dependencies
 dev_dependencies:
