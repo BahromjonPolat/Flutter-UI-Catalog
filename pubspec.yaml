@@ -76,8 +76,17 @@ dependencies:
   #YouTube
   youtube_explode_dart: ^1.10.8
 
+  # WEATHER ICONS
   weather_icons: ^3.0.0
+  
+  # DEVICE INFO
+  device_info: ^2.0.2
 
+  # AUDIO PLAYER
+  audioplayers: ^0.20.1
+
+  # TEXT TO SPEECH
+  flutter_tts: ^3.2.2
 
 # Developer dependencies
 dev_dependencies:
