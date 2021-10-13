@@ -5,16 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui/pages/free_dictionary/dictionary_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:audioplayers/audioplayers.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 
 class FreeDictionary extends StatefulWidget {
   @override
   _FreeDictionaryState createState() => _FreeDictionaryState();
 }
-
+enum TtsState { playing, stopped, paused, continued }
 class _FreeDictionaryState extends State<FreeDictionary> {
   TextEditingController _wordController = TextEditingController();
   AudioPlayer _player = AudioPlayer();
+
+
+
 
   @override
   Widget build(BuildContext context) {

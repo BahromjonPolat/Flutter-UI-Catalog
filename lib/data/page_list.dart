@@ -19,6 +19,7 @@ import 'package:flutter_ui/pages/hotel/main.dart';
 import 'package:flutter_ui/pages/instagram/ui/splash_screen.dart';
 import 'package:flutter_ui/pages/courses/main.dart';
 import 'package:flutter_ui/pages/messaging_app/screens/main.dart';
+import 'package:flutter_ui/pages/music_player/main.dart';
 import 'package:flutter_ui/pages/news_app/main.dart';
 import 'package:flutter_ui/pages/order_food/splash_screen_page.dart';
 import 'package:flutter_ui/pages/picsum/main.dart';
@@ -282,4 +283,12 @@ List<PageUI> pageList = [
     Icon(Icons.library_books),
     FreeDictionary(),
   ),
+  new PageUI(
+    "Audio Player",
+    "",
+    "",
+    "13-10-2021",
+    Icon(Icons.audiotrack_outlined),
+    AudioPlayerMainPage(),
+  )
 ];
