@@ -10,13 +10,12 @@ class FreeDictionary extends StatefulWidget {
   @override
   _FreeDictionaryState createState() => _FreeDictionaryState();
 }
+
 enum TtsState { playing, stopped, paused, continued }
+
 class _FreeDictionaryState extends State<FreeDictionary> {
   TextEditingController _wordController = TextEditingController();
   AudioPlayer _player = AudioPlayer();
-
-
-
 
   @override
   Widget build(BuildContext context) {
