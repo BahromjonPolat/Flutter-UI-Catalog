@@ -6,6 +6,7 @@ import 'package:flutter_ui/pages/barber_shop/splash_screen.dart';
 import 'package:flutter_ui/pages/book_store/screen/main.dart';
 import 'package:flutter_ui/pages/booking_hotel/screens/splash_screen.dart';
 import 'package:flutter_ui/pages/car_bazar/main.dart';
+import 'package:flutter_ui/pages/car_list/main.dart';
 import 'package:flutter_ui/pages/coffee_bar/main.dart';
 import 'package:flutter_ui/pages/coffee_delivery/on_boarding_page.dart';
 import 'package:flutter_ui/pages/counter_app/main.dart';
@@ -290,5 +291,13 @@ List<PageUI> pageList = [
     "13-10-2021",
     Icon(Icons.audiotrack_outlined),
     AudioPlayerMainPage(),
-  )
+  ),
+  new PageUI(
+    "Cars",
+    "",
+    "",
+    "14-10-2021",
+    Icon(Icons.car_rental),
+    CarListMainPage(),
+  ),
 ];
