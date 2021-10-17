@@ -13,17 +13,19 @@ class _SportMenPageState extends State<SportMenPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: _showBottomNavigationBar(),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(
-          margin: EdgeInsets.all(16.0),
+          // margin: EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
                 flex: 2,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 24.0),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 24.0, horizontal: 16.0),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -63,10 +65,6 @@ class _SportMenPageState extends State<SportMenPage> {
                 flex: 5,
                 child: _setSportsmen(),
               ),
-              Divider(
-                thickness: 1.0,
-              ),
-              setBottomNavigationIcon(),
             ],
           ),
         ),
@@ -80,6 +78,7 @@ class _SportMenPageState extends State<SportMenPage> {
       mainAxisSpacing: 5,
       crossAxisSpacing: 5,
       childAspectRatio: 1.2,
+      padding: EdgeInsets.symmetric(horizontal: 16.0),
       children: getSport()
           .map(
             (sport) => Card(
@@ -116,34 +115,47 @@ class _SportMenPageState extends State<SportMenPage> {
     );
   }
 
-  Widget setBottomNavigationIcon() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        _setIcon(CupertinoIcons.home, Colors.black),
-        _setIcon(CupertinoIcons.chart_bar, Colors.grey),
-        _setIcon(CupertinoIcons.chat_bubble_text_fill, Colors.grey),
-        _setIcon(CupertinoIcons.person_2, Colors.grey),
-        GestureDetector(
-          child: CircleAvatar(
-            backgroundColor: Colors.indigo,
-            backgroundImage: AssetImage("assets/images/logo.jpg"),
-          ),
-          onTap: () => _onTap(),
-        ),
-      ],
-    );
-  }
-
-  _onItemTap(String title) {
-    Fluttertoast.showToast(msg: "you clicked $title");
-  }
-
   _onTap() => Navigator.push(
       context, MaterialPageRoute(builder: (_) => StatisticsPage()));
 
-  Widget _setIcon(icon, color) => Icon(
-        icon,
-        color: color,
+  BottomNavigationBar _showBottomNavigationBar() => BottomNavigationBar(
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: _bottomNavigationBarItems,
+        currentIndex: 0,
+        type: BottomNavigationBarType.fixed,
+        onTap: (index) {
+          if (index == 4) {
+            _onTap();
+          }
+        },
       );
+  List<BottomNavigationBarItem> _bottomNavigationBarItems = [
+    const BottomNavigationBarItem(
+      icon: Icon(CupertinoIcons.home),
+      label: "Home",
+    ),
+    const BottomNavigationBarItem(
+      icon: Icon(CupertinoIcons.chart_bar),
+      label: "Chart",
+    ),
+    const BottomNavigationBarItem(
+      icon: Icon(CupertinoIcons.chat_bubble_text),
+      label: "Messages",
+    ),
+    const BottomNavigationBarItem(
+      icon: Icon(CupertinoIcons.person_2),
+      label: "Groups",
+    ),
+    BottomNavigationBarItem(
+      icon: CircleAvatar(
+        backgroundImage: AssetImage(
+          "assets/images/logo.jpg",
+        ),
+      ),
+      label: "Profile",
+    ),
+  ];
 }

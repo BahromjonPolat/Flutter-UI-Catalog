@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'model/sport.dart';
+
 class StatisticsPage extends StatefulWidget {
   @override
   _StatisticsPageState createState() => _StatisticsPageState();
@@ -11,18 +12,8 @@ class _StatisticsPageState extends State<StatisticsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        leading: Icon(
-          CupertinoIcons.back,
-          color: Colors.black,
-        ),
-        title: Text(
-          "Statistics",
-          style: TextStyle(color: Colors.black),
-        ),
-      ),
+      appBar: _buildAppBar(),
+      bottomNavigationBar: _showBottomNavigationBar(),
       body: Container(
         padding: EdgeInsets.only(top: 16.0),
         child: Column(
@@ -99,20 +90,27 @@ class _StatisticsPageState extends State<StatisticsPage> {
 
                     // View details bo`limini ko`rsatadigan funksiya.
                     viewDetails(),
-
-                    // Bottom navigationni ajratish uchun ishlatilgan divider.
-                    Divider(
-                      thickness: 1,
-                    ),
-
-                    // Bottom navigation bar icon`larini ekranda ko`rsatadi.
-                    showBottomNavigationIcon(),
                   ],
                 ),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  AppBar _buildAppBar() {
+    return AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0.0,
+      leading: Icon(
+        CupertinoIcons.back,
+        color: Colors.black,
+      ),
+      title: Text(
+        "Statistics",
+        style: TextStyle(color: Colors.black),
       ),
     );
   }
@@ -140,7 +138,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
       );
 
   Widget viewDetails() => Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
+        padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -191,7 +189,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
         return Column(
           children: [
             Card(
-              elevation: 16.0,
+              elevation: 6.0,
               margin: EdgeInsets.symmetric(
                 horizontal: 6.0,
                 vertical: 6.0,
@@ -213,33 +211,6 @@ class _StatisticsPageState extends State<StatisticsPage> {
           ],
         );
       });
-
-  Widget showBottomNavigationIcon() {
-    // Bottom Navigation bar Icon`larini qo`yish uchun ushbu funksiyadan foydalaniladi.
-    // Icon`ni rangi va qaysi Iconning o`zi _setIcon funksiyasi orqali amalga oshiriladi.
-
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 16.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          _setIcon(CupertinoIcons.home, Colors.black),
-          _setIcon(CupertinoIcons.chart_bar, Colors.grey),
-          _setIcon(CupertinoIcons.chat_bubble_text_fill, Colors.grey),
-          _setIcon(CupertinoIcons.person_2, Colors.grey),
-          CircleAvatar(
-            backgroundColor: Colors.indigo,
-            backgroundImage: AssetImage("assets/images/logo.jpg"),
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget _setIcon(icon, color) => Icon(
-        icon,
-        color: color,
-      );
 
   Widget getInfo() => Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -266,4 +237,40 @@ class _StatisticsPageState extends State<StatisticsPage> {
           ),
         ],
       );
+
+  BottomNavigationBar _showBottomNavigationBar() => BottomNavigationBar(
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: _bottomNavigationBarItems,
+        currentIndex: 0,
+        type: BottomNavigationBarType.fixed,
+      );
+  List<BottomNavigationBarItem> _bottomNavigationBarItems = [
+    const BottomNavigationBarItem(
+      icon: Icon(CupertinoIcons.home),
+      label: "Home",
+    ),
+    const BottomNavigationBarItem(
+      icon: Icon(CupertinoIcons.chart_bar),
+      label: "Chart",
+    ),
+    const BottomNavigationBarItem(
+      icon: Icon(CupertinoIcons.chat_bubble_text),
+      label: "Messages",
+    ),
+    const BottomNavigationBarItem(
+      icon: Icon(CupertinoIcons.person_2),
+      label: "Groups",
+    ),
+    BottomNavigationBarItem(
+      icon: CircleAvatar(
+        backgroundImage: AssetImage(
+          "assets/images/logo.jpg",
+        ),
+      ),
+      label: "Profile",
+    ),
+  ];
 }
