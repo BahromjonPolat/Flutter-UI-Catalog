@@ -1,39 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/model/page.dart';
-import 'package:flutter_ui/pages/authorization/splash_screen_page.dart';
-import 'package:flutter_ui/pages/barber_shop/splash_screen.dart';
-import 'package:flutter_ui/pages/book_store/screen/main.dart';
-import 'package:flutter_ui/pages/booking_hotel/screens/splash_screen.dart';
-import 'package:flutter_ui/pages/car_bazar/main.dart';
-import 'package:flutter_ui/pages/car_list/main.dart';
-import 'package:flutter_ui/pages/coffee_bar/main.dart';
-import 'package:flutter_ui/pages/coffee_delivery/on_boarding_page.dart';
-import 'package:flutter_ui/pages/counter_app/main.dart';
-import 'package:flutter_ui/pages/currency/main.dart';
-import 'package:flutter_ui/pages/fashion/main.dart';
-import 'package:flutter_ui/pages/food_menu/main.dart';
-import 'package:flutter_ui/pages/free_dictionary/main.dart';
-import 'package:flutter_ui/pages/friendship/screens/splash_screen.dart';
-import 'package:flutter_ui/pages/furniture_shop/main.dart';
-import 'package:flutter_ui/pages/hotel/main.dart';
-import 'package:flutter_ui/pages/instagram/ui/splash_screen.dart';
-import 'package:flutter_ui/pages/courses/main.dart';
-import 'package:flutter_ui/pages/messaging_app/screens/main.dart';
-import 'package:flutter_ui/pages/music_player/main.dart';
-import 'package:flutter_ui/pages/news_app/main.dart';
-import 'package:flutter_ui/pages/order_food/splash_screen_page.dart';
-import 'package:flutter_ui/pages/picsum/main.dart';
-import 'package:flutter_ui/pages/plus_messenger/main.dart';
-import 'package:flutter_ui/pages/praying_time/screens/anothher/welcome_screen.dart';
-import 'package:flutter_ui/pages/select_coffee/main.dart';
-import 'package:flutter_ui/pages/sport/main.dart';
-import 'package:flutter_ui/pages/students_mark/main.dart';
-import 'package:flutter_ui/pages/super_mario/main.dart';
-import 'package:flutter_ui/pages/tapping_game/main.dart';
-import 'package:flutter_ui/pages/tic_tac_toe/main.dart';
-import 'package:flutter_ui/pages/water_shop/register_page.dart';
-import 'package:flutter_ui/pages/yacht/main.dart';
+import 'package:flutter_ui/components/exporting_packages.dart';
 
 List<PageUI> pageList = [
   new PageUI(
@@ -251,14 +217,6 @@ List<PageUI> pageList = [
     "06-10-2021",
     Icon(Icons.touch_app_outlined),
     TappingGame(),
-  ),
-  new PageUI(
-    "News App",
-    "_subtitle",
-    "_description",
-    "07-10-2021",
-    Icon(Icons.next_week_sharp),
-    NewsAppMainPage(),
   ),
   new PageUI(
     "Azan time",
