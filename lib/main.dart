@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "My UI Catalog",
+      title: "Flutter UI Catalog",
       debugShowCheckedModeBanner: false,
       home: PageList(),
     );

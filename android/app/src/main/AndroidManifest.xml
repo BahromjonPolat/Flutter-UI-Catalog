@@ -2,7 +2,7 @@
     package="uz.itjunior.ui.app.flutter_ui">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="flutter_ui"
+        android:label="Flutter UI Catalog"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
