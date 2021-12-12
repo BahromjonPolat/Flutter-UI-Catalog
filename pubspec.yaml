@@ -49,8 +49,8 @@ dependencies:
   # URL Launcher - URL`ni browser orqali ochish uchun
   url_launcher: ^6.0.10
 
-  # Dialog
-  awesome_dialog: ^2.1.1
+  # Dialogs
+  material_dialogs: ^1.1.1
 
   # UUID
   uuid: ^3.0.4
@@ -107,6 +107,7 @@ flutter:
     - assets/images/furniture/
     - assets/images/coffee_delivery/
     - assets/images/svg/
+    - assets/json/
 
 
   fonts:

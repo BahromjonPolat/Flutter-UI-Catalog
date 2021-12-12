@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_ui/components/exporting_packages.dart';
 
 class TappingGame extends StatefulWidget {
   @override
@@ -8,84 +7,83 @@ class TappingGame extends StatefulWidget {
 }
 
 class _TappingGameState extends State<TappingGame> {
-  double _height;
-  double _greenHeight;
-  double _redHeight;
+  int _greenHeight = 20;
+  int _redHeight = 20;
   bool _isAssigned = false;
-
 
   @override
   Widget build(BuildContext context) {
-    _height = MediaQuery.of(context).size.height;
-    if (!_isAssigned) {
-      _redHeight = MediaQuery.of(context).size.height / 2;
-      _greenHeight = MediaQuery.of(context).size.height / 2;
-      _isAssigned = true;
-      String _winner = '';
-    }
     return Scaffold(
       body: _getBody(),
     );
   }
 
-  SingleChildScrollView _getBody() => SingleChildScrollView(
-    child: Column(
-          children: [
-            SizedBox(
-              height: _greenHeight,
-              child: Material(
-                color: Colors.green,
-                child: InkWell(
-                  splashColor: Color(0x50123456),
-                  onTap: () {
-                    setState(() {
-                      _greenHeight += _height * 0.01;
-                      _redHeight -= _height * 0.01;
-                      if (_greenHeight >= _height - 10) {
-                        _showWinner("Green");
-                      }
-                    });
-                  },
-                ),
+  _getBody() => Column(
+        children: [
+          Expanded(
+            flex: _greenHeight,
+            child: Material(
+              color: Colors.green,
+              child: InkWell(
+                splashColor: Color(0x50123456),
+                child: _showScore(_greenHeight),
+                onTap: () {
+                  setState(() {
+                    _greenHeight += 1;
+                    _redHeight -= 1;
+                    if (_redHeight == 1) {
+                      _restart();
+                      _showWinner("Green");
+                    }
+                  });
+                },
               ),
             ),
-            SizedBox(
-              height: _redHeight,
-              child: Material(
-                color: Colors.red,
-                child: InkWell(
-                  onTap: () {
-                    setState(() {
-                      _redHeight += _height * 0.01;
-                      _greenHeight -= _height * 0.01;
-                      if (_redHeight >= _height - 10) {
-                        _showWinner("Red");
-                        Fluttertoast.showToast(msg: "Red won!");
-                      }
-                    });
-                  },
-                ),
+          ),
+          Expanded(
+            flex: _redHeight,
+            child: Material(
+              color: Colors.red,
+              child: InkWell(
+                child: _showScore(_redHeight),
+                onTap: () {
+                  setState(() {
+                    _redHeight += 1;
+                    _greenHeight -= 1;
+                    if (_greenHeight == 1) {
+                      _showWinner("Red");
+                      _restart();
+                      Fluttertoast.showToast(msg: "Red won!");
+                    }
+                  });
+                },
               ),
             ),
-          ],
-        ),
-  );
+          ),
+        ],
+      );
 
-  _showWinner(String winner) {
-    showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-              title: Text("Tapping Game"),
-              content: SizedBox(
-                  height: 120.0,
-                  child: Column(
-                    children: [
-                      Icon(
-                        CupertinoIcons.checkmark_seal_fill,
-                        color: Colors.green,
-                      )
-                    ],
-                  )),
-            ));
+  Center _showScore(int score) => Center(child: Text('$score' ,style: TextStyle(
+    fontSize: 42.0,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'Garamond',
+    color: Colors.yellow
+  ),));
+
+
+ void _showWinner(String winner) {
+    Dialogs.materialDialog(
+      context: context,
+      title: "Congratulations",
+      msg: "$winner won",
+      lottieBuilder: LottieBuilder.asset('assets/json/congratulations.json'),
+      barrierDismissible: false,
+
+    );
+  }
+
+  void _restart() {
+    _greenHeight = 20;
+    _redHeight = 20;
   }
 }

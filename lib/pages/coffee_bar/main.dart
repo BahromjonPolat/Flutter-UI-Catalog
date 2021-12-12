@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_ui/pages/coffee_bar/bottom_nav_bar_item.dart';
 import 'package:flutter_ui/pages/coffee_bar/coffee_info_page.dart';
 import 'package:flutter_ui/pages/coffee_bar/coffee_list.dart';
@@ -38,6 +39,9 @@ class _CoffeeBarMainPageState extends State<CoffeeBarMainPage> {
   SliverAppBar _sliverAppBar() => SliverAppBar(
         backgroundColor: Colors.black54,
         leading: _showDrawer(),
+        systemOverlayStyle:const SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent
+        ),
         iconTheme: IconThemeData(color: Colors.white),
         bottom: PreferredSize(
           preferredSize: Size(_size.width * 1.0, _size.height * 0.33),

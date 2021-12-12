@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_ui/pages/food_menu/food_list.dart';
 import 'package:flutter_ui/pages/food_menu/food_model.dart';
 import 'package:flutter_ui/pages/food_menu/horizontal.dart';
@@ -25,8 +26,11 @@ class FoodListMainPage extends StatelessWidget {
       ],
     );
   }
+
   /// SliverAppBar
   _sliverAppBar() => SliverAppBar(
+        systemOverlayStyle:
+            const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
         stretch: true,
         floating: true,
         onStretchTrigger: () {
@@ -72,7 +76,8 @@ class FoodListMainPage extends StatelessWidget {
               child: Text.rich(TextSpan(children: [
                 TextSpan(
                   text: "Grilled BBQ Chicken \n",
-                  style: TextStyle(fontSize: 16.0, color: Colors.white, shadows: [
+                  style:
+                      TextStyle(fontSize: 16.0, color: Colors.white, shadows: [
                     Shadow(
                       color: Colors.black,
                       offset: Offset(1.2, 1.2),
@@ -120,7 +125,6 @@ class FoodListMainPage extends StatelessWidget {
         // Vidjetlar Row vidjetining ichiuga olindi.
         child: Row(
           children: [
-
             // Taomning rasmini ko`rsatish uchun Container. Burchaklari bir oz aylana shaklida bo`ladi.
             Container(
               height: _size.width * 0.28,
@@ -198,5 +202,4 @@ class FoodListMainPage extends StatelessWidget {
           );
         });
   }
-
 }
