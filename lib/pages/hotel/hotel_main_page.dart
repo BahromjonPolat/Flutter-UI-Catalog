@@ -30,9 +30,12 @@ class _HotelMainPageState extends State<HotelMainPage> {
       );
 
   SliverAppBar _getSliverAppBar() => SliverAppBar(
-        systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: Colors.white,
-            systemNavigationBarColor: Colors.white),
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.dark
+        ),
+        toolbarHeight: _size.height * 0.12,
+        automaticallyImplyLeading: false,
         iconTheme: IconThemeData(color: Colors.black),
         title: Text.rich(
           TextSpan(children: [
@@ -48,7 +51,6 @@ class _HotelMainPageState extends State<HotelMainPage> {
           ),
         ),
         backgroundColor: Colors.transparent,
-        expandedHeight: _size.height * 0.2,
         actions: [
           IconButton(
               icon: Icon(
@@ -64,27 +66,39 @@ class _HotelMainPageState extends State<HotelMainPage> {
         _searchItems(),
         _showCategories(),
         _showRoomList(width: _size.width, height: _size.height * 0.37, type: 0),
-        _showRoomList(width: _size.width, height: _size.height *0.25, type: 1),
+        _showRoomList(width: _size.width, height: _size.height * 0.25, type: 1),
       ]));
 
   /// Search Box
-  _searchItems() => Container(
-        margin: EdgeInsets.only(left: 16.0),
+  Padding _searchItems() => Padding(
+        padding: EdgeInsets.only(left: 16.0),
         child: TextField(
+          autofocus: false,
+          textInputAction: TextInputAction.search,
+          textCapitalization: TextCapitalization.sentences,
           decoration: InputDecoration(
+            focusColor: Colors.black,
+
             hintText: "Search",
-            prefixIcon: Icon(Icons.search),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(32.0),
-                  bottomLeft: Radius.circular(32.0)),
-              borderSide: BorderSide(width: 0.0, color: Colors.transparent),
-            ),
+            prefixIcon: Icon(Icons.search, color: Colors.black),
+            fillColor: Color(0xffe3e3e3),
+            filled: true,
+            border: _setOutlineInputBorder(),
+            focusedBorder: _setOutlineInputBorder(),
             contentPadding:
                 EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
           ),
         ),
       );
+
+  OutlineInputBorder _setOutlineInputBorder() {
+    return const OutlineInputBorder(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(32.0),
+                bottomLeft: Radius.circular(32.0)),
+            borderSide: BorderSide.none,
+          );
+  }
 
   /// Category List
   List<String> categories = [
@@ -137,7 +151,10 @@ class _HotelMainPageState extends State<HotelMainPage> {
             itemCount: roomList.length,
             itemBuilder: (context, index) {
               Room room = roomList[index];
-              return _showRoomInfo(room, (type == 0) ? _size.width * 0.57 : _size.width * 0.37, (type == 0)? 0 : 1);
+              return _showRoomInfo(
+                  room,
+                  (type == 0) ? _size.width * 0.57 : _size.width * 0.37,
+                  (type == 0) ? 0 : 1);
             }),
       );
 
@@ -208,45 +225,47 @@ class _HotelMainPageState extends State<HotelMainPage> {
                     ],
                   ),
                 ),
-                (type == 0) ? IconButton(
-                    icon: Icon(
-                      Icons.bookmark_border,
-                      color: Colors.teal,
-                      size: 32.0,
-                    ),
-                    onPressed: () {}) : Container(),
+                (type == 0)
+                    ? IconButton(
+                        icon: Icon(
+                          Icons.bookmark_border,
+                          color: Colors.teal,
+                          size: 32.0,
+                        ),
+                        onPressed: () {})
+                    : Container(),
               ],
             ),
+
             /// Bu yerga
             (type == 0) ? _showRatingBar(room) : Container(),
           ],
         ),
       );
 
-
   _showRatingBar(Room room) => Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      RatingBar.builder(
-          itemSize: 16.0,
-          initialRating: room.rating,
-          allowHalfRating: true,
-          itemBuilder: (context, index) {
-            return Icon(
-              Icons.star,
-              color: Colors.amber,
-            );
-          },
-          onRatingUpdate: (rating) {}),
-      Text(
-        "365 reviews",
-        style: TextStyle(
-          color: Colors.grey,
-          fontSize: 12.0,
-        ),
-      )
-    ],
-  );
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          RatingBar.builder(
+              itemSize: 16.0,
+              initialRating: room.rating,
+              allowHalfRating: true,
+              itemBuilder: (context, index) {
+                return Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                );
+              },
+              onRatingUpdate: (rating) {}),
+          Text(
+            "365 reviews",
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: 12.0,
+            ),
+          )
+        ],
+      );
 
   /// Room Price
   _showRoomPrice(Room room) => Container(

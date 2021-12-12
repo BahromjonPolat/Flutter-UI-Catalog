@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="uz.itjunior.ui.app.flutter_ui">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
    <application
         android:label="Flutter UI Catalog"
         android:icon="@mipmap/ic_launcher">

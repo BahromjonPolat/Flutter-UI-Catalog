@@ -9,7 +9,6 @@ class TappingGame extends StatefulWidget {
 class _TappingGameState extends State<TappingGame> {
   int _greenHeight = 20;
   int _redHeight = 20;
-  bool _isAssigned = false;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +33,7 @@ class _TappingGameState extends State<TappingGame> {
                     if (_redHeight == 1) {
                       _restart();
                       _showWinner("Green");
+
                     }
                   });
                 },
@@ -53,7 +53,6 @@ class _TappingGameState extends State<TappingGame> {
                     if (_greenHeight == 1) {
                       _showWinner("Red");
                       _restart();
-                      Fluttertoast.showToast(msg: "Red won!");
                     }
                   });
                 },
@@ -63,27 +62,39 @@ class _TappingGameState extends State<TappingGame> {
         ],
       );
 
-  Center _showScore(int score) => Center(child: Text('$score' ,style: TextStyle(
-    fontSize: 42.0,
-    fontWeight: FontWeight.bold,
-    fontFamily: 'Garamond',
-    color: Colors.yellow
-  ),));
+  Center _showScore(int score) => Center(
+          child: Text(
+        '$score',
+        style: TextStyle(
+            fontSize: 42.0,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Garamond',
+            color: Colors.yellow),
+      ));
 
-
- void _showWinner(String winner) {
+  void _showWinner(String winner) {
+    _vibrate();
     Dialogs.materialDialog(
       context: context,
       title: "Congratulations",
       msg: "$winner won",
       lottieBuilder: LottieBuilder.asset('assets/json/congratulations.json'),
       barrierDismissible: false,
-
     );
   }
 
   void _restart() {
     _greenHeight = 20;
     _redHeight = 20;
+  }
+
+  void _vibrate() async {
+    if (await Vibration.hasVibrator()) {
+      Vibration.vibrate(duration: 100);
+    } else {
+      Vibration.vibrate();
+      await Future.delayed(Duration(milliseconds: 100));
+      Vibration.vibrate();
+    }
   }
 }

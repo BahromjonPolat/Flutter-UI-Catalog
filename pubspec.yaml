@@ -19,6 +19,9 @@ dependencies:
 
   fluttertoast: ^8.0.8
 
+  # VIBRATOR
+  vibration: ^1.7.3
+
   # Oddiy ma'lumotlarni doimiy xotiraga saqlab ketadi.
   shared_preferences: ^2.0.6
 
