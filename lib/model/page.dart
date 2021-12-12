@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 class PageUI {
   String _title;
@@ -11,7 +9,15 @@ class PageUI {
   Icon _icon;
   Widget _page;
 
-  PageUI(this._title, this._subtitle, this._description, this._date, this._icon,  this._page);
+  PageUI(
+    this._title,
+    this._subtitle,
+    this._description,
+    this._date,
+    this._sourceCode,
+    this._icon,
+    this._page,
+  );
 
   Widget get page => _page;
 

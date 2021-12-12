@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_ui/ui/page_list_ui.dart';
+import 'package:flutter_ui/screens/home/home_page.dart';
 
 main() {
   runApp(MyApp());

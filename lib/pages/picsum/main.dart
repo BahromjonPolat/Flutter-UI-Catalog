@@ -82,9 +82,7 @@ class PicListMain extends StatelessWidget {
           statusBarColor: _transparent,
           statusBarIconBrightness: Brightness.dark,
         ),
-    actions: [
-      _setIconButton(Icons.arrow_right_alt_outlined)
-    ],
+        actions: [_setIconButton(Icons.arrow_right_alt_outlined)],
       );
 
   Text _setSimpleText(

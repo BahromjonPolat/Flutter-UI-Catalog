@@ -16,7 +16,6 @@ export 'package:flutter_ui/pages/free_dictionary/main.dart';
 export 'package:flutter_ui/pages/friendship/screens/splash_screen.dart';
 export 'package:flutter_ui/pages/furniture_shop/main.dart';
 export 'package:flutter_ui/pages/hotel/main.dart';
-export 'package:flutter_ui/pages/instagram/ui/splash_screen.dart';
 export 'package:flutter_ui/pages/courses/main.dart';
 export 'package:flutter_ui/pages/messaging_app/screens/main.dart';
 export 'package:flutter_ui/pages/music_player/main.dart';
@@ -33,6 +32,4 @@ export 'package:flutter_ui/pages/tic_tac_toe/main.dart';
 export 'package:flutter_ui/pages/water_shop/register_page.dart';
 export 'package:flutter_ui/pages/yacht/main.dart';
 
-
-export 'package:flutter_ui/pages/instagram/ui/bottom_nav_bar.dart';
 export 'package:fluttertoast/fluttertoast.dart';
