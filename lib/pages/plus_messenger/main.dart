@@ -13,7 +13,6 @@ class PlusMessengerMainPage extends StatefulWidget {
 class _PlusMessengerMainPageState extends State<PlusMessengerMainPage>
     with TickerProviderStateMixin {
   GlobalKey<ScaffoldState> _keyScaffold = GlobalKey();
-  Size _size;
   TabController _tabController;
 
   @override
@@ -24,19 +23,19 @@ class _PlusMessengerMainPageState extends State<PlusMessengerMainPage>
 
   @override
   Widget build(BuildContext context) {
-    _size = MediaQuery.of(context).size;
     return Scaffold(
       key: _keyScaffold,
       appBar: _setAppBar(),
       drawer: telegramDrawer,
       body: _getMainBody(),
-      floatingActionButton: buildFloatingActionButton(),
+      floatingActionButton: _buildFloatingActionButton(),
     );
   }
 
-  FloatingActionButton buildFloatingActionButton() {
+  FloatingActionButton _buildFloatingActionButton() {
     return FloatingActionButton(
       backgroundColor: Colors.teal,
+      elevation: 0.0,
       child: Icon(Icons.add),
       onPressed: () {},
     );

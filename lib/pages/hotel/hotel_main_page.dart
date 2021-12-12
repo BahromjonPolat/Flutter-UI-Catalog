@@ -166,6 +166,7 @@ class _HotelMainPageState extends State<HotelMainPage> {
           padding: EdgeInsets.symmetric(vertical: 8.0),
           margin: EdgeInsets.symmetric(horizontal: 16.0),
           child: Card(
+
             elevation: 6.0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16.0),
@@ -238,7 +239,7 @@ class _HotelMainPageState extends State<HotelMainPage> {
             ),
 
             /// Bu yerga
-            (type == 0) ? _showRatingBar(room) : Container(),
+            (type == 0) ? _showRatingBar(room) : SizedBox(),
           ],
         ),
       );

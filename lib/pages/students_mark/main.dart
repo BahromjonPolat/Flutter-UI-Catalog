@@ -150,6 +150,7 @@ class _MarkListPageState extends State<MarkListPage> {
 
   FloatingActionButton _getFloatingActionButton() => FloatingActionButton(
         onPressed: _onFloatingButtonPressed,
+        elevation: 0.0,
         child: Icon(Icons.add),
       );
 

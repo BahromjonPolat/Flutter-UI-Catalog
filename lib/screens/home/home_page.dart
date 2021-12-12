@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/model/page.dart';
 import 'package:flutter_ui/data/page_list.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'components/my_drawer.dart';
+import 'package:flutter_ui/components/exporting_packages.dart';
 
 class PageList extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class _PageListState extends State<PageList> {
     _size = MediaQuery.of(context).size;
     return Scaffold(
       body: _getBodyWithCustomScrollView(),
-      drawer: Drawer(),
+      drawer:const MyDrawer(),
     );
   }
 
