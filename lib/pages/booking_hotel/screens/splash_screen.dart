@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_ui/pages/booking_hotel/screens/main.dart';
-import 'package:flutter_ui/pages/hotel/room_info.dart';
+import 'package:flutter_ui/pages/hotel/screens/room_info.dart';
 
 class BookingHotelSplashScreen extends StatelessWidget {
   @override

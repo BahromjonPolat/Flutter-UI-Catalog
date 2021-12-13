@@ -15,7 +15,7 @@ export 'package:flutter_ui/pages/food_menu/main.dart';
 export 'package:flutter_ui/pages/free_dictionary/main.dart';
 export 'package:flutter_ui/pages/friendship/screens/splash_screen.dart';
 export 'package:flutter_ui/pages/furniture_shop/main.dart';
-export 'package:flutter_ui/pages/hotel/hotel_main_page.dart';
+export 'package:flutter_ui/pages/hotel/screens/hotel_main_page.dart';
 export 'package:flutter_ui/pages/courses/main.dart';
 export 'package:flutter_ui/pages/messaging_app/screens/main.dart';
 export 'package:flutter_ui/pages/music_player/main.dart';

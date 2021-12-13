@@ -16,7 +16,7 @@ class _PageListState extends State<PageList> {
     _size = MediaQuery.of(context).size;
     return Scaffold(
       body: _getBodyWithCustomScrollView(),
-      drawer:const MyDrawer(),
+      drawer: MyDrawer(),
     );
   }
 
@@ -89,7 +89,5 @@ class _PageListState extends State<PageList> {
   }
 
   PopupMenuItem _setPopUpMenuItem(String label, VoidCallback onPressed) =>
-      PopupMenuItem(
-          onTap: onPressed,
-          child: Text(label));
+      PopupMenuItem(onTap: onPressed, child: Text(label));
 }

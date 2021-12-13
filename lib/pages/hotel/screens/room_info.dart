@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:flutter_ui/pages/hotel/hotel_model.dart';
-import 'package:flutter_ui/pages/hotel/room_list.dart';
+import 'package:flutter_ui/pages/hotel/model/hotel_model.dart';
+import 'package:flutter_ui/pages/hotel/components/room_list.dart';
 
 class HotelRoomInfoPage extends StatefulWidget {
   Room room;

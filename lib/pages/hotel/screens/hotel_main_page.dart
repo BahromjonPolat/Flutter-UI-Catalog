@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:flutter_ui/pages/hotel/hotel_model.dart';
-import 'package:flutter_ui/pages/hotel/room_info.dart';
-import 'package:flutter_ui/pages/hotel/room_list.dart';
+import 'package:flutter_ui/pages/hotel/model/hotel_model.dart';
+import 'package:flutter_ui/pages/hotel/screens/room_info.dart';
+import 'package:flutter_ui/pages/hotel/components/room_list.dart';
 
 class HotelMainPage extends StatefulWidget {
   @override
@@ -251,6 +251,8 @@ class _HotelMainPageState extends State<HotelMainPage> {
               itemSize: 16.0,
               initialRating: room.rating,
               allowHalfRating: true,
+              ignoreGestures: true,
+              itemCount: 5,
               itemBuilder: (context, index) {
                 return Icon(
                   Icons.star,

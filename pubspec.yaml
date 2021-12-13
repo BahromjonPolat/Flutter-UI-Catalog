@@ -88,9 +88,6 @@ dependencies:
   # AUDIO PLAYER
   audioplayers: ^0.20.1
 
-  # TEXT TO SPEECH
-  flutter_tts: ^3.2.2
-
 # Developer dependencies
 dev_dependencies:
   flutter_test:
@@ -133,4 +130,9 @@ flutter:
     - family: islamic
       fonts:
         - asset: assets/fonts/islamic_font.ttf
+
+    - family: SfPro
+      fonts:
+        - asset: assets/fonts/SF-Pro-Display-Regular.otf
+
 
