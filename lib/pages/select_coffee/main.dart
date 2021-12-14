@@ -16,7 +16,7 @@ class _SelectCoffeeMainPageState extends State<SelectCoffeeMainPage> {
   Color _brown = Colors.brown;
   Color _white = Colors.white;
   Color _grey = Colors.grey;
-  Size _size;
+  late Size _size;
   PageController _pageController = PageController();
 
   @override

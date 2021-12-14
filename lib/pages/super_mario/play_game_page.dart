@@ -8,7 +8,7 @@ class SuperMarioPlayGamePage extends StatefulWidget {
 }
 
 class _SuperMarioPlayGamePageState extends State<SuperMarioPlayGamePage> {
-  Size _size;
+  late Size _size;
   double _xMario = 0.0;
   double _yMario = 1.0;
   double _xBackground = 1.0;

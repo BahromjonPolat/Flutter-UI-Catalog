@@ -22,10 +22,10 @@ class _YachtMainPageState extends State<YachtMainPage>
   static const Color _grey = Colors.grey;
   static const Color _disabledColor = Color(0xffdddddd);
 
-  double _width;
-  double _height;
+  late double _width;
+  late double _height;
 
-  TabController _tabController;
+  late TabController _tabController;
 
   @override
   void initState() {

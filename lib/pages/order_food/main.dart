@@ -8,7 +8,7 @@ class OrderFoodMainPage extends StatefulWidget {
 }
 
 class _OrderFoodMainPageState extends State<OrderFoodMainPage> {
-  Size _size;
+  late Size _size;
 
   @override
   Widget build(BuildContext context) {

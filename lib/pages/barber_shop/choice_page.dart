@@ -8,7 +8,7 @@ class BarberShopChoicePage extends StatefulWidget {
 
 class _BarberShopChoicePageState extends State<BarberShopChoicePage> {
   Color _mainColor = Color.fromARGB(255, 56, 52, 67);
-  Size _size;
+  late Size _size;
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,6 @@ import 'package:flutter_ui/pages/friendship/screens/user_profile.dart';
 
 /// MAIN PAGE
 class MainPage extends StatefulWidget {
-  MainPage({Key key}) : super(key: key);
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -14,7 +13,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
   User _currentUser = currentUser;
-  Size _size;
+  late Size _size;
 
   @override
   Widget build(BuildContext context) {
@@ -173,11 +172,11 @@ class _MainPageState extends State<MainPage> {
   }
 }
 
-_showUserInfo({String title, icon, String subtitle}) => Card(
+_showUserInfo({String? title, icon, String? subtitle}) => Card(
       margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
       child: ListTile(
-        title: _setText(title),
-        subtitle: Text(subtitle),
+        title: _setText(title!),
+        subtitle: Text(subtitle!),
         trailing: Icon(
           icon,
           color: Colors.teal,
@@ -194,30 +193,31 @@ TextStyle _getInputTextStyle() => TextStyle(
       fontWeight: FontWeight.bold,
     );
 
-InputDecoration _setInputDecoration({String hintText, icon}) => InputDecoration(
-    hintText: hintText,
-    fillColor: Colors.white,
-    filled: true,
-    prefixIcon: Icon(
-      icon,
-      color: Colors.teal,
-    ),
-    contentPadding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 18.0),
-    hintStyle: TextStyle(color: Colors.teal, fontWeight: FontWeight.bold),
-    enabledBorder:
-        OutlineInputBorder(borderSide: BorderSide(style: BorderStyle.none)),
-    border: OutlineInputBorder(
-      borderSide: BorderSide(style: BorderStyle.none),
-    ),
-    focusedBorder:
-        OutlineInputBorder(borderSide: BorderSide(style: BorderStyle.none)));
+InputDecoration _setInputDecoration({String? hintText, IconData? icon}) =>
+    InputDecoration(
+        hintText: hintText,
+        fillColor: Colors.white,
+        filled: true,
+        prefixIcon: Icon(
+          icon,
+          color: Colors.teal,
+        ),
+        contentPadding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 18.0),
+        hintStyle: TextStyle(color: Colors.teal, fontWeight: FontWeight.bold),
+        enabledBorder:
+            OutlineInputBorder(borderSide: BorderSide(style: BorderStyle.none)),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(style: BorderStyle.none),
+        ),
+        focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(style: BorderStyle.none)));
 
-AppBar _setAppBar({String title}) => AppBar(
+AppBar _setAppBar({String? title}) => AppBar(
       backgroundColor: Colors.teal,
       elevation: 0.0,
       centerTitle: true,
       title: Text(
-        title,
+        title!,
         style: TextStyle(color: Colors.teal.shade100),
       ),
     );

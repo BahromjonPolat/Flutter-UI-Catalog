@@ -13,9 +13,9 @@ class YachtDetailsPage extends StatelessWidget {
   static const Color _grey = Colors.grey;
   static const Color _disabledColor = Color(0xffdddddd);
 
-  double _width;
-  double _height;
-  BuildContext _context;
+  late double _width;
+  late double _height;
+  late BuildContext _context;
 
   @override
   Widget build(BuildContext context) {

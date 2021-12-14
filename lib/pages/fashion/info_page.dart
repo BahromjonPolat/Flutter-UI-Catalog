@@ -16,7 +16,7 @@ class FashionInfoPage extends StatefulWidget {
 }
 
 class _FashionInfoPageState extends State<FashionInfoPage> {
-  Size _size;
+  late  Size _size;
   Color _black = Colors.black;
   Color _white = Colors.white;
   Color _brown = Colors.brown;
@@ -25,7 +25,7 @@ class _FashionInfoPageState extends State<FashionInfoPage> {
 
   int _currentIndex = 1;
 
-  Fashion _fashion;
+  late  Fashion _fashion;
   PageController _pageController = PageController();
 
   @override

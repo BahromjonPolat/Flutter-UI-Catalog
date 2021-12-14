@@ -3,9 +3,7 @@ import 'package:flutter_ui/components/exporting_packages.dart';
 import 'package:flutter_ui/screens/info/info_page.dart';
 
 class MyDrawer extends StatelessWidget {
-  MyDrawer({Key key}) : super(key: key);
-
-  BuildContext _context;
+  late BuildContext _context;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,7 @@ class MyDrawer extends StatelessWidget {
     );
   }
 
-  UserAccountsDrawerHeader _setHeader() =>  UserAccountsDrawerHeader(
+  UserAccountsDrawerHeader _setHeader() => UserAccountsDrawerHeader(
         accountName: Text("Bahromjon Po'lat"),
         accountEmail: Text("bahromjon.ergashboyev@gmail.com"),
         currentAccountPicture: CircleAvatar(),
@@ -41,7 +39,5 @@ class MyDrawer extends StatelessWidget {
         },
       );
 
-  void _onPressed() {
-
-  }
+  void _onPressed() {}
 }

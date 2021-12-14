@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_ui/pages/car_bazar/car_list.dart';
 
 class CarInfoPage extends StatelessWidget {
-  Size _size;
+  late Size _size;
 
   @override
   Widget build(BuildContext context) {

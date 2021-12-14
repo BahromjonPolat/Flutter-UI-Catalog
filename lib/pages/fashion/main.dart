@@ -13,7 +13,7 @@ class FashionPageMain extends StatefulWidget {
 }
 
 class _FashionPageMainState extends State<FashionPageMain> {
-  Size _size;
+  late Size _size;
   Color _black = Colors.black;
   Color _white = Colors.white;
   Color _brown = Colors.brown;

@@ -7,9 +7,9 @@ class FurnitureShopMainPage extends StatelessWidget {
   static const Color _grey = Colors.grey;
   static const Color _black = Colors.black;
   static const Color _white = Colors.white;
-  Size _size;
+  late Size _size;
 
-  BuildContext _context;
+  late BuildContext _context;
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +146,7 @@ class FurnitureShopMainPage extends StatelessWidget {
       );
 
   InkWell _setFurnitureInfo() => InkWell(
-    child: Card(
+        child: Card(
           child: Stack(
             children: [
               SizedBox(
@@ -159,7 +159,6 @@ class FurnitureShopMainPage extends StatelessWidget {
                 left: 16.0,
                 child: _setTitle("Chairs Starting from\n\$39.99", 16.0, true),
               ),
-
               Positioned(
                 bottom: 16.0,
                 left: 16.0,
@@ -168,11 +167,11 @@ class FurnitureShopMainPage extends StatelessWidget {
             ],
           ),
         ),
-
-    onTap: (){
-      Navigator.push(_context, MaterialPageRoute(builder: (_) => FurnitureShopDetailsPage()));
-    },
-  );
+        onTap: () {
+          Navigator.push(_context,
+              MaterialPageRoute(builder: (_) => FurnitureShopDetailsPage()));
+        },
+      );
 
   Positioned _showImage() => Positioned(
         bottom: 0.0,

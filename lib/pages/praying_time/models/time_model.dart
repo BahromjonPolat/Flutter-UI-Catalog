@@ -1,13 +1,13 @@
 class PrayingTime {
-  Timings _timings;
-  Date _date;
-  Meta _meta;
+  Timings? _timings;
+  Date ?_date;
+  Meta ?_meta;
 
-  Timings get timings => _timings;
+  Timings get timings => _timings!;
 
-  Date get date => _date;
+  Date get date => _date!;
 
-  Meta get meta => _meta;
+  Meta get meta => _meta!;
 
   PrayingTime.fromJson(Map<String, dynamic> json) {
     _timings =
@@ -18,33 +18,33 @@ class PrayingTime {
 }
 
 class Timings {
-  String _fajr;
-  String _sunrise;
-  String _dhuhr;
-  String _asr;
-  String _sunset;
-  String _maghrib;
-  String _isha;
-  String _imsak;
-  String _midnight;
+  String ?_fajr;
+  String ?_sunrise;
+  String ?_dhuhr;
+  String ?_asr;
+  String ?_sunset;
+  String ?_maghrib;
+  String ?_isha;
+  String ?_imsak;
+  String ?_midnight;
 
-  String get fajr => _fajr;
+  String get fajr => _fajr!;
 
-  String get sunrise => _sunrise;
+  String get sunrise => _sunrise!;
 
-  String get dhuhr => _dhuhr;
+  String get dhuhr => _dhuhr!;
 
-  String get asr => _asr;
+  String get asr => _asr!;
 
-  String get sunset => _sunset;
+  String get sunset => _sunset!;
 
-  String get maghrib => _maghrib;
+  String get maghrib => _maghrib!;
 
-  String get isha => _isha;
+  String get isha => _isha!;
 
-  String get imsak => _imsak;
+  String get imsak => _imsak!;
 
-  String get midnight => _midnight;
+  String get midnight => _midnight!;
 
   Timings.fromJson(Map<String, dynamic> json) {
     _fajr = json['Fajr'];
@@ -60,25 +60,25 @@ class Timings {
 }
 
 class Date {
-  String _readable;
-  String _timestamp;
-  Gregorian _gregorian;
-  Hijri _hijri;
+  String? _readable;
+  String? _timestamp;
+  Gregorian? _gregorian;
+  Hijri? _hijri;
 
-  Date({String readable, String timestamp, Gregorian gregorian, Hijri hijri}) {
+  Date({String? readable, String? timestamp, Gregorian ?gregorian, Hijri? hijri}) {
     this._readable = readable;
     this._timestamp = timestamp;
     this._gregorian = gregorian;
     this._hijri = hijri;
   }
 
-  String get readable => _readable;
+  String get readable => _readable!;
 
-  String get timestamp => _timestamp;
+  String get timestamp => _timestamp!;
 
-  Gregorian get gregorian => _gregorian;
+  Gregorian get gregorian => _gregorian!;
 
-  Hijri get hijri => _hijri;
+  Hijri get hijri => _hijri!;
 
   Date.fromJson(Map<String, dynamic> json) {
     _readable = json['readable'];
@@ -91,22 +91,23 @@ class Date {
 }
 
 class Gregorian {
-  String _date;
-  String _format;
-  String _day;
-  Weekday _weekday;
-  Month _month;
-  String _year;
-  Designation _designation;
+  String?_date;
+  String ?_format;
+  String? _day;
+  Weekday ?_weekday;
+  Month? _month;
+  String ?_year;
+  Designation? _designation;
 
-  Gregorian(
-      {String date,
-      String format,
-      String day,
-      Weekday weekday,
-      Month month,
-      String year,
-      Designation designation}) {
+  Gregorian({
+    String? date,
+    String ?format,
+    String? day,
+    Weekday? weekday,
+    Month? month,
+    String ?year,
+    Designation? designation,
+  }) {
     this._date = date;
     this._format = format;
     this._day = day;
@@ -116,19 +117,19 @@ class Gregorian {
     this._designation = designation;
   }
 
-  String get date => _date;
+  String get date => _date!;
 
-  String get format => _format;
+  String get format => _format!;
 
-  String get day => _day;
+  String get day => _day!;
 
-  Weekday get weekday => _weekday;
+  Weekday get weekday => _weekday!;
 
-  Month get month => _month;
+  Month get month => _month!;
 
-  String get year => _year;
+  String get year => _year!;
 
-  Designation get designation => _designation;
+  Designation get designation => _designation!;
 
   Gregorian.fromJson(Map<String, dynamic> json) {
     _date = json['date'];
@@ -145,17 +146,17 @@ class Gregorian {
 }
 
 class Designation {
-  String _abbreviated;
-  String _expanded;
+  String? _abbreviated;
+  String? _expanded;
 
-  Designation({String abbreviated, String expanded}) {
+  Designation({String? abbreviated, String? expanded}) {
     this._abbreviated = abbreviated;
     this._expanded = expanded;
   }
 
-  String get abbreviated => _abbreviated;
+  String get abbreviated => _abbreviated!;
 
-  String get expanded => _expanded;
+  String get expanded => _expanded!;
 
   Designation.fromJson(Map<String, dynamic> json) {
     _abbreviated = json['abbreviated'];
@@ -164,30 +165,30 @@ class Designation {
 }
 
 class Hijri {
-  String _date;
-  String _format;
-  String _day;
-  Weekday _weekday;
-  Month _month;
-  String _year;
-  Designation _designation;
-  List<Null> _holidays;
+  String? _date;
+  String? _format;
+  String? _day;
+  Weekday? _weekday;
+  Month? _month;
+  String? _year;
+  Designation? _designation;
+  List<Null>? _holidays;
 
-  String get date => _date;
+  String get date => _date!;
 
-  String get format => _format;
+  String get format => _format!;
 
-  String get day => _day;
+  String get day => _day!;
 
-  Weekday get weekday => _weekday;
+  Weekday get weekday => _weekday!;
 
-  Month get month => _month;
+  Month get month => _month!;
 
-  String get year => _year;
+  String get year => _year!;
 
-  Designation get designation => _designation;
+  Designation get designation => _designation!;
 
-  List<Null> get holidays => _holidays;
+  List<Null> get holidays => _holidays!;
 
   Hijri.fromJson(Map<String, dynamic> json) {
     _date = json['date'];
@@ -204,12 +205,12 @@ class Hijri {
 }
 
 class Weekday {
-  String _en;
-  String _ar;
+  String? _en;
+  String? _ar;
 
-  String get en => _en;
+  String get en => _en!;
 
-  String get ar => _ar;
+  String get ar => _ar!;
 
   Weekday.fromJson(Map<String, dynamic> json) {
     _en = json['en'];
@@ -218,15 +219,15 @@ class Weekday {
 }
 
 class Month {
-  int _number;
-  String _en;
-  String _ar;
+  int? _number;
+  String? _en;
+  String? _ar;
 
-  int get number => _number;
+  int get number => _number!;
 
-  String get en => _en;
+  String get en => _en!;
 
-  String get ar => _ar;
+  String get ar => _ar!;
 
   Month.fromJson(Map<String, dynamic> json) {
     _number = json['number'];
@@ -236,49 +237,50 @@ class Month {
 }
 
 class Meta {
-  double _latitude;
-  double _longitude;
-  String _timezone;
-  Method _method;
-  String _latitudeAdjustmentMethod;
-  String _midnightMode;
-  String _school;
-  OffsetModel _offset;
+  double? _latitude;
+  double? _longitude;
+  String? _timezone;
+  Method? _method;
+  String? _latitudeAdjustmentMethod;
+  String? _midnightMode;
+  String? _school;
+  OffsetModel? _offset;
 
-  Meta(
-      {double latitude,
-      double longitude,
-      String timezone,
-      Method method,
-      String latitudeAdjustmentMethod,
-      String midnightMode,
-      String school,
-      OffsetModel offset}) {
-    this._latitude = latitude;
-    this._longitude = longitude;
-    this._timezone = timezone;
-    this._method = method;
-    this._latitudeAdjustmentMethod = latitudeAdjustmentMethod;
-    this._midnightMode = midnightMode;
-    this._school = school;
-    this._offset = offset;
+  Meta({
+    double? latitude,
+    double? longitude,
+    String? timezone,
+    Method? method,
+    String? latitudeAdjustmentMethod,
+    String? midnightMode,
+    String? school,
+    OffsetModel? offset,
+  }) {
+    this._latitude = latitude!;
+    this._longitude = longitude!;
+    this._timezone = timezone!;
+    this._method = method!;
+    this._latitudeAdjustmentMethod = latitudeAdjustmentMethod!;
+    this._midnightMode = midnightMode!;
+    this._school = school!;
+    this._offset = offset!;
   }
 
-  double get latitude => _latitude;
+  double get latitude => _latitude!;
 
-  double get longitude => _longitude;
+  double get longitude => _longitude!;
 
-  String get timezone => _timezone;
+  String get timezone => _timezone!;
 
-  Method get method => _method;
+  Method get method => _method!;
 
-  String get latitudeAdjustmentMethod => _latitudeAdjustmentMethod;
+  String get latitudeAdjustmentMethod => _latitudeAdjustmentMethod!;
 
-  String get midnightMode => _midnightMode;
+  String get midnightMode => _midnightMode!;
 
-  String get school => _school;
+  String get school => _school!;
 
-  OffsetModel get offset => _offset;
+  OffsetModel get offset => _offset!;
 
   Meta.fromJson(Map<String, dynamic> json) {
     _latitude = json['latitude'];
@@ -289,31 +291,32 @@ class Meta {
     _latitudeAdjustmentMethod = json['latitudeAdjustmentMethod'];
     _midnightMode = json['midnightMode'];
     _school = json['school'];
-    _offset =
-        json['offset'] != null ? new OffsetModel.fromJson(json['offset']) : null;
+    _offset = json['offset'] != null
+        ? new OffsetModel.fromJson(json['offset'])
+        : null;
   }
 }
 
 class Method {
-  int _id;
-  String _name;
-  Params _params;
-  Location _location;
+  int? _id;
+  String? _name;
+  Params? _params;
+  Location? _location;
 
-  Method({int id, String name, Params params, Location location}) {
+  Method({int? id, String? name, Params? params, Location? location}) {
     this._id = id;
     this._name = name;
     this._params = params;
     this._location = location;
   }
 
-  int get id => _id;
+  int get id => _id!;
 
-  String get name => _name;
+  String get name => _name!;
 
-  Params get params => _params;
+  Params get params => _params!;
 
-  Location get location => _location;
+  Location get location => _location!;
 
   Method.fromJson(Map<String, dynamic> json) {
     _id = json['id'];
@@ -327,12 +330,12 @@ class Method {
 }
 
 class Params {
-  int _fajr;
-  int _isha;
+  int? _fajr;
+  int? _isha;
 
-  int get fajr => _fajr;
+  int get fajr => _fajr!;
 
-  int get isha => _isha;
+  int get isha => _isha!;
 
   Params.fromJson(Map<String, dynamic> json) {
     _fajr = json['Fajr'];
@@ -341,12 +344,12 @@ class Params {
 }
 
 class Location {
-  double _latitude;
-  double _longitude;
+  double? _latitude;
+  double? _longitude;
 
-  double get latitude => _latitude;
+  double get latitude => _latitude!;
 
-  double get longitude => _longitude;
+  double get longitude => _longitude!;
 
   Location.fromJson(Map<String, dynamic> json) {
     _latitude = json['latitude'];
@@ -355,33 +358,33 @@ class Location {
 }
 
 class OffsetModel {
-  int _imsak;
-  int _fajr;
-  int _sunrise;
-  int _dhuhr;
-  int _asr;
-  int _maghrib;
-  int _sunset;
-  int _isha;
-  int _midnight;
+  int? _imsak;
+  int? _fajr;
+  int? _sunrise;
+  int? _dhuhr;
+  int? _asr;
+  int? _maghrib;
+  int? _sunset;
+  int? _isha;
+  int? _midnight;
 
-  int get imsak => _imsak;
+  int get imsak => _imsak!;
 
-  int get fajr => _fajr;
+  int get fajr => _fajr!;
 
-  int get sunrise => _sunrise;
+  int get sunrise => _sunrise!;
 
-  int get dhuhr => _dhuhr;
+  int get dhuhr => _dhuhr!;
 
-  int get asr => _asr;
+  int get asr => _asr!;
 
-  int get maghrib => _maghrib;
+  int get maghrib => _maghrib!;
 
-  int get sunset => _sunset;
+  int get sunset => _sunset!;
 
-  int get isha => _isha;
+  int get isha => _isha!;
 
-  int get midnight => _midnight;
+  int get midnight => _midnight!;
 
   OffsetModel.fromJson(Map<String, dynamic> json) {
     _imsak = json['Imsak'];

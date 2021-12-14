@@ -6,7 +6,7 @@ import 'package:flutter_ui/pages/barber_shop/drawer.dart';
 
 class BarberShopMainPage extends StatelessWidget {
   GlobalKey<ScaffoldState> _keyScaffold = GlobalKey();
-  Size _size;
+  late Size _size;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class BarberShopMainPage extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {
-                _keyScaffold.currentState.openDrawer();
+                _keyScaffold.currentState!.openDrawer();
               },
               icon: Icon(
                 Icons.notes,
@@ -112,8 +112,8 @@ class BarberShopMainPage extends StatelessWidget {
               begin: Alignment(1.0, -1.0),
               end: Alignment(-1.0, 1.0),
               colors: [
-                Colors.grey[700],
-                Colors.grey[300],
+                Colors.grey[700]!,
+                Colors.grey[300]!,
               ]),
           borderRadius: BorderRadius.only(
             topRight: Radius.circular(16.0),

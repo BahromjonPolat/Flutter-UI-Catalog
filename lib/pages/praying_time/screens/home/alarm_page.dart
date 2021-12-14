@@ -22,25 +22,24 @@ class _PrayerAlarmPageState extends State<PrayerAlarmPage> {
   static Color _deepGreen = Colors.green.shade800;
   static const Color _transparent = Colors.transparent;
 
-   LinearGradient _gradient = LinearGradient(
+  LinearGradient _gradient = LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
       colors: [
-        Colors.green[600],
-        Colors.green[500],
-        Colors.green[400],
-        Colors.green[300],
-        Colors.green[200],
-        Colors.green[200],
-        Colors.green[300],
+        Colors.green[600]!,
+        Colors.green[500]!,
+        Colors.green[400]!,
+        Colors.green[300]!,
+        Colors.green[200]!,
+        Colors.green[200]!,
+        Colors.green[300]!,
       ]);
 
-  double _width;
-  double _height;
+  late double _width;
+  late double _height;
 
-
-  List<PrayingTime> _times;
-  PrayingTime _time;
+  late List<PrayingTime> _times;
+  late PrayingTime _time;
 
   @override
   void initState() {
@@ -84,12 +83,9 @@ class _PrayerAlarmPageState extends State<PrayerAlarmPage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: List.generate(
             7,
-            (index) => _setWeekDay(_weekDays[
-                _times[index + getToday]
-                    .date
-                    .gregorian
-                    .weekday
-                    .en].substring(0, 2),
+            (index) => _setWeekDay(
+                _weekDays[_times[index + getToday].date.gregorian.weekday.en]!
+                    .substring(0, 2),
                 getToday + 1 + index),
           ),
         ),
@@ -128,7 +124,8 @@ class _PrayerAlarmPageState extends State<PrayerAlarmPage> {
                     setLightText(_time.date.gregorian.date, _white, 16.0),
                     setLightText(_time.date.gregorian.month.en, _white, 16.0),
                     setLightText(
-                        _weekDays[_times[getToday].date.gregorian.weekday.en],
+                        _weekDays[_times[getToday].date.gregorian.weekday.en]
+                            .toString(),
                         _white,
                         16.0),
                     setBoldText(

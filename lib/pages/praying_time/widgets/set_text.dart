@@ -24,7 +24,7 @@ setLightText(String text, Color color, double size) => Text(
       ),
     );
 
-IconButton setIconButton(IconData iconData, {Color color,VoidCallback onPressed}) => IconButton(
+IconButton setIconButton(IconData iconData, {Color? color,VoidCallback? onPressed}) => IconButton(
       onPressed: onPressed ?? (){},
       icon: Icon(
         iconData,
@@ -46,5 +46,5 @@ setTimeAndLocation(IconData iconData, String title, String data) => Row(
       ],
     );
 
-BorderRadius setBorderRadius({double radius}) =>
+BorderRadius setBorderRadius({double? radius}) =>
     BorderRadius.circular(radius ?? 16.0);

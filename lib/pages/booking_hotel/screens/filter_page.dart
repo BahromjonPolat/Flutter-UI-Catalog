@@ -12,7 +12,7 @@ class _BookingHotelFilterPageState extends State<BookingHotelFilterPage> {
   Color _deepOrange = Colors.deepOrange;
   Color _grey = Colors.grey;
 
-  Size _size;
+  late Size _size;
   RangeValues _rangeValues = RangeValues(1000.0, 2000.0);
 
   List<bool> _isChecked = [true, false, false];

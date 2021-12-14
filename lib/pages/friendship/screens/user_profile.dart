@@ -5,9 +5,9 @@ import 'package:flutter_ui/pages/friendship/screens/chat_page.dart';
 
 class UserPage extends StatelessWidget {
   User user;
-  Size _size;
+  late Size _size;
 
-  UserPage({Key key, this.user}) : super(key: key);
+  UserPage({Key? key, required this.user}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,7 @@ class UserPage extends StatelessWidget {
         fontWeight: FontWeight.bold,
       );
 
-  InputDecoration _setInputDecoration({String hintText, icon}) =>
+  InputDecoration _setInputDecoration({String? hintText, IconData? icon}) =>
       InputDecoration(
           hintText: hintText,
           fillColor: Colors.white,
@@ -92,12 +92,12 @@ class UserPage extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(style: BorderStyle.none)));
 
-  AppBar _setAppBar({String title}) => AppBar(
+  AppBar _setAppBar({String? title}) => AppBar(
         backgroundColor: Colors.teal,
         elevation: 0.0,
         centerTitle: true,
         title: Text(
-          title,
+          title!,
           style: TextStyle(color: Colors.teal.shade100),
         ),
       );
@@ -110,11 +110,11 @@ class UserPage extends StatelessWidget {
         ),
       );
 
-  _showUserInfo({String title, icon, String subtitle}) => Card(
+  _showUserInfo({String? title, icon, String? subtitle}) => Card(
         margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
         child: ListTile(
-          title: _setText(title),
-          subtitle: Text(subtitle),
+          title: _setText(title!),
+          subtitle: Text(subtitle!),
           trailing: Icon(
             icon,
             color: Colors.teal,

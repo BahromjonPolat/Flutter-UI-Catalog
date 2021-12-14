@@ -5,8 +5,8 @@ import 'package:flutter_ui/pages/food_menu/food_model.dart';
 import 'package:flutter_ui/pages/food_menu/horizontal.dart';
 
 class FoodListMainPage extends StatelessWidget {
-  BuildContext _context;
-  Size _size;
+  late BuildContext _context;
+  late Size _size;
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +33,9 @@ class FoodListMainPage extends StatelessWidget {
             const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
         stretch: true,
         floating: true,
-        onStretchTrigger: () {
-          return;
-        },
+        // onStretchTrigger: () {
+        //   return;
+        // },
         expandedHeight: _size.height * 0.5,
         backgroundColor: Colors.orange,
         flexibleSpace: FlexibleSpaceBar(

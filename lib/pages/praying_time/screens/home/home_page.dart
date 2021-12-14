@@ -27,17 +27,17 @@ class _PrayerHomePageState extends State<PrayerHomePage> {
   static const Color _blackWithOpacity = Colors.black38;
 
   LinearGradient _gradient = LinearGradient(colors: [
-    Colors.green[600],
-    Colors.green[500],
-    Colors.green[400],
-    Colors.green[300],
-    Colors.green[400],
+    Colors.green[600]!,
+    Colors.green[500]!,
+    Colors.green[400]!,
+    Colors.green[300]!,
+    Colors.green[400]!,
   ]);
 
-  double _height;
-  double _width;
+  late double _height;
+  late double _width;
 
-  List<PrayingTime> _times;
+  late List<PrayingTime> _times;
 
   @override
   void initState() {
@@ -118,17 +118,17 @@ class _PrayerHomePageState extends State<PrayerHomePage> {
                         _setCategory(
                           CupertinoIcons.compass,
                           "Qibla",
-                          null,
+                          PrayerTimeTasbihPage(),
                         ),
                         _setCategory(
                           CupertinoIcons.book,
                           "Qur'on",
-                          null,
+                          PrayerTimeTasbihPage(),
                         ),
                         _setCategory(
                           CupertinoIcons.moon_stars,
                           "Masjid",
-                          null,
+                          PrayerTimeTasbihPage(),
                         ),
                         _setCategory(
                           CupertinoIcons.circle_grid_hex,

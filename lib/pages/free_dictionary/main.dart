@@ -54,11 +54,11 @@ class _FreeDictionaryState extends State<FreeDictionary> {
                   return snap.hasData
                       ? Column(
                           children: [
-                            Text(snap.data[0].meanings[0].toString()),
+                            Text(snap.data![0].meanings[0].toString()),
                             ElevatedButton(
                                 onPressed: () async {
                                   await _player.play(
-                                    "https:" + snap.data[0].phonetics[0].audio,
+                                    "https:" + snap.data![0].phonetics[0].audio,
                                   );
                                 },
                                 child: Text("PLAY"))

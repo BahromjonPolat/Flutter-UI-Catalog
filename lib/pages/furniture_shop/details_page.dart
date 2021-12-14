@@ -13,8 +13,8 @@ class _FurnitureShopDetailsPageState extends State<FurnitureShopDetailsPage>
   static const Color _grey = Colors.grey;
   static const Color _white = Colors.white;
   static const Color _orange = Colors.orange;
-  Size _size;
-  TabController _tabController;
+  late Size _size;
+  late TabController _tabController;
 
   @override
   void initState() {

@@ -15,8 +15,8 @@ class CurrencyPage extends StatefulWidget {
 }
 
 class _CurrencyPageState extends State<CurrencyPage> {
-  double _width;
-  double _height;
+ late double _width;
+ late double _height;
 
   static const Color _colorWhite = Colors.white;
   static const Color _colorWhiteWithOpacity = Color(0x0fffffff);
@@ -43,8 +43,8 @@ class _CurrencyPageState extends State<CurrencyPage> {
             ? CustomScrollView(
                 slivers: [
                   _getSliverAppBar(),
-                  _showSelectedItems(_setSelectedList(snap.data)),
-                  _setCurrencyList(snap.data),
+                  _showSelectedItems(_setSelectedList(snap.data!)),
+                  _setCurrencyList(snap.data!),
                 ],
               )
             : _showLoading();

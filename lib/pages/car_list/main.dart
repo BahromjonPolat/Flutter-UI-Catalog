@@ -11,7 +11,7 @@ class CarListMainPage extends StatelessWidget {
   static const Color _white = Colors.white;
   static const Color _grey = Colors.grey;
   static Color _lightGrey = Colors.grey.shade300;
-  double _height;
+  late double _height;
   @override
   Widget build(BuildContext context) {
     _height = MediaQuery.of(context).size.height;
@@ -31,7 +31,7 @@ class CarListMainPage extends StatelessWidget {
         print(snap.hasData);
         return snap.hasData
             ? ListView.builder(itemBuilder: (context, index) {
-                CarApiModel car = snap.data[index];
+                CarApiModel car = snap.data![index];
                 return Hero(
                   tag: "dash",
                   child: InkWell(

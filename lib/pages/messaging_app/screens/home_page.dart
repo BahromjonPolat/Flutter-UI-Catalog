@@ -15,7 +15,7 @@ class _MessagingAppHomePageState extends State<MessagingAppHomePage>
   Color _white = Colors.white;
   Color _black = Colors.black;
   int _currentIndex = 0;
-  TabController _tabController;
+  late TabController _tabController;
 
   @override
   void initState() {

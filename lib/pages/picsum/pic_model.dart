@@ -1,22 +1,22 @@
 class Picsum {
-  String _id;
-  String _author;
-  int _width;
-  int _height;
-  String _url;
-  String _downloadUrl;
+  String? _id;
+  String? _author;
+  int? _width;
+  int ?_height;
+  String ?_url;
+  String ?_downloadUrl;
 
-  String get id => _id;
+  String get id => _id!;
 
-  String get author => _author;
+  String get author => _author!;
 
-  int get width => _width;
+  int get width => _width!;
 
-  int get height => _height;
+  int get height => _height!;
 
-  String get url => _url;
+  String get url => _url!;
 
-  String get downloadUrl => _downloadUrl;
+  String get downloadUrl => _downloadUrl!;
 
   Picsum.fromJson(Map<String, dynamic> json) {
     _id = json['id'];

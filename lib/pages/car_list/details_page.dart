@@ -6,7 +6,7 @@ class CarListDetailsPage extends StatelessWidget {
 
   CarListDetailsPage(this.car);
 
-  double _height;
+  late double _height;
 
   @override
   Widget build(BuildContext context) {

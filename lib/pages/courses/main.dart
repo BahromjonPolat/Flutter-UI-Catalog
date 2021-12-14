@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class CoursesMainPage extends StatelessWidget {
-  Size _size;
+  late Size _size;
   @override
   Widget build(BuildContext context) {
     _size = MediaQuery.of(context).size;

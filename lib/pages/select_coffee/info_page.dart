@@ -7,7 +7,7 @@ class SelectCoffeeInfoPage extends StatelessWidget {
 
   SelectCoffeeInfoPage(this.coffee);
 
-  Size _size;
+  late Size _size;
   Color _black = Colors.black;
   Color _white = Colors.white;
   Color _grey = Colors.grey;

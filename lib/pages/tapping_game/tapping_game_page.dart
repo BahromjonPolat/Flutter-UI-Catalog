@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/components/exporting_packages.dart';
+import 'package:vibration/vibration.dart';
 
 class TappingGame extends StatefulWidget {
   @override

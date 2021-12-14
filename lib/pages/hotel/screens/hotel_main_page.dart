@@ -11,7 +11,7 @@ class HotelMainPage extends StatefulWidget {
 }
 
 class _HotelMainPageState extends State<HotelMainPage> {
-  Size _size;
+  late Size _size;
 
   @override
   Widget build(BuildContext context) {
@@ -143,7 +143,7 @@ class _HotelMainPageState extends State<HotelMainPage> {
             }),
       );
 
-  _showRoomList({double height, double width, int type}) => Container(
+  _showRoomList({double? height, double? width, int? type}) => Container(
         height: height,
         width: width,
         child: ListView.builder(

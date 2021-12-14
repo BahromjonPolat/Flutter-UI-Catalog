@@ -13,8 +13,8 @@ class CoffeeInfoPage extends StatefulWidget {
 }
 
 class _CoffeeInfoPageState extends State<CoffeeInfoPage> {
-  Size _size;
-  Coffee _coffee;
+  late Size _size;
+  late Coffee _coffee;
 
   @override
   Widget build(BuildContext context) {

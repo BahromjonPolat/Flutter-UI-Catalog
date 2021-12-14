@@ -10,15 +10,15 @@ class CounterAppMainPage extends StatefulWidget {
 class _CounterAppMainPageState extends State<CounterAppMainPage>
     with TickerProviderStateMixin {
   Color _deepPurple = Colors.deepPurple;
-  Color _purple = Colors.purple[600];
+  Color _purple = Colors.purple[600]!;
   Color _transparent = Colors.transparent;
-  Color _yellow = Colors.yellow[600];
+  Color _yellow = Colors.yellow[600]!;
   Color _black = Colors.black;
   Color _white = Colors.white;
   Color _grey = Colors.grey;
 
-  TabController _tabController;
-  Size _size;
+  late TabController _tabController;
+  late Size _size;
 
   @override
   void initState() {

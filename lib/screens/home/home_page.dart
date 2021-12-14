@@ -9,7 +9,7 @@ class PageList extends StatefulWidget {
 }
 
 class _PageListState extends State<PageList> {
-  Size _size;
+  late Size _size;
 
   @override
   Widget build(BuildContext context) {

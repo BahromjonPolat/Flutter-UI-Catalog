@@ -1,17 +1,17 @@
 class Currency {
-  String _title;
-  String _code;
-  String _cbPrice;
-  String _nbuBuyPrice;
-  String _nbuCellPrice;
-  String _date;
+  String? _title;
+  String? _code;
+  String? _cbPrice;
+  String? _nbuBuyPrice;
+  String? _nbuCellPrice;
+  String? _date;
 
-  String get title => _title;
-  String get code => _code;
-  String get cbPrice => _cbPrice;
-  String get nbuBuyPrice => _nbuBuyPrice;
-  String get nbuCellPrice => _nbuCellPrice;
-  String get date => _date;
+  String get title => _title!;
+  String get code => _code!;
+  String get cbPrice => _cbPrice!;
+  String get nbuBuyPrice => _nbuBuyPrice!;
+  String get nbuCellPrice => _nbuCellPrice!;
+  String get date => _date!;
 
   Currency.fromJson(Map<String, dynamic> json) {
     _title = json['title'];

@@ -32,8 +32,8 @@ UserAccountsDrawerHeader _setCarInfo() => UserAccountsDrawerHeader(
               fit: BoxFit.cover, image: NetworkImage(teslaView))),
     );
 
-ListTile _setCategory({String title, IconData icon}) => ListTile(
-      title: _setText(title),
+ListTile _setCategory({String? title, IconData? icon}) => ListTile(
+      title: _setText(title!),
       leading: Icon(
         icon,
         color: Colors.black,

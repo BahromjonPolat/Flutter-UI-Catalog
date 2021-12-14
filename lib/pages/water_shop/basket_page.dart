@@ -9,7 +9,7 @@ class WaterShopBasketPage extends StatefulWidget {
 }
 
 class _WaterShopBasketPageState extends State<WaterShopBasketPage> {
-  Size _size;
+  late Size _size;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _WaterShopBasketPageState extends State<WaterShopBasketPage> {
   Container _getBottomNavigationBar() => Container(
         height: _size.height * 0.12,
         padding: EdgeInsets.symmetric(horizontal: 24.0),
-        decoration: _getBoxDecoration(Colors.pinkAccent[100], 16.0),
+        decoration: _getBoxDecoration(Colors.pinkAccent[100]!, 16.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -86,7 +86,6 @@ class _WaterShopBasketPageState extends State<WaterShopBasketPage> {
                     image: NetworkImage(water.imageUrl),
                   ),
                 ),
-
               ),
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 12.0),
@@ -114,9 +113,7 @@ class _WaterShopBasketPageState extends State<WaterShopBasketPage> {
                                 backgroundColor: Colors.grey,
                                 child: Text("-"),
                               ),
-
                               Text("1"),
-
                               CircleAvatar(
                                 backgroundColor: Colors.grey,
                                 child: Text("-"),

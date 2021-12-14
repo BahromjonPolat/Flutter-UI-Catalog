@@ -3,12 +3,12 @@ import 'package:flutter_ui/pages/coffee_delivery/sign_in_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingPage extends StatelessWidget {
-  double _width;
-  double _height;
+  late double _width;
+  late double _height;
   static const Color _darkSlateGrey = Color(0xff324A59);
   static const Color _black = Colors.black;
   static const Color _grey = Colors.grey;
-  BuildContext _context;
+  late BuildContext _context;
 
   @override
   Widget build(BuildContext context) {

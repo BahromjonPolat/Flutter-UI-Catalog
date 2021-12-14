@@ -13,7 +13,7 @@ class PlusMessengerMainPage extends StatefulWidget {
 class _PlusMessengerMainPageState extends State<PlusMessengerMainPage>
     with TickerProviderStateMixin {
   GlobalKey<ScaffoldState> _keyScaffold = GlobalKey();
-  TabController _tabController;
+  late TabController _tabController;
 
   @override
   void initState() {

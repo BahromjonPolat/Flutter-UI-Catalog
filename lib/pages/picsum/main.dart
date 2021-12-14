@@ -11,8 +11,8 @@ class PicListMain extends StatelessWidget {
   static const Color _black = Colors.black;
   static const Color _white = Colors.white;
   static const Color _transparent = Colors.transparent;
-  double _height;
-  double _width;
+  late double _height;
+  late double _width;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class PicListMain extends StatelessWidget {
       builder: (context, AsyncSnapshot<List<Picsum>> snap) {
         return (snap.hasData)
             ? ListView.builder(itemBuilder: (context, index) {
-                Picsum picsum = snap.data[index];
+                Picsum picsum = snap.data![index];
                 return Container(
                   height: _height * 0.15,
                   width: _width,
@@ -87,16 +87,16 @@ class PicListMain extends StatelessWidget {
 
   Text _setSimpleText(
     String text, {
-    double size,
-    Color color,
-    FontWeight weight,
+    double? size,
+    Color? color,
+    FontWeight? weight,
   }) =>
       Text(
         text,
         style: TextStyle(
           fontSize: size ?? 14,
           color: color ?? Colors.white,
-          fontWeight: weight ?? FontStyle.normal,
+          fontWeight: weight ?? FontWeight.normal,
         ),
       );
 

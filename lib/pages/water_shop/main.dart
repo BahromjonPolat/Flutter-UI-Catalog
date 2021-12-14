@@ -9,7 +9,7 @@ class WaterShopMainPage extends StatefulWidget {
 }
 
 class _WaterShopMainPageState extends State<WaterShopMainPage> {
-  Size _size;
+  late Size _size;
 
   @override
   Widget build(BuildContext context) {

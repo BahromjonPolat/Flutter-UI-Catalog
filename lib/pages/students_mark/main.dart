@@ -9,7 +9,7 @@ class MarkListPage extends StatefulWidget {
 }
 
 class _MarkListPageState extends State<MarkListPage> {
-  Size _size;
+  late Size _size;
   int _grade = 100;
   GlobalKey<FormFieldState> _subjectKey = GlobalKey<FormFieldState>();
   TextEditingController _subjectController = TextEditingController();
@@ -119,7 +119,7 @@ class _MarkListPageState extends State<MarkListPage> {
   Container _getDropButton() => Container(
         width: _size.width * 0.6,
         child: DropdownButtonHideUnderline(
-            child: DropdownButton(
+            child: DropdownButton<dynamic>(
           value: _grade,
           items: [
             _setDropMenuItem(100),

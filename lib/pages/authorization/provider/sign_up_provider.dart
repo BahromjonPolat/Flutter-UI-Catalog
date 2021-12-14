@@ -15,8 +15,8 @@ class SignUpProvider extends ChangeNotifier {
   GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
 
   void checkFields() {
-    if (_globalKey.currentState.validate()) {
-      _globalKey.currentState.save();
+    if (_globalKey.currentState!.validate()) {
+      _globalKey.currentState!.save();
 
       String name = _nameController.text.trim();
       String email = _emailController.text.trim();

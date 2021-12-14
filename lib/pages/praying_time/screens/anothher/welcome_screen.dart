@@ -17,11 +17,11 @@ class _PrayerTimeWelcomeScreenState extends State<PrayerTimeWelcomeSceen> {
       begin: Alignment.topCenter,
       end: Alignment.bottomRight,
       colors: [
-        Colors.green[600],
-        Colors.green[500],
-        Colors.green[400],
-        Colors.green[300],
-        Colors.green[400],
+        Colors.green[600]!,
+        Colors.green[500]!,
+        Colors.green[400]!,
+        Colors.green[300]!,
+        Colors.green[400]!,
       ]);
 
   @override
@@ -37,7 +37,7 @@ class _PrayerTimeWelcomeScreenState extends State<PrayerTimeWelcomeSceen> {
     });
   }
 
-  double _width;
+  late double _width;
 
   @override
   Widget build(BuildContext context) {

@@ -4,8 +4,8 @@ import 'package:flutter/painting.dart';
 
 Color _white = Colors.white;
 Color _deepOrange = Colors.deepOrange;
-BuildContext _context;
-Size _size;
+late BuildContext _context;
+late Size _size;
 
 Column checkRoomPage(BuildContext context) {
   _context = context;
@@ -57,10 +57,10 @@ VerticalDivider _setVerticalDivider() => VerticalDivider(
     );
 
 Container _setInfo({
-  String title,
-  num number,
-  String date,
-  String day,
+  String? title,
+  num? number,
+  String? date,
+  String? day,
 }) =>
     Container(
       width: _size.width * 0.49,
@@ -70,7 +70,7 @@ Container _setInfo({
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(title.toUpperCase()),
+          Text(title!.toUpperCase()),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -91,7 +91,7 @@ Container _setInfo({
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text(day),
+                        Text(day!),
                       ],
                     )
                   : SizedBox(),
@@ -102,8 +102,8 @@ Container _setInfo({
     );
 
 Padding _getButton() => Padding(
-  padding: const EdgeInsets.all(48.0),
-  child:   ElevatedButton(
+      padding: const EdgeInsets.all(48.0),
+      child: ElevatedButton(
         onPressed: () {},
         child: Text("SEARCH"),
         style: ElevatedButton.styleFrom(
@@ -112,7 +112,7 @@ Padding _getButton() => Padding(
           shape: RoundedRectangleBorder(borderRadius: _setBorderRadius(50.0)),
         ),
       ),
-);
+    );
 
 InputBorder _setBorder() => OutlineInputBorder(
       borderRadius: _setBorderRadius(32.0),

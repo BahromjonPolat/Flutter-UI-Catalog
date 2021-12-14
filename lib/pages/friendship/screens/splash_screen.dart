@@ -4,7 +4,7 @@ import 'package:flutter_ui/pages/friendship/screens/auth_page.dart';
 
 /// Splash Screen class
 class FriendshipSplashScreenPage extends StatelessWidget {
-  Size _size;
+  late Size _size;
 
   @override
   Widget build(BuildContext context) {

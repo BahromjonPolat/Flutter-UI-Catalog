@@ -14,7 +14,7 @@ class BookStoreMainPage extends StatefulWidget {
 }
 
 class _BookStoreMainPageState extends State<BookStoreMainPage> {
-  Size _size;
+  late Size _size;
   @override
   Widget build(BuildContext context) {
     _size = MediaQuery.of(context).size;
@@ -166,9 +166,7 @@ class _BookStoreMainPageState extends State<BookStoreMainPage> {
                         borderRadius: BorderRadius.circular(16.0),
                         child: FadeInImage(
                           placeholder: AssetImage("assets/images/book_cover.jpg"),
-                          image: (book.imageUrl != "default")
-                              ? NetworkImage(book.imageUrl)
-                              : AssetImage("assets/images/book_cover.jpg"),
+                          image:  AssetImage("assets/images/book_cover.jpg"),
                         ),
                       ),
                     ),

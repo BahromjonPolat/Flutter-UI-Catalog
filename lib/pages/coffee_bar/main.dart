@@ -12,7 +12,7 @@ class CoffeeBarMainPage extends StatefulWidget {
 }
 
 class _CoffeeBarMainPageState extends State<CoffeeBarMainPage> {
-  Size _size;
+  late Size _size;
   int _categoryIndex = 0;
 
   @override

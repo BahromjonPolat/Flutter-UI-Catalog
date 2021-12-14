@@ -3,9 +3,9 @@ import 'package:flutter_ui/pages/friendship/models/user_model.dart';
 
 class MockChat extends StatelessWidget {
   User user;
-  Size _size;
+  late Size _size;
 
-  MockChat({Key key, this.user}) : super(key: key);
+  MockChat({Key? key,required this.user}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -107,12 +107,12 @@ class MockChat extends StatelessWidget {
     "You are welcome"
   ];
 
-  AppBar _setAppBar({String title}) => AppBar(
+  AppBar _setAppBar({String? title}) => AppBar(
         backgroundColor: Colors.teal,
         elevation: 0.0,
         centerTitle: true,
         title: Text(
-          title,
+          title!,
           style: TextStyle(color: Colors.teal.shade100),
         ),
       );

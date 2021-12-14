@@ -3,7 +3,7 @@ import 'package:flutter_ui/pages/order_food/game.dart';
 import 'package:flutter_ui/pages/order_food/main.dart';
 
 class OrderFoodSplashScreenPage extends StatelessWidget {
-  BuildContext _context;
+  late BuildContext _context;
   @override
   Widget build(BuildContext context) {
     _context = context;

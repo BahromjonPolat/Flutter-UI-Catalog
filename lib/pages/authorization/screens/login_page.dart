@@ -11,11 +11,11 @@ class AuthLoginPage extends StatefulWidget {
 }
 
 class _AuthLoginPageState extends State<AuthLoginPage> {
-  Size _size;
+  late Size _size;
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
-  UserModel _currentUser;
+  late UserModel _currentUser;
 
   @override
   Widget build(BuildContext context) {

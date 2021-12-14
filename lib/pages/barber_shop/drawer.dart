@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/pages/barber_shop/choice_page.dart';
 
-BuildContext _context;
+late BuildContext _context;
 
 Drawer barberDrawer(BuildContext context) {
   _context = context;

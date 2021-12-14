@@ -16,8 +16,8 @@ class _YachtCheckOutPageState extends State<YachtCheckOutPage> {
   static const Color _transparent = Colors.transparent;
   static const Color _grey = Colors.grey;
   static const Color _disabledColor = Color(0xffdddddd);
-  double _width;
-  double _height;
+  late double _width;
+  late double _height;
 
   @override
   Widget build(BuildContext context) {

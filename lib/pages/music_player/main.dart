@@ -7,8 +7,8 @@ class AudioPlayerMainPage extends StatefulWidget {
 }
 
 class _AudioPlayerMainPageState extends State<AudioPlayerMainPage> {
-  double _height;
-  double _width;
+  late double _height;
+  late double _width;
 
   @override
   Widget build(BuildContext context) {

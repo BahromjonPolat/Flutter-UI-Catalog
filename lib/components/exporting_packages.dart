@@ -35,6 +35,5 @@ export 'package:flutter_ui/pages/yacht/main.dart';
 // Packages
 export 'package:fluttertoast/fluttertoast.dart';
 export 'package:material_dialogs/material_dialogs.dart';
-export 'package:vibration/vibration.dart';
 export 'package:url_launcher/url_launcher.dart';
 export 'package:provider/provider.dart';

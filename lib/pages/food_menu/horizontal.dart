@@ -6,7 +6,7 @@ import 'package:flutter_ui/pages/food_menu/food_model.dart';
 class FoodHorizontalListPage extends StatelessWidget {
   // Ekranning o`lchamlarini klasning barcha metodlarida
   // ishlata olish uchun Size global qilib olindi.
-  Size _size;
+  late Size _size;
 
   @override
   Widget build(BuildContext context) {

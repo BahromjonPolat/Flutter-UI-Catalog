@@ -10,7 +10,7 @@ class GamePage extends StatefulWidget {
 
 class _GamePageState extends State<GamePage> {
   int _randomNum = 1 + Random().nextInt(9);
-  Size _size;
+  late Size _size;
   int _chance = 3;
   bool _isRestart = false;
   List<bool> _disabled = [
@@ -26,7 +26,7 @@ class _GamePageState extends State<GamePage> {
   ];
 
   int _initialTime = DateTime.now().millisecondsSinceEpoch;
-  int _endTime;
+  late  int _endTime;
 
   @override
   void initState() {

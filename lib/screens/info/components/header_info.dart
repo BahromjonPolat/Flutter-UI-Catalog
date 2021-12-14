@@ -4,7 +4,7 @@ import 'package:flutter_ui/components/size_config.dart';
 import 'package:flutter_ui/pages/hotel/components/hotel_images.dart';
 
 class HeaderInfo extends StatelessWidget {
-  const HeaderInfo({Key key}) : super(key: key);
+  const HeaderInfo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -27,10 +27,10 @@ class _PrayerTimeMainPageState extends State<PrayerTimeMainPage> {
   static const Color _orange = Colors.orange;
 
   int _currentIndex = 0;
-  double _height;
-  double _width;
+  late double _height;
+  late double _width;
 
-  List<PrayingTime> _times;
+  late List<PrayingTime> _times;
 
   @override
   void initState() {

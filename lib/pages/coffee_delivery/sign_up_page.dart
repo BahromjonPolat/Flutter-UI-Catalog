@@ -5,13 +5,13 @@ class CoffeeDeliverySignUpPage extends StatelessWidget {
   static const Color _black = Colors.black;
   static const Color _grey = Colors.grey;
   static const Color _transparent = Colors.transparent;
-  BuildContext _context;
+  late BuildContext _context;
 
   TextEditingController _emailController = TextEditingController();
   TextEditingController _nameController = TextEditingController();
 
-  double _width;
-  double _height;
+  late double _width;
+  late double _height;
 
   @override
   Widget build(BuildContext context) {

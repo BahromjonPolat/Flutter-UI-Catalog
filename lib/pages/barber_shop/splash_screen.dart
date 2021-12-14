@@ -3,8 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_ui/pages/barber_shop/main.dart';
 
 class BarberShopSplashScreen extends StatelessWidget {
-  Size _size;
-  BuildContext _context;
+  late Size _size;
+  late BuildContext _context;
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +41,8 @@ class BarberShopSplashScreen extends StatelessWidget {
 
   ElevatedButton _getButton() => ElevatedButton(
         onPressed: () {
-          Navigator.push(
-              _context, MaterialPageRoute(builder: (_) => BarberShopMainPage()));
+          Navigator.push(_context,
+              MaterialPageRoute(builder: (_) => BarberShopMainPage()));
         },
         child: Text("Get a serious haircut"),
         style: ElevatedButton.styleFrom(

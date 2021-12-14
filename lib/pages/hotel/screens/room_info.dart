@@ -9,15 +9,15 @@ import 'package:flutter_ui/pages/hotel/components/room_list.dart';
 class HotelRoomInfoPage extends StatefulWidget {
   Room room;
 
-  HotelRoomInfoPage({this.room});
+  HotelRoomInfoPage({required this.room});
 
   @override
   _HotelRoomInfoPageState createState() => _HotelRoomInfoPageState();
 }
 
 class _HotelRoomInfoPageState extends State<HotelRoomInfoPage> {
-  Room _room;
-  Size _size;
+  late Room _room;
+  late Size _size;
 
   @override
   Widget build(BuildContext context) {

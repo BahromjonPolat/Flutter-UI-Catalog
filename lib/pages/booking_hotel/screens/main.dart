@@ -15,7 +15,7 @@ class BookingHotelMainPage extends StatefulWidget {
 }
 
 class _BookingHotelMainPageState extends State<BookingHotelMainPage> {
-  Size _size;
+  late Size _size;
   Color _white = Colors.white;
   Color _black = Colors.black;
   Color _deepOrange = Colors.deepOrange;

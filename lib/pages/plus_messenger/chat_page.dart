@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui/pages/plus_messenger/chat_model.dart';
 
 class TelegramChatPage extends StatelessWidget {
-  Size _size;
+  late Size _size;
   Chat chat;
   TelegramChatPage(this.chat);
 

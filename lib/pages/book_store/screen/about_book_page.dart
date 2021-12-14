@@ -8,15 +8,15 @@ import 'package:glassmorphism_ui/glassmorphism_ui.dart';
 class AboutBookPage extends StatefulWidget {
   Book book;
 
-  AboutBookPage({this.book});
+  AboutBookPage({required this.book});
 
   @override
   _AboutBookPageState createState() => _AboutBookPageState();
 }
 
 class _AboutBookPageState extends State<AboutBookPage> {
-  Book _book;
-  Size _size;
+  late Book _book;
+  late Size _size;
 
   @override
   Widget build(BuildContext context) {
@@ -49,9 +49,7 @@ class _AboutBookPageState extends State<AboutBookPage> {
             borderRadius: BorderRadius.circular(16.0),
             image: DecorationImage(
                 fit: BoxFit.cover,
-                image: (_book.imageUrl != "default")
-                    ? NetworkImage(_book.imageUrl)
-                    : AssetImage("assets/images/book_cover.jpg"))),
+                image: AssetImage("assets/images/book_cover.jpg"))),
         child: GlassContainer(
           width: _size.width * 1.0,
           height: _size.height * 0.13,

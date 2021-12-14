@@ -1,38 +1,38 @@
 class Dictionary {
-  String _word;
-  List<Phonetics> _phonetics;
-  List<Meanings> _meanings;
+  String? _word;
+  List<Phonetics>? _phonetics;
+  List<Meanings>? _meanings;
 
-  String get word => _word;
+  String get word => _word!;
 
-  List<Phonetics> get phonetics => _phonetics;
+  List<Phonetics> get phonetics => _phonetics!;
 
-  List<Meanings> get meanings => _meanings;
+  List<Meanings> get meanings => _meanings!;
 
   Dictionary.fromJson(Map<String, dynamic> json) {
     _word = json['word'];
     if (json['phonetics'] != null) {
-      _phonetics = new List<Phonetics>();
+      _phonetics = [];
       json['phonetics'].forEach((v) {
-        _phonetics.add(new Phonetics.fromJson(v));
+        _phonetics!.add(new Phonetics.fromJson(v));
       });
     }
     if (json['meanings'] != null) {
-      _meanings = new List<Meanings>();
+      _meanings = [];
       json['meanings'].forEach((v) {
-        _meanings.add(new Meanings.fromJson(v));
+        _meanings!.add(new Meanings.fromJson(v));
       });
     }
   }
 }
 
 class Phonetics {
-  String _text;
-  String _audio;
+  String? _text;
+  String? _audio;
 
-  String get text => _text;
+  String get text => _text!;
 
-  String get audio => _audio;
+  String get audio => _audio!;
 
   Phonetics.fromJson(Map<String, dynamic> json) {
     _text = json['text'];
@@ -41,46 +41,40 @@ class Phonetics {
 }
 
 class Meanings {
-  String _partOfSpeech;
-  List<Definitions> _definitions;
+  String? _partOfSpeech;
+  List<Definitions>? _definitions;
 
-  String get partOfSpeech => _partOfSpeech;
+  String get partOfSpeech => _partOfSpeech!;
 
-  List<Definitions> get definitions => _definitions;
+  List<Definitions> get definitions => _definitions!;
 
   Meanings.fromJson(Map<String, dynamic> json) {
     _partOfSpeech = json['partOfSpeech'];
     if (json['definitions'] != null) {
-      _definitions = new List<Definitions>();
+      _definitions = [];
       json['definitions'].forEach((v) {
-        _definitions.add(new Definitions.fromJson(v));
+        _definitions!.add(new Definitions.fromJson(v));
       });
     }
   }
 }
 
 class Definitions {
-  String _definition;
-  String _example;
-  List<String> _synonyms;
+  String? _definition;
+  String? _example;
+  List<String>? _synonyms;
 
-  Definitions({String definition, String example, List<String> synonyms}) {
+  Definitions({String? definition, String? example, List<String>? synonyms}) {
     this._definition = definition;
     this._example = example;
     this._synonyms = synonyms;
   }
 
-  String get definition => _definition;
+  String get definition => _definition!;
 
-  set definition(String definition) => _definition = definition;
+  String get example => _example!;
 
-  String get example => _example;
-
-  set example(String example) => _example = example;
-
-  List<String> get synonyms => _synonyms;
-
-  set synonyms(List<String> synonyms) => _synonyms = synonyms;
+  List<String> get synonyms => _synonyms!;
 
   Definitions.fromJson(Map<String, dynamic> json) {
     _definition = json['definition'];

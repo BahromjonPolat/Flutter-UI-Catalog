@@ -12,7 +12,7 @@ class CarBazarMainPage extends StatefulWidget {
 }
 
 class _CarBazarMainPageState extends State<CarBazarMainPage> {
-  Size _size;
+  late Size _size;
   int _currentIndex = 1;
 
   @override
@@ -27,7 +27,7 @@ class _CarBazarMainPageState extends State<CarBazarMainPage> {
   }
 
   Column _getBody() => Column(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           _carTitleList(),
           Spacer(),
@@ -42,8 +42,8 @@ class _CarBazarMainPageState extends State<CarBazarMainPage> {
 
   AppBar _setAppBar() => AppBar(
         systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: Colors.transparent,
-            statusBarIconBrightness: Brightness.dark,
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.dark,
         ),
         elevation: 0.0,
         backgroundColor: Colors.transparent,
@@ -62,17 +62,17 @@ class _CarBazarMainPageState extends State<CarBazarMainPage> {
         height: 102.0,
         width: _size.width,
         child: ListView.builder(
-          itemExtent: _size.width * 0.38,
+            itemExtent: _size.width * 0.38,
             itemCount: carTitles.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-          String title = carTitles[index];
-          return _showCategory(title, index);
-        }),
+              String title = carTitles[index];
+              return _showCategory(title, index);
+            }),
       );
 
   _showCategory(String title, int index) => Column(
-    mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           (_currentIndex == index)
               ? SizedBox(
@@ -134,7 +134,7 @@ class _CarBazarMainPageState extends State<CarBazarMainPage> {
         ),
       );
 
-  _setDiscoveryImages({String imageUrl, String title}) => Padding(
+  _setDiscoveryImages({String? imageUrl, String? title}) => Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -147,10 +147,10 @@ class _CarBazarMainPageState extends State<CarBazarMainPage> {
                 color: Colors.red,
                 borderRadius: BorderRadius.circular(12.0),
                 image: DecorationImage(
-                    fit: BoxFit.cover, image: NetworkImage(imageUrl)),
+                    fit: BoxFit.cover, image: NetworkImage(imageUrl!)),
               ),
             ),
-            _setText(title, 15.0, Colors.grey),
+            _setText(title!, 15.0, Colors.grey),
           ],
         ),
       );

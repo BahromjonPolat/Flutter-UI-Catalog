@@ -5,14 +5,12 @@ import 'package:flutter_ui/pages/friendship/screens/home/home_page.dart';
 
 /// REGISTER PAGE
 class RegisterPage extends StatefulWidget {
-  RegisterPage({Key key}) : super(key: key);
-
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  Size _size;
+  late Size _size;
   bool _isRegister = true;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -58,7 +56,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       decoration: _setInputDecoration(
                           hintText: "Name", icon: Icons.person),
                       validator: (value) {
-                        if (value.isEmpty) {
+                        if (value!.isEmpty) {
                           return "Maydon bo'sh bo'lishi mumkin emas!";
                         }
                         if (value.length < 3) {
@@ -74,7 +72,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       decoration: _setInputDecoration(
                           hintText: "Email", icon: Icons.email),
                       validator: (value) {
-                        if (value.isEmpty) {
+                        if (value!.isEmpty) {
                           return "Maydon bo'sh bo'lishi mumkin emas!";
                         }
                         if (value.length < 3) {
@@ -90,7 +88,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       decoration: _setInputDecoration(
                           hintText: "Phone", icon: Icons.phone),
                       validator: (value) {
-                        if (value.isEmpty)
+                        if (value!.isEmpty)
                           return "Maydon bo'sh bo'lishi mumkin emas!";
                         if (value.length < 3)
                           return "3 tadan kam belgi bo'lishi mumkin emas!";
@@ -105,7 +103,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       decoration: _setInputDecoration(
                           hintText: "Password", icon: Icons.lock),
                       validator: (value) {
-                        if (value.isEmpty)
+                        if (value!.isEmpty)
                           return "Maydon bo'sh bo'lishi mumkin emas!";
                         if (value.length < 3)
                           return "3 tadan kam belgi bo'lishi mumkin emas!";
@@ -115,7 +113,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         style: _setButtonStyle(_size),
                         onPressed: () {
                           setState(() {
-                            if (_formKey.currentState.validate()) {
+                            if (_formKey.currentState!.validate()) {
                               String name = _nameController.text;
                               String email = _emailController.text;
                               String phone = _phoneController.text;
@@ -191,7 +189,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       decoration: _setInputDecoration(
                           hintText: "Email", icon: Icons.email),
                       validator: (value) {
-                        if (value.isEmpty) {
+                        if (value!.isEmpty) {
                           return "Maydon bo'sh bo'lishi mumkin emas!";
                         }
                         if (value.length < 3)
@@ -207,7 +205,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       decoration: _setInputDecoration(
                           hintText: "Password", icon: Icons.lock),
                       validator: (value) {
-                        if (value.isEmpty)
+                        if (value!.isEmpty)
                           return "Maydon bo'sh bo'lishi mumkin emas!";
                         if (value.length < 3)
                           return "3 tadan kam belgi bo'lishi mumkin emas!";
@@ -216,7 +214,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ElevatedButton(
                         style: _setButtonStyle(_size),
                         onPressed: () {
-                          if (_formKey.currentState.validate()) {
+                          if (_formKey.currentState!.validate()) {
                             String email =
                                 _emailController.text.toLowerCase().trim();
                             String password =
@@ -269,7 +267,7 @@ class _RegisterPageState extends State<RegisterPage> {
         fontWeight: FontWeight.bold,
       );
 
-  InputDecoration _setInputDecoration({String hintText, icon}) =>
+  InputDecoration _setInputDecoration({String? hintText, icon}) =>
       InputDecoration(
           hintText: hintText,
           fillColor: Colors.white,
@@ -289,21 +287,14 @@ class _RegisterPageState extends State<RegisterPage> {
           focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(style: BorderStyle.none)));
 
-  AppBar _setAppBar({String title}) => AppBar(
+  AppBar _setAppBar({String? title}) => AppBar(
         backgroundColor: Colors.teal,
         elevation: 0.0,
         centerTitle: true,
         title: Text(
-          title,
+          title!,
           style: TextStyle(color: Colors.teal.shade100),
         ),
       );
 
-  Text _setText(String text) => Text(
-        text,
-        style: TextStyle(
-          color: Colors.teal,
-          fontWeight: FontWeight.bold,
-        ),
-      );
 }
