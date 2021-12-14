@@ -1,6 +1,6 @@
 export 'package:flutter/cupertino.dart';
 export 'package:flutter_ui/model/page.dart';
-export 'package:flutter_ui/pages/authorization/splash_screen_page.dart';
+export 'package:flutter_ui/pages/authorization/screens/splash_screen_page.dart';
 export 'package:flutter_ui/pages/barber_shop/splash_screen.dart';
 export 'package:flutter_ui/pages/book_store/screen/main.dart';
 export 'package:flutter_ui/pages/booking_hotel/screens/splash_screen.dart';
@@ -37,3 +37,4 @@ export 'package:fluttertoast/fluttertoast.dart';
 export 'package:material_dialogs/material_dialogs.dart';
 export 'package:vibration/vibration.dart';
 export 'package:url_launcher/url_launcher.dart';
+export 'package:provider/provider.dart';

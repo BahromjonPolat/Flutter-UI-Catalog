@@ -24,22 +24,14 @@ class HeaderInfo extends StatelessWidget {
               Text(
                 "Bahromjon\nPo'lat",
                 style: TextStyle(
-                  color: ConstColor.textColor,
-                  fontSize: getProportionateScreenWidth(32.0),
-                  fontFamily: "SfPro"
-                ),
+                    color: ConstColor.textColor,
+                    fontSize: getProportionateScreenWidth(32.0),
+                    fontFamily: "SfPro"),
               )
             ],
           )
         ],
       ),
-    );
-  }
-
-  BoxDecoration _buildBoxDecoration() {
-    return BoxDecoration(
-      borderRadius: _setBorderRadius(),
-      color: Colors.white,
     );
   }
 
@@ -58,6 +50,13 @@ class HeaderInfo extends StatelessWidget {
           ),
         ),
       );
+
+  BoxDecoration _buildBoxDecoration() {
+    return BoxDecoration(
+      borderRadius: _setBorderRadius(),
+      color: Colors.white,
+    );
+  }
 
   BorderRadius _setBorderRadius() => BorderRadius.circular(
         getProportionateScreenWidth(20.0),

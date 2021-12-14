@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/pages/authorization/login_page.dart';
+import 'package:flutter_ui/pages/authorization/screens/login_page.dart';
 
 class AuthSplashScreenPage extends StatefulWidget {
   @override

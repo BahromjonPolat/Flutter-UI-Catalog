@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/pages/authorization/sign_up_page.dart';
-import 'package:flutter_ui/pages/authorization/user_list.dart';
-import 'package:flutter_ui/pages/authorization/user_model.dart';
+import 'package:flutter_ui/pages/authorization/screens/sign_up_page.dart';
+import 'package:flutter_ui/pages/authorization/data/user_list.dart';
+import 'package:flutter_ui/pages/authorization/models/user_model.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class AuthLoginPage extends StatefulWidget {
@@ -123,24 +123,8 @@ class _AuthLoginPageState extends State<AuthLoginPage> {
       return;
     }
 
-    // _showDialog().show();
   }
 
-  // AwesomeDialog _showDialog() => AwesomeDialog(
-  //       context: context,
-  //       title: _isEmailAndPasswordTrue() ? "Welcome!" : "Wrong!",
-  //       dialogType:
-  //           _isEmailAndPasswordTrue() ? DialogType.SUCCES : DialogType.ERROR,
-  //       btnOk: ElevatedButton(
-  //         onPressed: () {
-  //           Navigator.pop(context);
-  //         },
-  //         child: Text("ok"),
-  //       ),
-  //       body: Column(
-  //
-  //       ),
-  //     );
 
   bool _isEmailAndPasswordTrue() {
     String email = _emailController.text.trim();
