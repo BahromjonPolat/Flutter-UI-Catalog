@@ -1,3 +1,4 @@
+// Pages
 export 'package:flutter/cupertino.dart';
 export 'package:flutter_ui/model/page.dart';
 export 'package:flutter_ui/pages/authorization/screens/splash_screen_page.dart';
@@ -37,3 +38,11 @@ export 'package:fluttertoast/fluttertoast.dart';
 export 'package:material_dialogs/material_dialogs.dart';
 export 'package:url_launcher/url_launcher.dart';
 export 'package:provider/provider.dart';
+
+// Widgets
+
+export 'package:flutter_ui/widgets/my_text_widget.dart';
+
+// Components
+export 'package:flutter_ui/components/colors.dart';
+export 'package:flutter_ui/components/size_config.dart';

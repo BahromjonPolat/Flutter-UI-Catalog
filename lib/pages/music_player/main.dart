@@ -8,20 +8,12 @@ class AudioPlayerMainPage extends StatefulWidget {
 
 class _AudioPlayerMainPageState extends State<AudioPlayerMainPage> {
   late double _height;
-  late double _width;
 
   @override
   Widget build(BuildContext context) {
     _height = MediaQuery.of(context).size.height;
-    _width = MediaQuery.of(context).size.width;
     return Scaffold();
   }
-
-  CustomScrollView _buildScrollBody() => CustomScrollView(
-        slivers: [
-          _getSliverAppBar(),
-        ],
-      );
 
   SliverAppBar _getSliverAppBar() => SliverAppBar(
         title: Text("MY MUSIC LIST"),

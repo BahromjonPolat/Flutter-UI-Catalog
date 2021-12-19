@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/components/exporting_packages.dart';
-import 'package:vibration/vibration.dart';
 
 class TappingGame extends StatefulWidget {
   @override
@@ -74,7 +73,7 @@ class _TappingGameState extends State<TappingGame> {
       ));
 
   void _showWinner(String winner) {
-    _vibrate();
+    // _vibrate();
     Dialogs.materialDialog(
       context: context,
       title: "Congratulations",
@@ -89,13 +88,13 @@ class _TappingGameState extends State<TappingGame> {
     _redHeight = 20;
   }
 
-  void _vibrate() async {
-    if (await Vibration.hasVibrator()) {
-      Vibration.vibrate(duration: 100);
-    } else {
-      Vibration.vibrate();
-      await Future.delayed(Duration(milliseconds: 100));
-      Vibration.vibrate();
-    }
-  }
+  // void _vibrate() async {
+  //   if (await Vibration.hasVibrator()) {
+  //     Vibration.vibrate(duration: 100);
+  //   } else {
+  //     Vibration.vibrate();
+  //     await Future.delayed(Duration(milliseconds: 100));
+  //     Vibration.vibrate();
+  //   }
+  // }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/components/colors.dart';
-import 'package:flutter_ui/components/size_config.dart';
 import 'package:flutter_ui/pages/hotel/components/hotel_images.dart';
+import 'package:flutter_ui/components/exporting_packages.dart';
 
 class HeaderInfo extends StatelessWidget {
   const HeaderInfo({Key? key}) : super(key: key);
@@ -21,13 +20,7 @@ class HeaderInfo extends StatelessWidget {
           _setProfileImage(),
           Column(
             children: [
-              Text(
-                "Bahromjon\nPo'lat",
-                style: TextStyle(
-                    color: ConstColor.textColor,
-                    fontSize: getProportionateScreenWidth(32.0),
-                    fontFamily: "SfPro"),
-              )
+              MyTextWidget("Bahrom\nPo'lat", color: ConstColor.textColor, size: 41.0,),
             ],
           )
         ],
@@ -49,6 +42,14 @@ class HeaderInfo extends StatelessWidget {
             width: getProportionateScreenWidth(154.0),
           ),
         ),
+      );
+
+  _setAccountInfo(String title, String data) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          MyTextWidget(title, color: ConstColor.lightGrey,size: 9.0),
+          MyTextWidget(data, color: ConstColor.textColor),
+        ],
       );
 
   BoxDecoration _buildBoxDecoration() {

@@ -20,10 +20,10 @@ dependencies:
   fluttertoast: ^8.0.8
 
   # PROVIDER
-  provider: ^6.0.12
+  provider: ^6.0.0
 
   # VIBRATOR
-  vibration: ^1.7.3
+#  vibration: ^1.7.3
 
   # Oddiy ma'lumotlarni doimiy xotiraga saqlab ketadi.
   shared_preferences: ^2.0.6
@@ -137,6 +137,8 @@ flutter:
 
     - family: SfPro
       fonts:
+        - asset: assets/fonts/SF-Pro-Medium.otf
         - asset: assets/fonts/SF-Pro-Display-Regular.otf
+          weight: 400
 
 
