@@ -6,6 +6,8 @@ class MyTextWidget extends StatelessWidget {
   Color color;
   double size;
   FontWeight weight;
+  int lines;
+  String family;
 
   MyTextWidget(
     this.data, {
@@ -13,16 +15,21 @@ class MyTextWidget extends StatelessWidget {
     this.color = Colors.black,
     this.size = 14.0,
     this.weight = FontWeight.w500,
+    this.lines = 1,
+    this.family = 'SfPro',
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       data,
+      maxLines: lines,
+      overflow: TextOverflow.ellipsis,
       style: TextStyle(
         fontSize: getProportionateScreenWidth(size),
         fontWeight: weight,
         color: color,
+        fontFamily: family,
       ),
     );
   }

@@ -5,4 +5,5 @@ class ConstColor {
   static const Color textColor = Color(0xFF79838B);
   static const Color lightBlue = Color(0xFF44C4FE);
   static const Color lightGrey = Color(0xFFB8C5D0);
+  static const Color blue = Color(0xFF4BC9FE);
 }

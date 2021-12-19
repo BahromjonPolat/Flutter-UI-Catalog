@@ -14,40 +14,57 @@ class HeaderInfo extends StatelessWidget {
         left: getProportionateScreenWidth(20.0),
         right: getProportionateScreenWidth(20.0),
       ),
+      padding: EdgeInsets.symmetric(
+        horizontal: getProportionateScreenWidth(10.0),
+        vertical: getProportionateScreenHeight(10.0),
+      ),
       height: getProportionateScreenHeight(250.0),
       child: Row(
         children: [
           _setProfileImage(),
-          Column(
-            children: [
-              MyTextWidget("Bahrom\nPo'lat", color: ConstColor.textColor, size: 41.0,),
-            ],
-          )
+          SizedBox(width: getProportionateScreenWidth(10.0)),
+          _setRightSideInfo(),
         ],
       ),
     );
   }
 
-  Padding _setProfileImage() => Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: getProportionateScreenWidth(10.0),
-          vertical: getProportionateScreenHeight(10.0),
-        ),
-        child: ClipRRect(
-          borderRadius: _setBorderRadius(),
-          child: Image.network(
-            HotelImageUlr.room1,
-            fit: BoxFit.cover,
-            height: getProportionateScreenHeight(250.0),
-            width: getProportionateScreenWidth(154.0),
+  Expanded _setRightSideInfo() {
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          MyTextWidget(
+            "Bahrom\nPo'lat",
+            color: ConstColor.textColor,
+            size: 41.0,
+            lines: 2,
           ),
+          SizedBox(height: getProportionateScreenHeight(14.0)),
+          _setAccountInfo('Email', 'bahromjon.ergashboyev@gmail.com'),
+          SizedBox(height: getProportionateScreenHeight(14.0)),
+          _setAccountInfo('Date of birth', 'June, 18, 1994'),
+          SizedBox(height: getProportionateScreenHeight(14.0)),
+          _setAccountInfo('Address', 'Tashkent district, Tashkent'),
+        ],
+      ),
+    );
+  }
+
+  ClipRRect _setProfileImage() => ClipRRect(
+        borderRadius: _setBorderRadius(),
+        child: Image.network(
+          HotelImageUlr.room1,
+          fit: BoxFit.cover,
+          height: getProportionateScreenHeight(250.0),
+          width: getProportionateScreenWidth(154.0),
         ),
       );
 
   _setAccountInfo(String title, String data) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MyTextWidget(title, color: ConstColor.lightGrey,size: 9.0),
+          MyTextWidget(title, color: ConstColor.lightGrey, size: 9.0),
           MyTextWidget(data, color: ConstColor.textColor),
         ],
       );
