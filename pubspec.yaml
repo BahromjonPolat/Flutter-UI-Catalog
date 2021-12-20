@@ -112,6 +112,7 @@ flutter:
     - assets/images/coffee_delivery/
     - assets/images/svg/
     - assets/json/
+    - assets/icons/
 
 
   fonts:
