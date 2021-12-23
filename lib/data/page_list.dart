@@ -6,6 +6,7 @@ String _gitHubLink =
 
 List<PageUI> pageList = [
   new PageUI(
+    'jhJHJH8hadq',
     "Book Store",
     "Book store UI",
     "",
@@ -15,6 +16,7 @@ List<PageUI> pageList = [
     BookStoreMainPage(),
   ),
   new PageUI(
+    'jhJHJHasadq',
     "Sport",
     "Sport list",
     "",
@@ -24,6 +26,7 @@ List<PageUI> pageList = [
     SportMenPage(),
   ),
   new PageUI(
+    'rpA8hadq',
     "Courses",
     "UI",
     "",
@@ -33,6 +36,7 @@ List<PageUI> pageList = [
     CoursesMainPage(),
   ),
   new PageUI(
+    'as09JBqmdq',
     "Foods",
     "25-08-2021",
     "",
@@ -42,6 +46,7 @@ List<PageUI> pageList = [
     FoodListMainPage(),
   ),
   new PageUI(
+    'opwmUy7Fva',
     "Coffee Bar",
     "26-08-2021",
     "Foydalanilgan Vidjetlar SliverAppBar, SliverList, SliverGrid",
@@ -51,6 +56,7 @@ List<PageUI> pageList = [
     CoffeeBarMainPage(),
   ),
   new PageUI(
+    'ade8haq',
     "Hotel UI",
     "Mexmonxona UI",
     "Mexmonxona",
@@ -60,6 +66,7 @@ List<PageUI> pageList = [
     HotelMainPage(),
   ),
   new PageUI(
+    'adkfaq',
     "Super Mario",
     "08-09-2021",
     "_description",
@@ -69,6 +76,8 @@ List<PageUI> pageList = [
     SuperMarioMainPage(),
   ),
   new PageUI(
+
+    'jhJHdfH8hadq',
     "Auth",
     "Login page",
     "---",
@@ -78,6 +87,7 @@ List<PageUI> pageList = [
     AuthSplashScreenPage(),
   ),
   new PageUI(
+    'sdfOwaA',
     "Order Food",
     "_subtitle",
     "_description",
@@ -87,6 +97,7 @@ List<PageUI> pageList = [
     OrderFoodSplashScreenPage(),
   ),
   new PageUI(
+    'AR-J4mf',
     "Water Shop",
     "Sub",
     "Desc",
@@ -96,6 +107,7 @@ List<PageUI> pageList = [
     WaterShopRegisterPage(),
   ),
   new PageUI(
+    'dhYw-i',
     "Marks",
     "_subtitle",
     "_description",
@@ -105,6 +117,7 @@ List<PageUI> pageList = [
     MarkListPage(),
   ),
   new PageUI(
+    'iwn-nd0',
     "Friendship",
     "Chat App",
     "Imtihonda berilgan vazifa",
@@ -114,6 +127,7 @@ List<PageUI> pageList = [
     FriendshipSplashScreenPage(),
   ),
   new PageUI(
+    'car_bazarao',
     "Car Bazar",
     "Cars",
     "_description",
@@ -123,6 +137,7 @@ List<PageUI> pageList = [
     CarBazarMainPage(),
   ),
   new PageUI(
+    'uab-89bd',
     "Plus Messenger",
     "Telegram UI",
     "_description",
@@ -132,6 +147,7 @@ List<PageUI> pageList = [
     PlusMessengerMainPage(),
   ),
   new PageUI(
+    'barb-ioa',
     "Barber Shop",
     " Awesome barber shop",
     "",
@@ -141,6 +157,7 @@ List<PageUI> pageList = [
     BarberShopSplashScreen(),
   ),
   new PageUI(
+    'booking-ui-id',
     "Booking Hotel",
     "Hotel",
     "",
@@ -150,6 +167,7 @@ List<PageUI> pageList = [
     BookingHotelSplashScreen(),
   ),
   new PageUI(
+    'messaging-idsaa',
     "Messaging App",
     "Chat App",
     "",
@@ -159,6 +177,7 @@ List<PageUI> pageList = [
     MessagingAppMainPage(),
   ),
   new PageUI(
+    'ajaiji4omIni',
     "Counter App",
     "",
     "",
@@ -168,6 +187,7 @@ List<PageUI> pageList = [
     CounterAppMainPage(),
   ),
   new PageUI(
+    'kamJKh9ha-a',
     "Fashion App",
     "Fashion",
     "",
@@ -177,6 +197,7 @@ List<PageUI> pageList = [
     FashionPageMain(),
   ),
   new PageUI(
+    'ak-O9jnNd',
     "Select Coffee",
     "_subtitle",
     "_description",
@@ -186,6 +207,7 @@ List<PageUI> pageList = [
     SelectCoffeeMainPage(),
   ),
   new PageUI(
+    'adla-aknraKKHm',
     "Furniture App",
     "_subtitle",
     "_description",
@@ -195,6 +217,7 @@ List<PageUI> pageList = [
     FurnitureShopMainPage(),
   ),
   new PageUI(
+    '-ankanden',
     "Yacht",
     "_subtitle",
     "_description",
@@ -204,6 +227,7 @@ List<PageUI> pageList = [
     YachtMainPage(),
   ),
   new PageUI(
+    'adakOpr',
     "Coffee Delivery",
     "Coffee",
     "_",
@@ -213,6 +237,7 @@ List<PageUI> pageList = [
     OnBoardingPage(),
   ),
   new PageUI(
+    'adkao-dam',
     "Tic Tac Toe",
     "",
     "_description",
@@ -222,6 +247,7 @@ List<PageUI> pageList = [
     TicTacToe(),
   ),
   new PageUI(
+    'alKr09ff',
     "Rate Exchange",
     "",
     "",
@@ -231,6 +257,7 @@ List<PageUI> pageList = [
     CurrencyPage(),
   ),
   new PageUI(
+    'zlklKrna-or',
     "Tapping Game",
     "",
     "",
@@ -240,6 +267,7 @@ List<PageUI> pageList = [
     TappingGame(),
   ),
   new PageUI(
+    'airna-uMndne',
     "Azan time",
     "",
     "",
@@ -249,6 +277,7 @@ List<PageUI> pageList = [
     PrayerTimeWelcomeSceen(),
   ),
   new PageUI(
+    'zfv-9fjTd',
     "Pics",
     "",
     "",
@@ -258,6 +287,7 @@ List<PageUI> pageList = [
     PicListMain(),
   ),
   new PageUI(
+    'ak-0OndalmMh',
     "Free Dictionary",
     "",
     "",
@@ -267,6 +297,7 @@ List<PageUI> pageList = [
     FreeDictionary(),
   ),
   new PageUI(
+    'akf-nkU',
     "Audio Player",
     "",
     "",
@@ -276,6 +307,7 @@ List<PageUI> pageList = [
     AudioPlayerMainPage(),
   ),
   new PageUI(
+    'kljalkfKHjf9a',
     "Cars",
     "",
     "",

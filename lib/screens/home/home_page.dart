@@ -43,9 +43,6 @@ class _PageListState extends State<PageList> {
           "https://images.unsplash.com/photo-1541359927273-d76820fc43f9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
           fit: BoxFit.cover,
         ),
-        // stretchModes: [
-        //   StretchMode.zoomBackground,
-        // ],
       );
 
   /// Sliver List - Sahifalarning ro`yxati uchun
@@ -71,14 +68,33 @@ class _PageListState extends State<PageList> {
         ),
       );
 
-  _getPopUpMenu(PageUI pageUI) => PopupMenuButton(itemBuilder: (context) {
-        return <PopupMenuItem>[
-          _setPopUpMenuItem("Description", () {}),
-          _setPopUpMenuItem("Go to code", () {
-            _goToSource(pageUI.sourceCode);
-          }),
-        ];
-      });
+  _getPopUpMenu(PageUI pageUI) => PopupMenuButton(
+        onSelected: (v) {
+
+          switch (v) {
+            case 'Description':
+              _goToDiscuss();
+              break;
+            case 'Discuss':
+              Fluttertoast.showToast(msg: 'msg');
+              _goToDiscuss();
+              break;
+          }
+        },
+        itemBuilder: (context) {
+          return <PopupMenuItem>[
+            _setPopUpMenuItem("Description", _goToDiscuss),
+            _setPopUpMenuItem("Discuss", _goToDiscuss),
+            _setPopUpMenuItem("Go to code", () {
+              _goToSource(pageUI.sourceCode);
+            }),
+          ];
+        },
+      );
+
+  void _goToDiscuss() {
+    Navigator.push(context, MaterialPageRoute(builder: (_) => DiscussPage()));
+  }
 
   _goToSource(String url) async {
     if (await canLaunch(url))
@@ -89,5 +105,9 @@ class _PageListState extends State<PageList> {
   }
 
   PopupMenuItem _setPopUpMenuItem(String label, VoidCallback onPressed) =>
-      PopupMenuItem(onTap: onPressed, child: Text(label));
+      PopupMenuItem(
+        value: label,
+        onTap: onPressed,
+        child: Text(label),
+      );
 }

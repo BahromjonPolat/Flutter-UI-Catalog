@@ -8,6 +8,7 @@ class MyTextWidget extends StatelessWidget {
   FontWeight weight;
   int lines;
   String family;
+  TextAlign align;
 
   MyTextWidget(
     this.data, {
@@ -17,6 +18,7 @@ class MyTextWidget extends StatelessWidget {
     this.weight = FontWeight.w500,
     this.lines = 1,
     this.family = 'SfPro',
+    this.align = TextAlign.start,
   }) : super(key: key);
 
   @override
@@ -25,6 +27,7 @@ class MyTextWidget extends StatelessWidget {
       data,
       maxLines: lines,
       overflow: TextOverflow.ellipsis,
+      textAlign: align,
       style: TextStyle(
         fontSize: getProportionateScreenWidth(size),
         fontWeight: weight,

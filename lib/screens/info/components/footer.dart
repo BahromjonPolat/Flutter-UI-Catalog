@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_ui/components/asset_icons.dart';
 import 'package:flutter_ui/components/exporting_packages.dart';
 import 'package:flutter_ui/provider/profile_tab_bar_provider.dart';
 
@@ -24,18 +23,19 @@ class InfoPageFooter extends StatelessWidget {
       );
 
   Padding _showWorks() => Padding(
-    padding:  EdgeInsets.symmetric(vertical: getProportionateScreenHeight(21.0)),
-    child: Wrap(
-      spacing: getProportionateScreenWidth(19.0),
-      runSpacing: getProportionateScreenHeight(19.0),
-      children: [
-        _setWorkInfo('Projects Done', '5'),
-        _setWorkInfo('Success rate','92%'),
-        _setWorkInfo('Teams', '3'),
-        _setWorkInfo('Client reports', '45'),
-      ],
-    ),
-  );
+        padding:
+            EdgeInsets.symmetric(vertical: getProportionateScreenHeight(21.0)),
+        child: Wrap(
+          spacing: getProportionateScreenWidth(19.0),
+          runSpacing: getProportionateScreenHeight(19.0),
+          children: [
+            _setWorkInfo('Projects\nDone', '5'),
+            _setWorkInfo('Success rate', '92%'),
+            _setWorkInfo('Teams', '3'),
+            _setWorkInfo('Client\nreports', '45'),
+          ],
+        ),
+      );
 
   Container _setBio() => Container(
         width: double.infinity,
@@ -139,12 +139,21 @@ class InfoPageFooter extends StatelessWidget {
         padding: _setContentPadding(),
         alignment: Alignment.center,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             MyTextWidget(
               data,
               color: ConstColor.textColor,
               size: 58.0,
               weight: FontWeight.w500,
+            ),
+            MyTextWidget(
+              title,
+              size: 18.0,
+              weight: FontWeight.w500,
+              color: ConstColor.textColor,
+              lines: 2,
+              align: TextAlign.center,
             ),
           ],
         ),

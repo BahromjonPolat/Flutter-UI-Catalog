@@ -15,6 +15,8 @@ class BookStoreMainPage extends StatefulWidget {
 
 class _BookStoreMainPageState extends State<BookStoreMainPage> {
   late Size _size;
+  final TextEditingController _searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     _size = MediaQuery.of(context).size;
@@ -59,23 +61,24 @@ class _BookStoreMainPageState extends State<BookStoreMainPage> {
       child: Text(
         text,
         style: TextStyle(
-            fontSize: size, fontFamily: "garamond", fontWeight: FontWeight.bold),
+            fontSize: size,
+            fontFamily: "garamond",
+            fontWeight: FontWeight.bold),
       ),
     );
   }
+
   /// Kitobning title qismi
   Widget _setBookTitle(String title) => Container(
-    child: Text(
-      title,
-      maxLines: 1,
-      softWrap: true,
-      overflow: TextOverflow.ellipsis,
-      textAlign: TextAlign.center,
-      style: TextStyle(
-        fontWeight: FontWeight.bold
-      ),
-    ),
-  );
+        child: Text(
+          title,
+          maxLines: 1,
+          softWrap: true,
+          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.center,
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+      );
 
   /// Matnlarni Belgilangan harf uzunligigacha yozadigan funksiya.
   Widget _setTextLight(String text, double size) {
@@ -95,18 +98,30 @@ class _BookStoreMainPageState extends State<BookStoreMainPage> {
   /// SearchBox
   Widget _showSearchBox() {
     return TextField(
-      decoration: InputDecoration(
-          hintText: "Search entire store here",
-          prefixIcon: Icon(CupertinoIcons.search),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(24.0),
-            borderSide: BorderSide(width: 2.0),
-          ),
-      border: OutlineInputBorder(
-        borderSide: BorderSide(width: 2.0),
+      controller: _searchController,
+      decoration: _setInputDecoration(),
+      textInputAction: TextInputAction.search,
+      cursorColor: Colors.black,
+    );
+  }
+
+  InputDecoration _setInputDecoration() {
+    return InputDecoration(
+      hintText: "Search entire store here",
+      border: _setOutlineInputBorder(),
+      focusedBorder: _setOutlineInputBorder(),
+      prefixIcon: Icon(CupertinoIcons.search, color: Colors.black),
+      enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(24.0),
+        borderSide: BorderSide(width: 2.0),
       ),
-      ),
+    );
+  }
+
+  OutlineInputBorder _setOutlineInputBorder() {
+    return OutlineInputBorder(
+      borderSide: BorderSide(width: 2.0),
+      borderRadius: BorderRadius.circular(24.0),
     );
   }
 
@@ -146,7 +161,9 @@ class _BookStoreMainPageState extends State<BookStoreMainPage> {
             return GestureDetector(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (_) {
-                  return AboutBookPage(book: book,);
+                  return AboutBookPage(
+                    book: book,
+                  );
                 }));
               },
               child: Container(
@@ -165,8 +182,9 @@ class _BookStoreMainPageState extends State<BookStoreMainPage> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(16.0),
                         child: FadeInImage(
-                          placeholder: AssetImage("assets/images/book_cover.jpg"),
-                          image:  AssetImage("assets/images/book_cover.jpg"),
+                          placeholder:
+                              AssetImage("assets/images/book_cover.jpg"),
+                          image: AssetImage("assets/images/book_cover.jpg"),
                         ),
                       ),
                     ),
@@ -181,12 +199,12 @@ class _BookStoreMainPageState extends State<BookStoreMainPage> {
   }
 
   SizedBox _getBottomNavBar() => SizedBox(
-    height: 64.0,
-    child: BottomNavigationBar(
+        height: 64.0,
+        child: BottomNavigationBar(
           items: getBottomNavigationBarItems,
           selectedItemColor: Colors.deepOrange,
           unselectedItemColor: Colors.grey,
           showSelectedLabels: false,
         ),
-  );
+      );
 }

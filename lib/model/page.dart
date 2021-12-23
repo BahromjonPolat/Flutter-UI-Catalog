@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PageUI {
+  String _id;
   String _title;
   String _subtitle;
   String _description;
@@ -10,6 +11,7 @@ class PageUI {
   Widget _page;
 
   PageUI(
+    this._id,
     this._title,
     this._subtitle,
     this._description,
@@ -32,4 +34,6 @@ class PageUI {
   String get date => _date;
 
   String get sourceCode => _sourceCode;
+
+  String get id => _id;
 }

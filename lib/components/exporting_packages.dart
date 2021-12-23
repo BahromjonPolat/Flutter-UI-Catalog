@@ -39,6 +39,9 @@ export 'package:material_dialogs/material_dialogs.dart';
 export 'package:url_launcher/url_launcher.dart';
 export 'package:provider/provider.dart';
 
+// Screens
+export 'package:flutter_ui/screens/discuss/discuss_page.dart';
+
 // Widgets
 
 export 'package:flutter_ui/widgets/my_text_widget.dart';
@@ -46,3 +49,6 @@ export 'package:flutter_ui/widgets/my_text_widget.dart';
 // Components
 export 'package:flutter_ui/components/colors.dart';
 export 'package:flutter_ui/components/size_config.dart';
+export 'package:flutter_ui/components/asset_icons.dart';
+
+export 'package:flutter/services.dart';
